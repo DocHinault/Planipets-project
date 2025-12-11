@@ -7,21 +7,20 @@
   <link rel="stylesheet" href="assets/css/planipets.css" />
   <script src="assets/js/planipets.js" defer></script>
 </head>
-<body>
-  <div class="page-wrapper">
+<body class="gamification-particulier-page">
+  <div class="page-wrapper" id="gamificationParticulierRoot">
     <div class="content-shell">
-      <header class="simple-header">
+      <header class="site-header" aria-label="Navigation principale">
         <div class="brand-block">
           <div class="brand-logo" aria-hidden="true">
             <svg viewBox="0 0 64 64" aria-hidden="true">
               <defs>
-                <linearGradient id="pawGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#1e293b" />
-                  <stop offset="50%" stop-color="#0f172a" />
-                  <stop offset="100%" stop-color="#020617" />
+                <linearGradient id="pawGradNav" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0f8c3c" />
+                  <stop offset="100%" stop-color="#0b7031" />
                 </linearGradient>
               </defs>
-              <circle cx="32" cy="32" r="30" fill="url(#pawGrad)" />
+              <circle cx="32" cy="32" r="30" fill="url(#pawGradNav)" />
               <path
                 d="M21 24c2.8 0 4.6-2.2 4.6-4.7C25.6 17.9 23.8 16 21 16s-4.7 1.9-4.7 3.3C16.3 21.8 18.2 24 21 24zm10.9 0c2.8 0 4.6-2.2 4.7-4.7 0-1.4-1.9-3.3-4.7-3.3-2.8 0-4.6 1.9-4.6 3.3 0 2.5 1.8 4.7 4.6 4.7zm9.7 2.8c2.6 0 4.3-2.1 4.3-4.5 0-1.3-1.7-3.1-4.3-3.1s-4.4 1.8-4.4 3.1c0 2.4 1.8 4.5 4.4 4.5zM24.3 40c0 4.5 4 8 7.7 8 3.7 0 7.7-3.5 7.7-8 0-4.9-3.1-9-7.7-9s-7.7 4.1-7.7 9z"
                 fill="#fefce8"
@@ -33,17 +32,151 @@
             </svg>
           </div>
           <div class="brand-meta">
-            <div class="brand-meta-title">Gamification Particulier</div>
-            <div class="brand-meta-sub">Engagement clients finaux (brouillon)</div>
+            <div class="brand-meta-title">Planipets</div>
+            <div class="brand-meta-sub">Revenus, bien-être animal & feuille de route 2026</div>
           </div>
         </div>
-        <a class="back-link" href="Planipets.html">← Retour à l’accueil</a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+        <nav class="nav-links">
+          <a href="Planipets.html">Accueil</a>
+          <a href="chronologie.html">Chronologie 2026</a>
+          <a href="swot.html">SWOT 2026</a>
+          <div class="nav-item has-submenu" tabindex="0">Tunnel de ventes
+            <div class="nav-submenu" aria-hidden="true">
+              <a href="tunnel-pro.html">Tunnel Professionnel</a>
+              <a href="tunnel-particulier.html">Tunnel Particulier</a>
+            </div>
+          </div>
+          <a href="espace-publicitaire.html">Espace publicitaire</a>
+          <div class="nav-item has-submenu" tabindex="0">Gamification
+            <div class="nav-submenu" aria-hidden="true">
+              <a href="gamification-pro.html">Gamification Professionnels</a>
+              <a href="gamification-particulier.html">Gamification Particuliers</a>
+            </div>
+          </div>
+        </nav>
       </header>
 
       <main>
-        <h1>Gamification – côté Particuliers (brouillon)</h1>
-        <section class="page-placeholder">
-          <p><strong>Section à compléter.</strong><br />Ébauche des statuts et récompenses côté particuliers.</p>
+        <section class="gamification-hero" id="heroParticulier">
+          <div class="hero-text">
+            <p class="eyebrow">Expérience côté particuliers</p>
+            <h1>Gamification Planipets – Côté propriétaires d’animaux</h1>
+            <p class="hero-subtitle">
+              Transforme le quotidien avec ton animal en progression visible, quêtes bien-être et récompenses utiles.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Gagne de l’XP en prenant soin de ton animal</span>
+              <span class="pill">Débloque des niveaux & des avantages</span>
+              <span class="pill">Utilise tes points dans la boutique Planipets</span>
+            </div>
+            <div class="hero-actions">
+              <a class="cta primary" href="#" aria-label="Me connecter ou créer un compte">Me connecter / créer un compte</a>
+              <a class="cta ghost" href="#pourquoi-particulier" id="ctaVoirComment">Voir comment ça marche</a>
+            </div>
+          </div>
+          <div class="hero-panel">
+            <div class="hero-panel-title">Tes compteurs</div>
+            <ul class="hero-counter-list">
+              <li><strong>XP</strong> · fait monter ton niveau, jamais dépensé.</li>
+              <li><strong>Points boutique</strong> · à dépenser dans le shop particulier.</li>
+              <li><strong>Quêtes</strong> · des actions utiles pour ton animal et la communauté.</li>
+            </ul>
+            <p class="hero-panel-foot">Récompenses prévisibles, pas de hasard.</p>
+          </div>
+        </section>
+
+        <section class="section-card" id="pourquoi-particulier">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Sens & bien-être</p>
+              <h2>Pourquoi une gamification pour les propriétaires ?</h2>
+              <p class="section-sub">Un accompagnement doux qui transforme les petites actions en résultats visibles pour ton compagnon.</p>
+            </div>
+          </div>
+          <div class="card-grid three-cols">
+            <article class="info-card">
+              <h3>Donner du rythme au bien-être de ton animal</h3>
+              <p>Petites actions régulières plutôt que gros coups de stress quand ça va mal.</p>
+              <p class="muted">Check-lists, quêtes et rappels pour un suivi serein.</p>
+            </article>
+            <article class="info-card">
+              <h3>Te guider sans te juger</h3>
+              <p>Tu n’es pas obligé de tout savoir, l’XP matérialise ton apprentissage.</p>
+              <p class="muted">Les quêtes sont conçues avec des pros pour t’aider pas à pas.</p>
+            </article>
+            <article class="info-card">
+              <h3>Te remercier d’être acteur du bien-être de ton animal</h3>
+              <p>Plus tu t’impliques, plus tu débloques des choses : contenus, avantages, surprises.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-card" id="xp-points-particulier">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">XP & points boutique</p>
+              <h2>Comment tu gagnes de l’XP et des points ?</h2>
+              <p class="section-sub">Actions concrètes, récompenses prévisibles : voici un aperçu des quêtes types.</p>
+            </div>
+          </div>
+          <div class="quest-table" id="particulierQuestTable"></div>
+          <p class="legend-text">Les valeurs sont indicatives et pourront évoluer pour équilibrer l’expérience.</p>
+        </section>
+
+        <section class="section-card" id="levels-particulier">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Progression</p>
+              <h2>Tes niveaux Planipets</h2>
+              <p class="section-sub">L’XP ne se dépense pas : elle montre ton parcours et débloque des avantages concrets.</p>
+            </div>
+          </div>
+          <div class="gamification-levels">
+            <div class="level-list" id="particulierLevelList" aria-label="Choix de niveau"></div>
+            <div class="level-detail-panel" id="particulierLevelDetail"></div>
+          </div>
+        </section>
+
+        <section class="section-card" id="skill-tree-particulier">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Arbre de compétences</p>
+              <h2>Quêtes & arbre de compétences de ton animal</h2>
+              <p class="section-sub">Visualise les grands piliers du bien-être et les quêtes associées.</p>
+            </div>
+          </div>
+          <div class="skill-tree" id="particulierSkillTree"></div>
+          <div class="skill-detail" id="particulierSkillDetail" aria-live="polite"></div>
+        </section>
+
+        <section class="section-card" id="shop-particulier">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Boutique</p>
+              <h2>Comment tu dépenses tes points ?</h2>
+              <p class="section-sub">L’XP sert à monter de niveau, les points boutique débloquent des avantages utiles.</p>
+            </div>
+          </div>
+          <div class="shop-grid" id="particulierShop"></div>
+          <div class="shop-detail" id="particulierShopDetail" aria-live="polite"></div>
+          <p class="legend-text">Montants et avantages indicatifs, ajustés avec la communauté.</p>
+        </section>
+
+        <section class="section-card golden-rules" id="golden-rules">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Éthique</p>
+              <h2>Les règles d’or de la gamification Planipets</h2>
+              <p class="section-sub">Toujours au service du bien-être animal, jamais un casino.</p>
+            </div>
+          </div>
+          <ul class="golden-rules-list">
+            <li><strong>Pas un casino</strong> – Pas de roulette, pas de jackpot aléatoire : les récompenses sont claires et prévisibles.</li>
+            <li><strong>Pas d’incitation à surconsommer</strong> – On récompense des comportements utiles (suivi, bien-être, transparence), pas de l’achat compulsif.</li>
+            <li><strong>Toujours au service du bien-être animal</strong> – Si une mécanique va à l’encontre du confort ou de la sécurité de l’animal, elle n’est pas retenue.</li>
+            <li><strong>Lisible & compréhensible</strong> – Chacun doit comprendre rapidement : qu’est-ce que je fais, qu’est-ce que je gagne, pourquoi ?</li>
+          </ul>
         </section>
       </main>
     </div>
