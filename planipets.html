@@ -1,0 +1,2327 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Planipets – Chronologie 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --color-bg: #050816;
+      --color-bg-alt: #0b1020;
+      --color-surface: #12172b;
+      --color-surface-soft: #191f36;
+      --color-primary: #f6a623;      /* Orangé chaleureux */
+      --color-primary-soft: rgba(246, 166, 35, 0.16);
+      --color-secondary: #37c7b0;    /* Turquoise/vert */
+      --color-secondary-soft: rgba(55, 199, 176, 0.12);
+      --color-accent: #ffdd59;
+      --color-text: #f9fafb;
+      --color-text-muted: #a5b4fc;
+      --color-border: rgba(148, 163, 184, 0.35);
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.75);
+      --transition-fast: 180ms ease-out;
+      --transition-med: 260ms ease;
+      --transition-slow: 420ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
+      color: var(--color-text);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .page-wrapper {
+      width: 100%;
+      max-width: 1240px;
+      background: radial-gradient(circle at 0 0, rgba(55, 199, 176, 0.12), transparent 50%),
+                  radial-gradient(circle at 100% 100%, rgba(246, 166, 35, 0.16), transparent 55%),
+                  linear-gradient(135deg, #020617, #020617 25%, #020617 60%, #020617);
+      border-radius: 32px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 24px 24px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-wrapper::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(246, 166, 35, 0.08), transparent 55%),
+        radial-gradient(circle at 80% 80%, rgba(55, 199, 176, 0.12), transparent 60%);
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    .content-shell {
+      position: relative;
+      z-index: 1;
+    }
+
+    header.page-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      background: radial-gradient(circle at 30% 20%, #fff7ed, #fed7aa 30%, #f97316 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 16px 40px rgba(248, 180, 64, 0.35);
+      overflow: hidden;
+    }
+
+    .brand-logo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.4), transparent 48%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .brand-logo svg {
+      width: 26px;
+      height: 26px;
+      transform: translateY(1px);
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-meta-title {
+      font-size: 1.18rem;
+      font-weight: 650;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .brand-meta-sub {
+      font-size: 0.86rem;
+      color: var(--color-text-muted);
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: radial-gradient(circle at 0 0, rgba(246, 166, 35, 0.25), transparent 55%),
+                  rgba(15, 23, 42, 0.96);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+
+    .header-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #4ade80, #22c55e);
+      box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.2);
+    }
+
+    .header-title {
+      margin-top: 12px;
+      margin-bottom: 18px;
+    }
+
+    .header-title h1 {
+      font-size: 1.9rem;
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+
+    .header-title p {
+      margin: 6px 0 0;
+      color: var(--color-text-muted);
+      max-width: 560px;
+      font-size: 0.94rem;
+    }
+
+    /* Layout main zone */
+    .timeline-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.85fr);
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .timeline-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Timeline rail */
+    .timeline-rail {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.85));
+      border-radius: var(--radius-xl);
+      padding: 18px 18px 12px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-rail::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 10% 0, rgba(248, 250, 252, 0.08), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.22), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .timeline-rail-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-rail-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .timeline-rail-header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .timeline-rail-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .timeline-rail-sub {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    .timeline-legend {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .legend-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--color-text-muted);
+    }
+
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--color-primary);
+    }
+
+    .legend-dot-secondary {
+      background: var(--color-secondary);
+    }
+
+    .legend-dot-accent {
+      background: var(--color-accent);
+    }
+
+    /* Horizontal month scroller */
+    .timeline-months-wrapper {
+      position: relative;
+      margin-top: 10px;
+      margin-bottom: 6px;
+      padding: 6px 2px 14px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+    }
+
+    .timeline-months-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .timeline-months {
+      display: flex;
+      gap: 8px;
+      min-width: max-content;
+      align-items: center;
+    }
+
+    .timeline-month {
+      position: relative;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--color-text-muted);
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+                  background var(--transition-fast), border-color var(--transition-fast),
+                  color var(--transition-fast);
+    }
+
+    .timeline-month span.timeline-month-label {
+      font-weight: 510;
+    }
+
+    .timeline-month-badge {
+      font-size: 0.7rem;
+      opacity: 0.9;
+    }
+
+    .timeline-month:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px rgba(15, 23, 42, 0.8);
+      border-color: rgba(248, 250, 252, 0.6);
+      color: #e5e7eb;
+    }
+
+    .timeline-month-active {
+      background: radial-gradient(circle at 0 0, rgba(246, 166, 35, 0.34), transparent 60%),
+                  radial-gradient(circle at 100% 100%, rgba(55, 199, 176, 0.24), transparent 70%),
+                  rgba(15, 23, 42, 0.96);
+      border-color: rgba(252, 211, 77, 0.8);
+      color: #fefce8;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 26px rgba(234, 179, 8, 0.45);
+    }
+
+    /* Active highlight bar under months */
+    .timeline-highlight-bar {
+      position: absolute;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #f97316, #facc15, #22c55e);
+      left: 0;
+      bottom: 3px;
+      width: 80px;
+      transform-origin: center;
+      transform: translateX(0);
+      box-shadow: 0 0 14px rgba(250, 204, 21, 0.5);
+      transition: transform var(--transition-slow), width var(--transition-slow);
+      pointer-events: none;
+    }
+
+    /* Quarter overview */
+    .quarter-summary {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      background: radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.24), transparent 50%),
+                  rgba(15, 23, 42, 0.96);
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .quarter-summary-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .quarter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.75rem;
+      color: #e5e7eb;
+    }
+
+    .quarter-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--color-secondary);
+    }
+
+    .quarter-key-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .quarter-metric {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      font-size: 0.74rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Detail column */
+    .timeline-details {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.42);
+      box-shadow: 0 16px 42px rgba(15, 23, 42, 0.8);
+      padding: 18px 18px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-details::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 0 0, rgba(246, 166, 35, 0.18), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(55, 199, 176, 0.2), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .timeline-details-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .details-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .details-title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .details-month-label {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .details-main-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .details-tagline {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      max-width: 320px;
+    }
+
+    .details-badges {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .details-badge {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .details-badge-icon {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #facc15, #f97316);
+    }
+
+    .projects-list {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Project cards / accordions */
+    .project-card {
+      border-radius: 18px;
+      background: linear-gradient(
+        145deg,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 0.9)
+      );
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      overflow: hidden;
+      position: relative;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+                  border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(246, 166, 35, 0.12), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.18), transparent 55%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-slow);
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 28px rgba(15, 23, 42, 0.9);
+      border-color: rgba(248, 250, 252, 0.7);
+    }
+
+    .project-card:hover::before {
+      opacity: 0.55;
+    }
+
+    .project-header {
+      padding: 10px 12px 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .project-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 13px;
+      background: radial-gradient(circle, #fee2e2, #f97316);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 8px 14px rgba(248, 113, 113, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-icon::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.5), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .project-icon span {
+      font-size: 0.95rem;
+      transform: translateY(0.5px);
+    }
+
+    .project-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .project-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .project-title {
+      font-size: 0.95rem;
+      font-weight: 580;
+    }
+
+    .project-tag {
+      font-size: 0.7rem;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--color-text-muted);
+      white-space: nowrap;
+    }
+
+    .project-subtitle {
+      margin-top: 4px;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    .project-meta-row {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .project-meta-pill {
+      font-size: 0.7rem;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.94);
+      color: var(--color-text-muted);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .project-chevron {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      transform: rotate(0deg);
+      transition: transform var(--transition-slow), background var(--transition-fast),
+                  border-color var(--transition-fast), color var(--transition-fast);
+    }
+
+    .project-card-open .project-chevron {
+      transform: rotate(90deg);
+      background: rgba(250, 204, 21, 0.1);
+      border-color: rgba(250, 204, 21, 0.9);
+      color: #fef3c7;
+    }
+
+    .project-body {
+      padding: 0 12px 10px;
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: max-height var(--transition-slow), opacity var(--transition-slow),
+                  transform var(--transition-slow);
+    }
+
+    .project-card-open .project-body {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-body-inner {
+      padding-top: 8px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 780px) {
+      .project-body-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .project-section {
+      padding: 6px 8px 7px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(55, 199, 176, 0.18), transparent 55%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-med);
+    }
+
+    .project-section:hover::before {
+      opacity: 1;
+    }
+
+    .project-section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .project-section-title span {
+      font-size: 0.8rem;
+      font-weight: 580;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #e5e7eb;
+    }
+
+    .project-section-badge {
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--color-text-muted);
+    }
+
+    .project-section ul {
+      margin: 4px 0 0;
+      padding-left: 18px;
+      list-style: disc;
+    }
+
+    .project-section li {
+      margin-bottom: 3px;
+      line-height: 1.35;
+    }
+
+    .project-section li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Nested collapsibles inside project section (objectifs / livrables / actions) */
+    .nested-accordion {
+      margin-top: 6px;
+      border-top: 1px dashed rgba(148, 163, 184, 0.5);
+      padding-top: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nested-item {
+      border-radius: 10px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      overflow: hidden;
+    }
+
+    .nested-header {
+      padding: 5px 7px;
+      font-size: 0.78rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--color-text-muted);
+    }
+
+    .nested-header span {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.7rem;
+    }
+
+    .nested-chevron {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      transition: transform var(--transition-med), background var(--transition-med),
+                  border-color var(--transition-med), color var(--transition-med);
+    }
+
+    .nested-body {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(-3px);
+      transition: max-height var(--transition-slow), opacity var(--transition-slow),
+                  transform var(--transition-slow);
+      padding: 0 7px 0;
+      font-size: 0.76rem;
+    }
+
+    .nested-body-content {
+      padding-bottom: 6px;
+      padding-top: 2px;
+    }
+
+    .nested-body-content ul {
+      margin: 4px 0 0;
+      padding-left: 16px;
+    }
+
+    .nested-body-content li {
+      margin-bottom: 2px;
+      line-height: 1.3;
+    }
+
+    .nested-item-open .nested-chevron {
+      transform: rotate(90deg);
+      background: rgba(55, 199, 176, 0.15);
+      border-color: rgba(55, 199, 176, 0.9);
+      color: #a7f3d0;
+    }
+
+    /* Fade in animation for details */
+    .details-animate-in {
+      animation: detailsFadeIn 620ms var(--transition-slow) both;
+    }
+
+    @keyframes detailsFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.99);
+      }
+      60% {
+        opacity: 1;
+        transform: translateY(0) scale(1.005);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Small helper chip under details */
+    .details-footer-hint {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.92);
+    }
+
+    .details-footer-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #22c55e, #16a34a);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="content-shell">
+      <header class="page-header">
+        <div class="brand-block">
+          <div class="brand-logo" aria-hidden="true">
+            <!-- Icône "animal" stylisée -->
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <defs>
+                <linearGradient id="pawGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#1e293b" />
+                  <stop offset="50%" stop-color="#0f172a" />
+                  <stop offset="100%" stop-color="#020617" />
+                </linearGradient>
+              </defs>
+              <circle cx="32" cy="32" r="30" fill="url(#pawGrad)" />
+              <path
+                d="M21 24c2.8 0 4.6-2.2 4.6-4.7C25.6 17.9 23.8 16 21 16s-4.7 1.9-4.7 3.3C16.3 21.8 18.2 24 21 24zm10.9 0c2.8 0 4.7-2.2 4.7-4.7 0-1.4-1.9-3.3-4.7-3.3-2.8 0-4.6 1.9-4.6 3.3 0 2.5 1.8 4.7 4.6 4.7zm9.7 2.8c2.6 0 4.3-2.1 4.3-4.5 0-1.3-1.7-3.1-4.3-3.1s-4.4 1.8-4.4 3.1c0 2.4 1.8 4.5 4.4 4.5zM24.3 40c0 4.5 4 8 7.7 8 3.7 0 7.7-3.5 7.7-8 0-4.9-3.1-9-7.7-9s-7.7 4.1-7.7 9z"
+                fill="#fefce8"
+                stroke="#fbbf24"
+                stroke-width="1.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="brand-meta">
+            <div class="brand-meta-title">Planipets &bull; Roadmap 2026</div>
+            <div class="brand-meta-sub">
+              Revenu pro, communauté &amp; boutique en un écosystème cohérent.
+            </div>
+          </div>
+        </div>
+        <div class="header-badge">
+          <span class="header-badge-dot"></span>
+          <span>Chronologie stratégique 2026 &nbsp;·&nbsp; Version atelier</span>
+        </div>
+      </header>
+
+      <div class="header-title">
+        <h1>Frise 2026 &ndash; De la vision à l’exécution</h1>
+        <p>
+          Navigue mois par mois pour voir ce qui doit être posé, testé et
+          industrialisé : fondations produit, boutique, gamification, espace
+          particuliers, puis montée en puissance média &amp; partenariats.
+        </p>
+      </div>
+
+      <main class="timeline-layout">
+        <!-- Rail chronologique -->
+        <section class="timeline-rail" aria-label="Chronologie 2026 Planipets">
+          <div class="timeline-rail-inner">
+            <div class="timeline-rail-header">
+              <div class="timeline-rail-header-left">
+                <div class="timeline-rail-title">Mois clés 2026</div>
+                <div class="timeline-rail-sub">
+                  Clique sur un mois pour afficher les projets détaillés et les
+                  livrables attendus.
+                </div>
+              </div>
+              <div class="timeline-legend" aria-hidden="true">
+                <div class="legend-pill">
+                  <span class="legend-dot"></span> Fondations
+                </div>
+                <div class="legend-pill">
+                  <span class="legend-dot legend-dot-secondary"></span> Lancement
+                </div>
+                <div class="legend-pill">
+                  <span class="legend-dot legend-dot-accent"></span> Scalabilité
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-months-wrapper">
+              <div class="timeline-months" id="timelineMonths"></div>
+              <div class="timeline-highlight-bar" id="timelineHighlightBar"></div>
+            </div>
+
+            <div class="quarter-summary" id="quarterSummary">
+              <div class="quarter-summary-header">
+                <div class="quarter-pill">
+                  <span class="quarter-dot"></span>
+                  <span id="quarterLabel">T1 2026 &ndash; Fondations</span>
+                </div>
+                <span style="font-size: 0.78rem;">North Star&nbsp;: revenu mensuel généré pour les pros</span>
+              </div>
+              <div class="quarter-key-metrics" id="quarterMetrics">
+                <!-- Rempli en JS -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Détails mois / projets -->
+        <section class="timeline-details" aria-label="Détails mois & projets 2026">
+          <div class="timeline-details-inner details-animate-in" id="detailsContainer">
+            <!-- Rempli en JS -->
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // ============================================
+    // DATA MODEL
+    // ============================================
+
+    const timelineData = [
+      {
+        id: "2026-01",
+        monthLabel: "Janvier 2026",
+        shortLabel: "Jan",
+        quarter: "T1 2026 · Fondations",
+        theme: "Clarifier la promesse & lancer l’audit produit",
+        quarterMetrics: [
+          "Objectif T1 : poser les bases d’un produit propre et mesurable",
+          "Focus : offre Pro, hygiène UX, définition des KPIs",
+          "KPI : pros payants actifs, premiers événements trackés"
+        ],
+        meta: {
+          focus: "Offre Pro & message",
+          tags: ["Fondations", "Offre", "UX"]
+        },
+        projects: [
+          {
+            id: "p-jan-1",
+            icon: "🎯",
+            title: "Clarification de l’offre Planipets Pro",
+            tag: "Positionnement",
+            subtitle:
+              "Verrouiller la promesse centrale pour les pros : revenus, visibilité, sérénité.",
+            metaPills: ["Atelier proposition de valeur", "Refonte du hero", "Cas clients chiffrés"],
+            sections: {
+              objectifs: [
+                "Formuler en une phrase la promesse Planipets pour les pros, orientée revenu et charge mentale.",
+                "Aligner les pages d’atterrissage Pro avec cette promesse, sans jargon technique.",
+                "Préparer des arguments réutilisables pour les appels de vente et les partenariats."
+              ],
+              livrables: [
+                "Phrase de promesse claire (ex. : « Tu soignes les animaux, nous sécurisons tes revenus. »).",
+                "Nouvelle section « Ce que tu gagnes concrètement » avec 3 à 4 cas d’usage chiffrés.",
+                "Guide interne de pitch Pro (argumentaire en 5 à 7 bullet points)."
+              ],
+              actions: [
+                "Organiser un atelier de 2h avec Nasser + 2 à 3 pros ambassadeurs pour tester différentes formulations.",
+                "Réécrire le hero de la landing Pro : titre, sous-titre, CTA principal orienté prise de rendez-vous.",
+                "Insérer 2 à 3 témoignages existants avec chiffres (RDV, revenus, temps gagné) mis en avant."
+              ],
+              prototype: [
+                "Hero avec promesse, CTA « Discuter avec Nasser (30 minutes offertes) » et badges de confiance.",
+                "Bloc visuel « Avant / Après Planipets » pour un éducateur type : planning vide vs planning stabilisé.",
+                "Encadré latéral « Ce que tu gagnes en moyenne au bout de 6 mois » (même si estimation)."
+              ]
+            }
+          },
+          {
+            id: "p-jan-2",
+            icon: "🔍",
+            title: "Audit UX & contenu des interfaces existantes",
+            tag: "Qualité produit",
+            subtitle:
+              "Lister toutes les pages clés, liens cassés et frictions avant d’avancer vers la boutique.",
+            metaPills: ["Cartographie des pages", "Check 404 & formulaires", "Plan de correction"],
+            sections: {
+              objectifs: [
+                "Identifier toutes les pages et parcours réellement utilisés par les pros et les particuliers.",
+                "Dégommer les erreurs visibles (404, formulaires planqués, textes en anglais).",
+                "Mettre à niveau la cohérence visuelle entre Planipets Pro, le média et les pages publiques."
+              ],
+              livrables: [
+                "Tableau de cartographie des pages avec URL, rôle, trafic estimé et problèmes détectés.",
+                "Liste priorisée des corrections « quick win » (1 à 2 semaines de travail).",
+                "Convention minimale pour titres, CTA et blocs de confiance sur chaque type de page."
+              ],
+              actions: [
+                "Exporter la liste des pages principales depuis l’outil d’analytics et les classer par trafic.",
+                "Tester manuellement les formulaires et parcours critiques (inscription pro, prise de RDV, contact).",
+                "Faire des captures d’écran « avant » pour chaque page à corriger pour suivre l’évolution."
+              ],
+              prototype: [
+                "Dossier partagé « Audit UX T1 2026 » dans lequel chaque page a son avant/après.",
+                "Checklist simple par page : « Compréhensible en 5 secondes ? CTA visible ? Formulaire utilisable ? ».",
+                "Board de tickets (Trello/Notion/Jira) regroupant les tâches de correction par priorité."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        id: "2026-02",
+        monthLabel: "Février 2026",
+        shortLabel: "Fév",
+        quarter: "T1 2026 · Fondations",
+        theme: "Hygiène produit & stack data",
+        quarterMetrics: [
+          "Taux de correction des erreurs critiques > 80%",
+          "KPIs produits définis et suivis dans un dashboard simple",
+          "Base d’événements produit en place (bookings, paiements, etc.)"
+        ],
+        meta: {
+          focus: "UX & métriques",
+          tags: ["Analytics", "Dashboard"]
+        },
+        projects: [
+          {
+            id: "p-fev-1",
+            icon: "🧹",
+            title: "Sprint correctif UX & cohérence visuelle",
+            tag: "Exécution rapide",
+            subtitle:
+              "Appliquer les corrections identifiées en janvier sur un périmètre clair et mesurable.",
+            metaPills: ["Fix des 404", "Formulaires unifiés", "Charte bien-être visible"],
+            sections: {
+              objectifs: [
+                "Supprimer les erreurs visibles qui cassent la confiance (404, boutons inactifs, textes incohérents).",
+                "Rendre les formulaires homogènes, courts, en français et centrés sur l’essentiel.",
+                "Mettre en avant la charte bien-être et les éléments de légitimité (média, séries, partenaires)."
+              ],
+              livrables: [
+                "Pages clés corrigées avec captures d’écran avant/après.",
+                "Formulaire type pour commentaires, contact et inscription (une base réutilisée partout).",
+                "Bloc « Charte Planipets » standardisé, facilement intégrable sur les pages pro et médias."
+              ],
+              actions: [
+                "Traiter en priorité les pages les plus vues selon l’audit (top 10).",
+                "Harmoniser la structure des articles du média : titre, chapeau, contenu, CTA vers les pros.",
+                "Intégrer un composant réutilisable de formulaire (librairie maison simple)."
+              ],
+              prototype: [
+                "Composant visuel « Charte Planipets » avec icône et lien vers une page dédiée.",
+                "Formulaire avec progressivité (nom/email + message, sans friction superflue).",
+                "Mode sombre cohérent sur toutes les sections Pro & Média."
+              ]
+            }
+          },
+          {
+            id: "p-fev-2",
+            icon: "📊",
+            title: "Mise en place de la stack data & KPIs 2026",
+            tag: "Data produit",
+            subtitle:
+              "Passer de l’intuition aux chiffres en instrumentant les événements clés côté Pro et Particulier.",
+            metaPills: ["North Star", "Événements produit", "Dashboard mensuel"],
+            sections: {
+              objectifs: [
+                "Définir 4 à 5 métriques principales, dont la North Star : revenu mensuel généré pour les pros.",
+                "Instrumenter les événements clés dans l’app (création pro, RDV, paiements, commissions, etc.).",
+                "Créer un dashboard mensuel simple que Nasser peut suivre sans analyste dédié."
+              ],
+              livrables: [
+                "Doc interne « KPIs Planipets 2026 » avec définitions, sources et fréquence de suivi.",
+                "Plan de tracking (liste d’événements avec propriétés associées).",
+                "Dashboard Looker/Plausible/Data Studio avec 3 à 4 vues (Pros, Particuliers, Boutique, Engagement)."
+              ],
+              actions: [
+                "Lister les parcours critiques (inscription pro, RDV, boutique) et y placer les événements pertinents.",
+                "Implémenter le tracking côté front/back (en fonction de la stack actuelle).",
+                "Tester les événements en utilisant un environnement de staging, puis valider les données sur 1 à 2 semaines."
+              ],
+              prototype: [
+                "Vue « Santé globale » avec pros actifs, RDV, GMV boutique et revenu redistribué.",
+                "Vue « Acquisition pro » montrant le funnel visite → contact → abonnement → pro actif.",
+                "Vue « Engagement » pour les quêtes et la gamification (à préparer pour T2/T3)."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        id: "2026-03",
+        monthLabel: "Mars 2026",
+        shortLabel: "Mar",
+        quarter: "T1 2026 · Fondations",
+        theme: "Spécification boutique & gamification pro",
+        quarterMetrics: [
+          "Spécification fonctionnelle boutique validée",
+          "Modèle de niveaux & plafonds commissionné",
+          "Jeu de maquettes UI/UX prêt pour développement T2"
+        ],
+        meta: {
+          focus: "Design fonctionnel",
+          tags: ["Boutique", "Gamification"]
+        },
+        projects: [
+          {
+            id: "p-mar-1",
+            icon: "🛒",
+            title: "Spécification complète de la Boutique Planipets",
+            tag: "B2B2C",
+            subtitle:
+              "Choisir les catégories de produits, les partenaires pilotes et le modèle économique pro/Planipets.",
+            metaPills: ["Catalogue", "Rémunération", "Partenaires pilotes"],
+            sections: {
+              objectifs: [
+                "Définir l’étendue du catalogue (food, accessoires, assurances, formations, services numériques).",
+                "Poser les règles de commission par type de produit, pour Planipets et pour les pros.",
+                "Identifier 3 à 5 partenaires prêts à démarrer un pilote dès T2."
+              ],
+              livrables: [
+                "Doc de spécification boutique : catégories, fiches produits, logistique et règles de commission.",
+                "Liste partagée de partenaires candidats avec contact, intérêt et conditions envisagées.",
+                "Architecture de données pour gérer les produits, les catégories et les liens avec les pros."
+              ],
+              actions: [
+                "Faire un benchmark rapide des offres partenaires actuelles (food, jouets, assurances).",
+                "Cartographier ce que chaque pro peut recommander de façon cohérente avec sa pratique.",
+                "Esquisser les écrans clés : bibliothèque de produits pro, page produit pour le particulier, lien d’affiliation."
+              ],
+              prototype: [
+                "Maquette Figma ou équivalent de l’onglet « Recommandations & Boutique » côté pro.",
+                "Maquette d’une page produit « recommandé par X » côté particulier, avec photos et argumentaire clair.",
+                "Schéma de la chaîne de valeur : pro → Planipets → fournisseur → particulier."
+              ]
+            }
+          },
+          {
+            id: "p-mar-2",
+            icon: "⭐",
+            title: "Conception du système de niveaux & plafonds Pro",
+            tag: "Gamification Pro",
+            subtitle:
+              "Remplacer un système opaque par une progression claire, motivante et éthique pour les pros.",
+            metaPills: ["Niveaux 0 → 10", "Plafonds progressifs", "Quêtes hebdomadaires"],
+            sections: {
+              objectifs: [
+                "Définir une échelle de niveaux (0 à 10) liée à l’engagement pro (activité, avis, contenus, entraide).",
+                "Associer à chaque niveau un plafond mensuel de commission et des avantages qualitatifs.",
+                "Lister les types de quêtes hebdomadaires réalistes et utiles pour la communauté Planipets."
+              ],
+              livrables: [
+                "Tableau « Levels Planipets Pro » avec critères, plafonds, avantages et exemples.",
+                "Catalogue de quêtes (10 à 20 actions possibles), réparties par difficulté et impact.",
+                "Guidelines légales & éthiques basiques pour éviter l’effet casino et protéger les pros."
+              ],
+              actions: [
+                "Interviewer 3 à 5 pros sur ce qui les motiverait vraiment : argent, visibilité, appartenance, formation.",
+                "Écrire des scénarios-types : pro débutant, pro confirmé, pro ambassadeur, et leur trajectoire de progression.",
+                "Préparer les textes front (labels de niveaux, messages de progression, feedbacks visuels)."
+              ],
+              prototype: [
+                "Écran « Mon niveau Planipets » avec badge, barre de progression et plafond du mois.",
+                "Fiche « Pro du mois » mettant en avant un pro très engagé (visible sur le média).",
+                "Mini-guide expliquant en une page A4 comment fonctionne la redistribution et les niveaux."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        id: "2026-04",
+        monthLabel: "Avril 2026",
+        shortLabel: "Avr",
+        quarter: "T2 2026 · Lancement Boutique & Pilote Gamification",
+        theme: "Sélection des partenaires & intégration technique",
+        quarterMetrics: [
+          "3 à 5 partenaires pilotes signés",
+          "Catalogue pilote disponible côté back-office",
+          "Environnement de test prêt pour la cohorte de pros"
+        ],
+        meta: {
+          focus: "Partenaires & intégration",
+          tags: ["API", "Catalogue"]
+        },
+        projects: [
+          {
+            id: "p-avr-1",
+            icon: "🤝",
+            title: "Sélection & contractualisation des partenaires boutique",
+            tag: "Business",
+            subtitle:
+              "Choisir des partenaires alignés avec la charte bien-être et prêts à co-construire.",
+            metaPills: ["Food", "Accessoires", "Assurance", "Services"],
+            sections: {
+              objectifs: [
+                "Identifier des partenaires qui partagent les valeurs Planipets (bien-être, transparence, qualité).",
+                "Négocier des conditions de commission permettant de rémunérer les pros de manière attractive.",
+                "Limiter le nombre de partenaires au départ pour garder un pilote maîtrisé."
+              ],
+              livrables: [
+                "Liste courte des partenaires retenus avec fiches synthétiques (produits, marges, contraintes).",
+                "Draft d’accords de partenariat incluant la redistribution vers les pros.",
+                "Roadmap conjointe pour enrichir le catalogue après le pilote."
+              ],
+              actions: [
+                "Organiser des appels de qualification avec 5 à 10 marques ciblées.",
+                "Tester la compatibilité technique (API, flux CSV, conditions d’expédition).",
+                "Valider la cohérence entre les produits proposés et les profils des pros Planipets."
+              ],
+              prototype: [
+                "Kit partenaire Planipets (PDF ou deck) expliquant la mécanique B2B2C et les attentes.",
+                "Tableur centralisé listant les produits pilotes, leur catégorie, leur prix et la commission.",
+                "Checklist de validation des partenaires (critères qualité, logistique, réputation)."
+              ]
+            }
+          },
+          {
+            id: "p-avr-2",
+            icon: "🧩",
+            title: "Intégration technique du catalogue pilote",
+            tag: "Tech boutique",
+            subtitle:
+              "Faire remonter le catalogue partenaire dans l’écosystème Planipets de façon propre et extensible.",
+            metaPills: ["Back-office", "Mapping", "Tests"],
+            sections: {
+              objectifs: [
+                "Mettre en place la structure de données pour les produits et leurs attributs (espèce, catégorie, etc.).",
+                "Créer les écrans de gestion interne pour activer/désactiver des produits dans le pilote.",
+                "Assurer la robustesse des flux (mises à jour de stock, prix, voire promotions)."
+              ],
+              livrables: [
+                "Modèle de données stable pour les produits et les commissions.",
+                "Interface admin minimale pour gérer le catalogue et vérifier les flux.",
+                "Suite de tests de base pour sécuriser l’intégration (stocks, commandes, erreurs)."
+              ],
+              actions: [
+                "Implémenter les endpoints nécessaires côté back pour récupérer les produits.",
+                "Concevoir des scripts de synchronisation (planifiés ou en temps réel selon l’API).",
+                "Effectuer un pilote technique sur un échantillon réduit de références."
+              ],
+              prototype: [
+                "Écran back-office « Produits pilotes » avec filtres par catégorie et statut.",
+                "Affichage technique simplifié côté pro (liste brute) pour valider la cohérence des données.",
+                "Log d’erreurs lisible pour ajuster rapidement en cas de problème."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        id: "2026-05",
+        monthLabel: "Mai 2026",
+        shortLabel: "Mai",
+        quarter: "T2 2026 · Lancement Boutique & Pilote Gamification",
+        theme: "Interfaces Pro & premiers parcours particuliers",
+        quarterMetrics: [
+          "Interface pro de recommandation prête",
+          "Parcours particulier de commande opérationnel",
+          "Tests internes réussis sur la chaîne complète"
+        ],
+        meta: {
+          focus: "UI/UX boutique",
+          tags: ["Parcours Pro", "Parcours Particulier"]
+        },
+        projects: [
+          {
+            id: "p-mai-1",
+            icon: "📱",
+            title: "Design & dev de l’interface pro « Recommandations & Boutique »",
+            tag: "Front Pro",
+            subtitle:
+              "Permettre à un pro de choisir tranquillement ce qu’il recommande et de le montrer à ses clients.",
+            metaPills: ["Sélection produits", "Liens de recommandation", "Récap commissions"],
+            sections: {
+              objectifs: [
+                "Créer un espace clair où le pro voit les produits disponibles et coche ceux qu’il approuve.",
+                "Générer des liens de recommandation partageables (mail, QR-code, réseaux, SMS).",
+                "Afficher les commissions estimées/obtenues sans complexité technique."
+              ],
+              livrables: [
+                "Onglet « Recommandations & Boutique » dans l’espace Pro.",
+                "Liste filtrable de produits avec possibilité d’activation/désactivation.",
+                "Résumé mensuel des commissions liées aux recommandations."
+              ],
+              actions: [
+                "Transformer les maquettes T1 en composants UI réels.",
+                "Tester l’ergonomie avec 3 à 5 pros pilotes, ajuster texte/organisation.",
+                "Implémenter un affichage des commissions agrégées par mois."
+              ],
+              prototype: [
+                "Carte produit simple avec photo, description courte et indicateur « recommandé ».",
+                "Widget récap « Ce mois-ci, tes recommandations ont généré X € (sur Y € de plafond). ».",
+                "Bouton « Copier le lien » et « Télécharger le QR-code » pour chaque recommandation clé."
+              ]
+            }
+          },
+          {
+            id: "p-mai-2",
+            icon: "🧾",
+            title: "Parcours de commande côté particulier (v1)",
+            tag: "Front Particulier",
+            subtitle:
+              "Offrir aux propriétaires une expérience d’achat simple, rassurante et cohérente avec le pro qui recommande.",
+            metaPills: ["Page produit", "Panier", "Confirmation"],
+            sections: {
+              objectifs: [
+                "Créer une page produit claire affichant la recommandation du pro et les infos essentielles.",
+                "Mettre en place un mini tunnel d’achat (panier, coordonnées, paiement, confirmation).",
+                "Relier la commande aux commissions pro dans le back-office."
+              ],
+              livrables: [
+                "Page produit « recommandé par » avec photo de l’animal, du pro ou un badge Planipets.",
+                "Mini-panier avec récap des frais et conditions de livraison.",
+                "Mail de confirmation de commande incluant la mention Planipets & pro."
+              ],
+              actions: [
+                "Connecter l’interface d’achat au catalogue pilote et au système de paiement choisi.",
+                "Tester plusieurs fois le parcours complet avec données de test.",
+                "Mettre en place un message clair si le produit est indisponible ou en rupture."
+              ],
+              prototype: [
+                "Page produit avec encart « Conseillé par [Nom du pro] » en haut de page.",
+                "Récap commande avec mention des délais et du support.",
+                "Mail de confirmation stylisé, rappelant que le pro touche une commission."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        id: "2026-06",
+        monthLabel: "Juin 2026",
+        shortLabel: "Juin",
+        quarter: "T2 2026 · Lancement Boutique & Pilote Gamification",
+        theme: "Cohorte pilote & coaching des pros",
+        quarterMetrics: [
+          "20–30 pros pilotes onboardés",
+          "Premières commandes validées",
+          "Feedback structuré sur l’usage de la boutique & des niveaux"
+        ],
+        meta: {
+          focus: "Pilote terrain",
+          tags: ["Cohorte", "Coaching", "Feedback"]
+        },
+        projects: [
+          {
+            id: "p-juin-1",
+            icon: "🚀",
+            title: "Lancement du pilote Boutique + Niveaux Pro",
+            tag: "Pilote",
+            subtitle:
+              "Activer la première cohorte qui va tester la mécanique de recommandations et de niveaux.",
+            metaPills: ["Sélection cohorte", "Onboarding", "Suivi rapproché"],
+            sections: {
+              objectifs: [
+                "Sélectionner 20 à 30 pros motivés et variés (éducateurs, toiletteurs, etc.).",
+                "Les onboarder sur la boutique et le système de niveaux avec un accompagnement humain.",
+                "Suivre de près leurs premières recommandations et commandes."
+              ],
+              livrables: [
+                "Liste des pros pilotes avec profil et objectifs individuels.",
+                "Sessions d’onboarding groupées (webinaires) enregistrées.",
+                "Rapport de fin de mois sur l’usage et les premiers résultats (quantitatifs + qualitatifs)."
+              ],
+              actions: [
+                "Inviter les pros les plus engagés de 2025 à rejoindre le pilote.",
+                "Proposer une visio d’onboarding où tu expliques les règles et réponds aux questions.",
+                "Mettre en place un canal privé (Discord/WhatsApp) pour le support pilote."
+              ],
+              prototype: [
+                "Email d’invitation « Pilote Boutique & Niveaux Planipets ».",
+                "Canevas de questionnaire de feedback à remplir après 2 à 4 semaines.",
+                "Mini-dashboards persos envoyés aux pros pilotes (même manuels) pour valoriser leurs résultats."
+              ]
+            }
+          },
+          {
+            id: "p-juin-2",
+            icon: "🎓",
+            title: "Coaching & contenus pédagogiques pour les pros",
+            tag: "Formation",
+            subtitle:
+              "Éviter que la boutique soit juste une feature : en faire un vrai levier business maîtrisé par les pros.",
+            metaPills: ["Webinaires", "Playbooks", "Scripts"],
+            sections: {
+              objectifs: [
+                "Expliquer comment parler des recommandations sans devenir un « vendeur à la sauvette ». ",
+                "Donner des scripts simples pour présenter Planipets aux clients finaux.",
+                "Montrer comment utiliser les niveaux et quêtes sans perdre du temps."
+              ],
+              livrables: [
+                "3 webinaires enregistrés (boutique, relation client, niveau & quêtes).",
+                "PDF de scripts & phrases clés pour la recommandation.",
+                "Module dédié dans l’espace formation Planipets Pro."
+              ],
+              actions: [
+                "Planifier les lives avec un planning clair et diffuser les replays.",
+                "Demander aux pros de tester un script et de remonter leurs retours.",
+                "Intégrer les meilleures pratiques des pros dans le contenu (exemples concrets)."
+              ],
+              prototype: [
+                "Page formation « Programme de redistribution & boutique » avec 3 à 4 vidéos.",
+                "Fiche A4 « Comment présenter Planipets en 2 minutes à un nouveau client ».",
+                "FAQ spécifique sur les niveaux et la limite de plafond de commissions."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        id: "2026-07",
+        monthLabel: "Juillet 2026",
+        shortLabel: "Juil",
+        quarter: "T3 2026 · Espace Particuliers & Communauté",
+        theme: "Compte Particulier & carnet animal",
+        quarterMetrics: [
+          "Espace Particulier (v1) opérationnel",
+          "Fiches animaux créables et consultables",
+          "Historique de RDV débuté"
+        ],
+        meta: {
+          focus: "Profil Particulier",
+          tags: ["Carnet animal", "Historique"]
+        },
+        projects: [
+          {
+            id: "p-juil-1",
+            icon: "🐾",
+            title: "Création de l’espace Particulier & fiches animaux",
+            tag: "Compte",
+            subtitle:
+              "Donner aux propriétaires un espace pour suivre leurs animaux, même hors problème ponctuel.",
+            metaPills: ["Profil", "Fiches animaux", "Historique RDV"],
+            sections: {
+              objectifs: [
+                "Permettre la création d’un compte Particulier simple (email + 1ère fiche animal).",
+                "Associer les RDV passés et futurs à chaque animal.",
+                "Préparer l’intégration future avec la boutique et les recommandations."
+              ],
+              livrables: [
+                "Page « Mon compte » avec profil et liste d’animaux.",
+                "Fiches animaux avec nom, photos, âge, notes libres.",
+                "Ébauche d’historique de RDV relié à chaque fiche."
+              ],
+              actions: [
+                "Définir le modèle de données pour les animaux et la relation avec le compte Particulier.",
+                "Créer les écrans de base : liste, création, modification, suppression de fiches.",
+                "Relier les RDV Planipets existants aux profils animaux lorsqu’ils sont disponibles."
+              ],
+              prototype: [
+                "Carte « Max, 2 ans, croisé » avec dernier RDV affiché.",
+                "Vue chronologique des RDV pour un animal donné.",
+                "Lien vers les recommandations produits/ressources associées."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        id: "2026-08",
+        monthLabel: "Août 2026",
+        shortLabel: "Août",
+        quarter: "T3 2026 · Espace Particuliers & Communauté",
+        theme: "Clubs locaux & échanges",
+        quarterMetrics: [
+          "Clubs locaux créés (2–3 villes pilotes)",
+          "Discussions actives avec modération légère",
+          "Premiers événements en ligne"
+        ],
+        meta: {
+          focus: "Communauté",
+          tags: ["Clubs", "Événements"]
+        },
+        projects: [
+          {
+            id: "p-aout-1",
+            icon: "💬",
+            title: "Mise en place des clubs locaux & discussions",
+            tag: "Communauté",
+            subtitle:
+              "Créer des espaces où les propriétaires échangent et rencontrent les pros Planipets localement.",
+            metaPills: ["Clubs ville", "Q&A", "Modération"],
+            sections: {
+              objectifs: [
+                "Lancer des clubs pour quelques villes pilotes avec une animation légère.",
+                "Permettre un échange simple entre particuliers et pros, sans se substituer au RDV.",
+                "Tester différents formats (Q&A, retours d’expérience, partages de ressources)."
+              ],
+              livrables: [
+                "Page « Clubs & communauté » accessible depuis l’espace Particulier.",
+                "Clubs pour 2–3 villes (ex. Lille, Lyon, Bordeaux).",
+                "Règles de base de modération pour éviter les dérives."
+              ],
+              actions: [
+                "Identifier des pros ambassadeurs prêts à animer les clubs.",
+                "Créer un modèle de message d’accueil et des premiers fils de discussion.",
+                "Surveiller l’activité pour ajuster les rubriques utiles (questions fréquentes, bonnes pratiques)."
+              ],
+              prototype: [
+                "Fil de discussion « Votre première promenade après adoption ».",
+                "Badge « Pro Planipets » visible sur les messages des pros.",
+                "Section épinglée avec les ressources clés (articles, replays, guides)."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        id: "2026-09",
+        monthLabel: "Septembre 2026",
+        shortLabel: "Sep",
+        quarter: "T3 2026 · Espace Particuliers & Communauté",
+        theme: "Gamification Particulier",
+        quarterMetrics: [
+          "Statuts Particulier implémentés",
+          "Premières actions gamifiées",
+          "Taux de retour mensuel Particulier en hausse"
+        ],
+        meta: {
+          focus: "Engagement Particulier",
+          tags: ["Statuts", "Actions gamifiées"]
+        },
+        projects: [
+          {
+            id: "p-sept-1",
+            icon: "🏅",
+            title: "Lancement gamification Particulier (v1)",
+            tag: "Gamification",
+            subtitle:
+              "Encourager les comportements utiles pour le bien-être animal et la communauté.",
+            metaPills: ["Statuts", "Actions", "Récompenses non financières"],
+            sections: {
+              objectifs: [
+                "Définir 2 à 3 statuts de propriétaire (ex. Gardien attentif, Gardien impliqué, Ambassadeur).",
+                "Récompenser les actions vertueuses : avis, participation, complétion de profils.",
+                "Garder une logique éthique, sans hasard sur l’argent."
+              ],
+              livrables: [
+                "Système de statuts Particulier avec badges visuels.",
+                "Liste d’actions gamifiées et de points associés.",
+                "Textes d’explication pour ne pas créer d’incompréhension."
+              ],
+              actions: [
+                "Rédiger les descriptions des statuts et les avantages (accès prioritaire aux événements, etc.).",
+                "Implémenter un système de points simple relié aux actions en T3.",
+                "Déployer une info-bulle/cloche d’info pour expliquer comment progresser."
+              ],
+              prototype: [
+                "Widget « Ton statut : Gardien impliqué » dans le compte.",
+                "Liste d’actions hebdomadaires proposées (laisser un avis, participer au live...).",
+                "Page « Comment fonctionne la gamification Planipets » accessible publiquement."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        id: "2026-10",
+        monthLabel: "Octobre 2026",
+        shortLabel: "Oct",
+        quarter: "T4 2026 · Scalabilité & Publicité",
+        theme: "Packaging des offres média & pub",
+        quarterMetrics: [
+          "Media kit structuré",
+          "2 à 3 offres packagées",
+          "Premiers leads marques & assureurs"
+        ],
+        meta: {
+          focus: "Offre pub",
+          tags: ["Media kit", "Packs publicitaires"]
+        },
+        projects: [
+          {
+            id: "p-oct-1",
+            icon: "📢",
+            title: "Conception des offres publicitaires Planipets Media",
+            tag: "Publicité",
+            subtitle:
+              "Transformer l’audience (pros & particuliers) en offres média claires pour les marques.",
+            metaPills: ["Packs", "Media kit", "Positionnement"],
+            sections: {
+              objectifs: [
+                "Créer 2 à 3 packs publicitaires simples : Découverte, Premium, sur-mesure.",
+                "Mettre en avant la valeur unique : niche animaux + pros engagés + média de confiance.",
+                "Préparer des exemples de placements et de campagnes inspirantes."
+              ],
+              livrables: [
+                "Media kit PDF/Deck avec audiences, formats et tarifs indicatifs.",
+                "Fiches d’offres packagées (contenu sponsorisé, intégration Rex & Minou, newsletter).",
+                "Cas d’usage fictifs ou réels montrant le ROI possible."
+              ],
+              actions: [
+                "Rassembler les chiffres d’audience 2026 (visites, temps passé, mails, etc.).",
+                "Définir les emplacements disponibles : site média, newsletters, espaces Pro.",
+                "Créer des mockups de bannières et d’intégrations dans des articles ou vidéos."
+              ],
+              prototype: [
+                "Pack « Découverte » : article sponsorisé + bannière + mention newsletter.",
+                "Pack « Premium » : intégration dans un épisode Rex & Minou + mise en avant dans la boutique.",
+                "Page web simple « Devenir partenaire Planipets » avec formulaire de contact."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        id: "2026-11",
+        monthLabel: "Novembre 2026",
+        shortLabel: "Nov",
+        quarter: "T4 2026 · Scalabilité & Publicité",
+        theme: "Partenariats mairies, assos & refuges",
+        quarterMetrics: [
+          "1 à 3 villes partenaires",
+          "1 à 2 assos ou refuges signés",
+          "Pages locales actives sur le média"
+        ],
+        meta: {
+          focus: "Institutionnel",
+          tags: ["Collectivités", "Assos"]
+        },
+        projects: [
+          {
+            id: "p-nov-1",
+            icon: "🏛️",
+            title: "Lancement des offres collectivités & associations",
+            tag: "Partenariats publics",
+            subtitle:
+              "Renforcer la légitimité en s’adossant à des acteurs locaux du bien-être animal.",
+            metaPills: ["Pages ville", "Ressources locales", "Campagnes"],
+            sections: {
+              objectifs: [
+                "Proposer aux mairies et assos un espace dédié sur le média pour valoriser leurs actions.",
+                "Mettre en avant les pros Planipets dans ces pages locales.",
+                "Montrer que Planipets est un allié pour la prévention et le lien humain/animal."
+              ],
+              livrables: [
+                "Page type « Ville de X & Planipets » avec pros, ressources et actualités.",
+                "Pack de présentation collectivités/assos.",
+                "Premier partenariat formalisé avec une ville ou une asso phare."
+              ],
+              actions: [
+                "Cibler quelques villes déjà sensibles au bien-être animal.",
+                "Préparer un modèle d’accord léger, non contraignant pour démarrer.",
+                "Proposer un premier événement ou webinaire en commun."
+              ],
+              prototype: [
+                "Page avec logo de la ville, charte et liste de pros locaux Planipets.",
+                "Section « Campagnes en cours » (stérilisation, adoption, etc.).",
+                "Bloc « Planipets accompagne les familles de la ville de X »."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        id: "2026-12",
+        monthLabel: "Décembre 2026",
+        shortLabel: "Déc",
+        quarter: "T4 2026 · Scalabilité & Publicité",
+        theme: "Bilan, optimisation & plan 2027",
+        quarterMetrics: [
+          "Rapport « État de Planipets 2026 »",
+          "Ajustement des funnels & niveaux",
+          "Axes stratégiques 2027 définis"
+        ],
+        meta: {
+          focus: "Analyse & optimisation",
+          tags: ["Funnels", "Roadmap 2027"]
+        },
+        projects: [
+          {
+            id: "p-dec-1",
+            icon: "📈",
+            title: "Analyse des funnels & optimisations clés",
+            tag: "Analyse",
+            subtitle:
+              "Revenir sur 12 mois de données pour simplifier ce qui doit l’être et amplifier ce qui fonctionne.",
+            metaPills: ["Funnels Pro", "Funnels Particuliers", "Synthèse"],
+            sections: {
+              objectifs: [
+                "Comprendre où les pros et particuliers décrochent dans leurs parcours.",
+                "Identifier les features et parcours qui créent le plus de valeur.",
+                "Simplifier autant que possible l’UX et le modèle de niveaux."
+              ],
+              livrables: [
+                "Rapport synthèse des funnels avec 3 à 5 recommandations majeures.",
+                "Liste des features à améliorer, à mettre en pause ou à retirer.",
+                "Plan d’actions priorisé pour Q1 2027."
+              ],
+              actions: [
+                "Analyser les données de l’outil analytics mis en place en T1.",
+                "Croiser données quantitatives et ressentis qualitatifs des pros & particuliers.",
+                "Préparer un atelier stratégique pour définir les priorités 2027."
+              ],
+              prototype: [
+                "Diagrammes simples montrant les taux de conversion majeurs.",
+                "Tableau « Ce qui marche / Ce qui bloque / Ce qu’on arrête ».",
+                "Draft de la roadmap 2027 sur un slide unique."
+              ]
+            }
+          }
+        ]
+      }
+    ];
+
+    // ============================================
+    // STATE
+    // ============================================
+
+    const state = {
+      activeMonthId: "2026-01",
+      monthElements: new Map(),
+      highlightBarEl: null,
+      detailsContainerEl: null,
+      quarterSummaryEl: null,
+      quarterLabelEl: null,
+      quarterMetricsEl: null
+    };
+
+    // ============================================
+    // INIT
+    // ============================================
+
+    document.addEventListener("DOMContentLoaded", () => {
+      state.highlightBarEl = document.getElementById("timelineHighlightBar");
+      state.detailsContainerEl = document.getElementById("detailsContainer");
+      state.quarterSummaryEl = document.getElementById("quarterSummary");
+      state.quarterLabelEl = document.getElementById("quarterLabel");
+      state.quarterMetricsEl = document.getElementById("quarterMetrics");
+
+      buildTimelineMonths();
+      renderActiveMonth(true);
+      setupGlobalListeners();
+    });
+
+    // ============================================
+    // BUILD TIMELINE MONTHS
+    // ============================================
+
+    function buildTimelineMonths() {
+      const container = document.getElementById("timelineMonths");
+      container.innerHTML = "";
+
+      timelineData.forEach((month, index) => {
+        const monthEl = document.createElement("button");
+        monthEl.type = "button";
+        monthEl.className = "timeline-month";
+        monthEl.dataset.monthId = month.id;
+        monthEl.setAttribute("aria-label", month.monthLabel);
+
+        const labelSpan = document.createElement("span");
+        labelSpan.className = "timeline-month-label";
+        labelSpan.textContent = month.shortLabel;
+        monthEl.appendChild(labelSpan);
+
+        const badgeSpan = document.createElement("span");
+        badgeSpan.className = "timeline-month-badge";
+        badgeSpan.textContent = month.meta.focus;
+        monthEl.appendChild(badgeSpan);
+
+        monthEl.addEventListener("click", () => {
+          handleMonthClick(month.id);
+        });
+
+        container.appendChild(monthEl);
+        state.monthElements.set(month.id, monthEl);
+      });
+
+      // Mark default as active
+      const initial = state.monthElements.get(state.activeMonthId);
+      if (initial) {
+        initial.classList.add("timeline-month-active");
+        updateHighlightBar(initial, true);
+      }
+    }
+
+    // ============================================
+    // HANDLE MONTH CHANGE
+    // ============================================
+
+    function handleMonthClick(monthId) {
+      if (monthId === state.activeMonthId) return;
+
+      const previousEl = state.monthElements.get(state.activeMonthId);
+      const nextEl = state.monthElements.get(monthId);
+
+      if (previousEl) {
+        previousEl.classList.remove("timeline-month-active");
+      }
+      if (nextEl) {
+        nextEl.classList.add("timeline-month-active");
+        centerMonthInView(nextEl);
+      }
+
+      state.activeMonthId = monthId;
+      updateHighlightBar(nextEl, false);
+      renderActiveMonth(false);
+    }
+
+    // ============================================
+    // UPDATE HIGHLIGHT BAR POSITION
+    // ============================================
+
+    function updateHighlightBar(targetEl, instant) {
+      if (!state.highlightBarEl || !targetEl) return;
+
+      const wrapperRect = targetEl.parentElement.getBoundingClientRect();
+      const rect = targetEl.getBoundingClientRect();
+
+      const width = rect.width * 0.7;
+      const centerX = rect.left + rect.width / 2;
+      const relativeX = centerX - wrapperRect.left - width / 2;
+
+      if (instant) {
+        state.highlightBarEl.style.transition = "none";
+        state.highlightBarEl.style.transform = `translateX(${relativeX}px)`;
+        state.highlightBarEl.style.width = `${width}px`;
+        // force reflow then restore transition
+        void state.highlightBarEl.offsetWidth;
+        state.highlightBarEl.style.transition =
+          "transform var(--transition-slow), width var(--transition-slow)";
+      } else {
+        state.highlightBarEl.style.width = `${width}px`;
+        state.highlightBarEl.style.transform = `translateX(${relativeX}px)`;
+      }
+    }
+
+    // ============================================
+    // CENTER ACTIVE MONTH IN SCROLLER
+    // ============================================
+
+    function centerMonthInView(el) {
+      const wrapper = document.querySelector(".timeline-months-wrapper");
+      if (!wrapper || !el) return;
+
+      const wrapperRect = wrapper.getBoundingClientRect();
+      const elRect = el.getBoundingClientRect();
+      const offset =
+        elRect.left -
+        wrapperRect.left -
+        wrapperRect.width / 2 +
+        elRect.width / 2;
+
+      wrapper.scrollTo({
+        left: wrapper.scrollLeft + offset,
+        behavior: "smooth"
+      });
+    }
+
+    // ============================================
+    // RENDER ACTIVE MONTH DETAILS
+    // ============================================
+
+    function renderActiveMonth(initial) {
+      const month = timelineData.find((m) => m.id === state.activeMonthId);
+      if (!month || !state.detailsContainerEl) return;
+
+      // Animate out / in
+      if (!initial) {
+        state.detailsContainerEl.classList.remove("details-animate-in");
+        void state.detailsContainerEl.offsetWidth;
+        state.detailsContainerEl.classList.add("details-animate-in");
+      }
+
+      // Header details
+      state.detailsContainerEl.innerHTML = "";
+
+      const headerEl = document.createElement("div");
+      headerEl.className = "details-header";
+
+      const titleBlockEl = document.createElement("div");
+      titleBlockEl.className = "details-title-block";
+
+      const monthLabelEl = document.createElement("div");
+      monthLabelEl.className = "details-month-label";
+      monthLabelEl.textContent = month.monthLabel;
+
+      const mainTitleEl = document.createElement("div");
+      mainTitleEl.className = "details-main-title";
+      mainTitleEl.textContent = month.theme;
+
+      const taglineEl = document.createElement("div");
+      taglineEl.className = "details-tagline";
+      taglineEl.textContent =
+        "Vue détaillée des projets, objectifs, livrables, actions et prototypes à mettre en place.";
+
+      titleBlockEl.appendChild(monthLabelEl);
+      titleBlockEl.appendChild(mainTitleEl);
+      titleBlockEl.appendChild(taglineEl);
+
+      const badgesEl = document.createElement("div");
+      badgesEl.className = "details-badges";
+
+      const badge1 = document.createElement("div");
+      badge1.className = "details-badge";
+      const badge1Icon = document.createElement("div");
+      badge1Icon.className = "details-badge-icon";
+      const badge1Text = document.createElement("span");
+      badge1Text.textContent = month.meta.focus;
+      badge1.appendChild(badge1Icon);
+      badge1.appendChild(badge1Text);
+
+      const badge2 = document.createElement("div");
+      badge2.className = "details-badge";
+      badge2.textContent = month.meta.tags.join(" · ");
+
+      badgesEl.appendChild(badge1);
+      badgesEl.appendChild(badge2);
+
+      headerEl.appendChild(titleBlockEl);
+      headerEl.appendChild(badgesEl);
+
+      state.detailsContainerEl.appendChild(headerEl);
+
+      // Projects list
+      const projectsListEl = document.createElement("div");
+      projectsListEl.className = "projects-list";
+
+      month.projects.forEach((project, index) => {
+        const cardEl = buildProjectCard(project, index);
+        projectsListEl.appendChild(cardEl);
+      });
+
+      state.detailsContainerEl.appendChild(projectsListEl);
+
+      // Helper footer hint
+      const footerHint = document.createElement("div");
+      footerHint.className = "details-footer-hint";
+
+      const dot = document.createElement("span");
+      dot.className = "details-footer-dot";
+
+      const text = document.createElement("span");
+      text.textContent =
+        "Tu peux ouvrir chaque projet, puis déplier Objectifs, Livrables, Actions & Prototype pour préparer l’exécution.";
+
+      footerHint.appendChild(dot);
+      footerHint.appendChild(text);
+      state.detailsContainerEl.appendChild(footerHint);
+
+      // Update quarter summary
+      updateQuarterSummary(month);
+    }
+
+    // ============================================
+    // UPDATE QUARTER SUMMARY
+    // ============================================
+
+    function updateQuarterSummary(month) {
+      if (!state.quarterLabelEl || !state.quarterMetricsEl) return;
+
+      state.quarterLabelEl.textContent = month.quarter;
+      state.quarterMetricsEl.innerHTML = "";
+
+      month.quarterMetrics.forEach((m) => {
+        const pill = document.createElement("div");
+        pill.className = "quarter-metric";
+        pill.textContent = m;
+        state.quarterMetricsEl.appendChild(pill);
+      });
+    }
+
+    // ============================================
+    // BUILD PROJECT CARD
+    // ============================================
+
+    function buildProjectCard(project, index) {
+      const cardEl = document.createElement("article");
+      cardEl.className = "project-card";
+
+      const headerEl = document.createElement("header");
+      headerEl.className = "project-header";
+
+      const iconEl = document.createElement("div");
+      iconEl.className = "project-icon";
+      const iconSpan = document.createElement("span");
+      iconSpan.textContent = project.icon;
+      iconEl.appendChild(iconSpan);
+
+      const mainEl = document.createElement("div");
+      mainEl.className = "project-main";
+
+      const titleRowEl = document.createElement("div");
+      titleRowEl.className = "project-title-row";
+
+      const titleEl = document.createElement("h3");
+      titleEl.className = "project-title";
+      titleEl.textContent = project.title;
+
+      const tagEl = document.createElement("span");
+      tagEl.className = "project-tag";
+      tagEl.textContent = project.tag;
+
+      titleRowEl.appendChild(titleEl);
+      titleRowEl.appendChild(tagEl);
+
+      const subtitleEl = document.createElement("p");
+      subtitleEl.className = "project-subtitle";
+      subtitleEl.textContent = project.subtitle;
+
+      const metaRowEl = document.createElement("div");
+      metaRowEl.className = "project-meta-row";
+      project.metaPills.forEach((pill) => {
+        const pillEl = document.createElement("span");
+        pillEl.className = "project-meta-pill";
+        pillEl.textContent = pill;
+        metaRowEl.appendChild(pillEl);
+      });
+
+      mainEl.appendChild(titleRowEl);
+      mainEl.appendChild(subtitleEl);
+      mainEl.appendChild(metaRowEl);
+
+      const chevronEl = document.createElement("div");
+      chevronEl.className = "project-chevron";
+      chevronEl.innerHTML = "&#9654;";
+
+      headerEl.appendChild(iconEl);
+      headerEl.appendChild(mainEl);
+      headerEl.appendChild(chevronEl);
+
+      const bodyEl = document.createElement("div");
+      bodyEl.className = "project-body";
+
+      const bodyInnerEl = document.createElement("div");
+      bodyInnerEl.className = "project-body-inner";
+
+      // Left section : Objectifs & Livrables
+      const leftSectionEl = document.createElement("div");
+      // Objectifs
+      const objectifsSection = buildProjectSection(
+        "Objectifs",
+        "Ce qui doit être vrai à la fin du mois.",
+        project.sections.objectifs
+      );
+      // Livrables
+      const livrablesSection = buildProjectSection(
+        "Livrables",
+        "Ce que tu peux montrer ou envoyer.",
+        project.sections.livrables
+      );
+      leftSectionEl.appendChild(objectifsSection);
+      leftSectionEl.appendChild(livrablesSection);
+
+      // Right section : Actions & Prototype
+      const rightSectionEl = document.createElement("div");
+      const actionsSection = buildProjectSection(
+        "Actions",
+        "Ce qu’il faut concrètement faire.",
+        project.sections.actions
+      );
+      const prototypeSection = buildProjectSection(
+        "Prototype",
+        "À quoi ça ressemble une fois visible.",
+        project.sections.prototype
+      );
+
+      rightSectionEl.appendChild(actionsSection);
+      rightSectionEl.appendChild(prototypeSection);
+
+      bodyInnerEl.appendChild(leftSectionEl);
+      bodyInnerEl.appendChild(rightSectionEl);
+
+      bodyEl.appendChild(bodyInnerEl);
+
+      cardEl.appendChild(headerEl);
+      cardEl.appendChild(bodyEl);
+
+      // Toggle logic for project
+      headerEl.addEventListener("click", () => {
+        toggleProjectCard(cardEl, bodyEl);
+      });
+
+      return cardEl;
+    }
+
+    // ============================================
+    // BUILD PROJECT SECTION (WITH NESTED ACCORDIONS)
+    // ============================================
+
+    function buildProjectSection(title, badgeText, items) {
+      const sectionEl = document.createElement("section");
+      sectionEl.className = "project-section";
+
+      const titleRow = document.createElement("div");
+      titleRow.className = "project-section-title";
+
+      const titleSpan = document.createElement("span");
+      titleSpan.textContent = title;
+
+      const badge = document.createElement("span");
+      badge.className = "project-section-badge";
+      badge.textContent = badgeText;
+
+      titleRow.appendChild(titleSpan);
+      titleRow.appendChild(badge);
+
+      const listEl = document.createElement("ul");
+      items.forEach((it) => {
+        const li = document.createElement("li");
+        li.textContent = it;
+        listEl.appendChild(li);
+      });
+
+      const nested = buildNestedAccordion(items);
+
+      sectionEl.appendChild(titleRow);
+      sectionEl.appendChild(listEl);
+      sectionEl.appendChild(nested);
+
+      return sectionEl;
+    }
+
+    // ============================================
+    // BUILD NESTED ACCORDION (OBJECTIFS / LIVRABLES / ACTIONS DETAIL)
+    // ============================================
+
+    function buildNestedAccordion(items) {
+      const nestedEl = document.createElement("div");
+      nestedEl.className = "nested-accordion";
+
+      const item = document.createElement("div");
+      item.className = "nested-item";
+
+      const header = document.createElement("div");
+      header.className = "nested-header";
+
+      const labelSpan = document.createElement("span");
+      labelSpan.textContent = "Zoom détaillé";
+
+      const chevron = document.createElement("div");
+      chevron.className = "nested-chevron";
+      chevron.innerHTML = "&#9654;";
+
+      header.appendChild(labelSpan);
+      header.appendChild(chevron);
+
+      const body = document.createElement("div");
+      body.className = "nested-body";
+
+      const bodyContent = document.createElement("div");
+      bodyContent.className = "nested-body-content";
+
+      const nestedList = document.createElement("ul");
+      items.forEach((it) => {
+        const li = document.createElement("li");
+        li.textContent = it;
+        nestedList.appendChild(li);
+      });
+
+      bodyContent.appendChild(nestedList);
+      body.appendChild(bodyContent);
+
+      item.appendChild(header);
+      item.appendChild(body);
+      nestedEl.appendChild(item);
+
+      // Toggle nested
+      header.addEventListener("click", () => {
+        toggleNestedItem(item, body);
+      });
+
+      return nestedEl;
+    }
+
+    // ============================================
+    // TOGGLES
+    // ============================================
+
+    function toggleProjectCard(cardEl, bodyEl) {
+      const isOpen = cardEl.classList.contains("project-card-open");
+      const allCards = document.querySelectorAll(".project-card");
+
+      // Close others
+      allCards.forEach((c) => {
+        if (c !== cardEl) {
+          c.classList.remove("project-card-open");
+          const body = c.querySelector(".project-body");
+          if (body) {
+            body.style.maxHeight = "0px";
+          }
+        }
+      });
+
+      if (!isOpen) {
+        cardEl.classList.add("project-card-open");
+        expandElement(bodyEl);
+      } else {
+        cardEl.classList.remove("project-card-open");
+        collapseElement(bodyEl);
+      }
+    }
+
+    function toggleNestedItem(itemEl, bodyEl) {
+      const isOpen = itemEl.classList.contains("nested-item-open");
+
+      if (!isOpen) {
+        itemEl.classList.add("nested-item-open");
+        expandElement(bodyEl);
+      } else {
+        itemEl.classList.remove("nested-item-open");
+        collapseElement(bodyEl);
+      }
+    }
+
+    // ============================================
+    // EXPAND / COLLAPSE HELPERS
+    // ============================================
+
+    function expandElement(el) {
+      el.style.transition = "none";
+      el.style.maxHeight = "0px";
+      el.style.opacity = "0";
+      el.style.transform = "translateY(-3px)";
+      void el.offsetHeight;
+      el.style.transition =
+        "max-height var(--transition-slow), opacity var(--transition-slow), transform var(--transition-slow)";
+      const scrollHeight = el.scrollHeight;
+      el.style.maxHeight = scrollHeight + "px";
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+    }
+
+    function collapseElement(el) {
+      el.style.transition =
+        "max-height var(--transition-slow), opacity var(--transition-slow), transform var(--transition-slow)";
+      el.style.maxHeight = "0px";
+      el.style.opacity = "0";
+      el.style.transform = "translateY(-3px)";
+    }
+
+    // ============================================
+    // GLOBAL LISTENERS (RESPONSIVE, KEYBOARD NAV)
+    // ============================================
+
+    function setupGlobalListeners() {
+      window.addEventListener("resize", handleResize, { passive: true });
+      document.addEventListener("keydown", handleKeyboardNav);
+    }
+
+    function handleResize() {
+      // Re-align highlight bar on resize
+      const activeEl = state.monthElements.get(state.activeMonthId);
+      if (activeEl) {
+        updateHighlightBar(activeEl, true);
+      }
+    }
+
+    function handleKeyboardNav(event) {
+      const key = event.key;
+      if (key !== "ArrowLeft" && key !== "ArrowRight") return;
+
+      event.preventDefault();
+
+      const currentIndex = timelineData.findIndex(
+        (m) => m.id === state.activeMonthId
+      );
+      if (currentIndex === -1) return;
+
+      let nextIndex;
+      if (key === "ArrowLeft") {
+        nextIndex = Math.max(0, currentIndex - 1);
+      } else {
+        nextIndex = Math.min(timelineData.length - 1, currentIndex + 1);
+      }
+
+      const nextMonth = timelineData[nextIndex];
+      if (nextMonth) {
+        const el = state.monthElements.get(nextMonth.id);
+        if (el) {
+          el.click();
+        }
+      }
+    }
+  </script>
+</body>
+</html>
