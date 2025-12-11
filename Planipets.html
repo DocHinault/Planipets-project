@@ -57,7 +57,7 @@
         </nav>
       </header>
 
-      <header class="page-header">
+      <header class="page-header reveal-on-scroll">
         <div class="brand-block">
           <div class="brand-logo" aria-hidden="true">
             <svg viewBox="0 0 64 64" aria-hidden="true">
@@ -91,7 +91,7 @@
         </div>
       </header>
 
-      <div class="header-title">
+      <div class="header-title reveal-on-scroll">
         <h1>Frise 2026 – De la vision à l’exécution</h1>
         <p>
           Navigue mois par mois pour voir ce qui doit être posé, testé et industrialisé :
@@ -99,56 +99,44 @@
         </p>
       </div>
 
-      <main class="timeline-layout">
-        <section class="timeline-rail" aria-label="Chronologie 2026">
-          <div class="timeline-rail-inner">
-            <div class="timeline-rail-header">
-              <div class="timeline-rail-header-left">
-                <div class="timeline-rail-title">Frise chronologique 2026</div>
-                <div class="timeline-rail-sub">Sélectionne un mois pour voir les projets clés.</div>
-              </div>
-              <div class="timeline-legend">
-                <div class="legend-pill">
-                  <span class="legend-dot"></span>
-                  <span>Pro</span>
-                </div>
-                <div class="legend-pill">
-                  <span class="legend-dot"></span>
-                  <span>Produit</span>
-                </div>
-                <div class="legend-pill">
-                  <span class="legend-dot"></span>
-                  <span>Communauté</span>
-                </div>
-              </div>
-            </div>
+      <section class="timeline-section timeline-section--preview">
+        <div class="timeline-header reveal-on-scroll">
+          <p class="timeline-kicker">Aperçu</p>
+          <h2>Feuille de route 2026 en bref</h2>
+          <p class="timeline-intro">4 jalons clés et un bouton pour découvrir la frise complète.</p>
+        </div>
+        <div class="timeline-rail-wrapper timeline-rail-wrapper--preview">
+          <div class="timeline-rail timeline-rail--mini" id="timelineRailPreview" aria-label="Aperçu chronologie 2026"></div>
+        </div>
+        <div class="timeline-cta">
+          <a class="button-link" href="chronologie.html">Voir toute la feuille de route 2026</a>
+        </div>
+      </section>
 
-            <div class="timeline-months-wrapper">
-              <div class="timeline-months" id="timelineMonths"></div>
-              <div class="timeline-highlight-bar" id="timelineHighlightBar"></div>
-            </div>
-
-            <div class="quarter-summary" id="quarterSummary">
-              <div class="quarter-summary-header">
-                <div class="quarter-pill">
-                  <span class="quarter-dot"></span>
-                  <span id="quarterLabel">T1 2026 – Fondations</span>
-                </div>
-                <span style="font-size: 0.9rem;">North Star : revenu mensuel généré pour les pros</span>
-              </div>
-              <div class="quarter-key-metrics" id="quarterMetrics">
-                <!-- Rempli en JS -->
-              </div>
-            </div>
+      <section class="grid-section reveal-on-scroll">
+        <div class="info-card">
+          <h3>SWOT 2026</h3>
+          <p>La matrice forces/faiblesses/opportunités/menaces pour piloter la stratégie.</p>
+          <a class="button-link" href="swot.html">Consulter la SWOT</a>
+        </div>
+        <div class="info-card">
+          <h3>Tunnels & parcours</h3>
+          <p>Nos scénarios côté Pros et Particuliers, du premier contact jusqu’à la récurrence.</p>
+          <div class="button-row">
+            <a class="button-link" href="tunnel-pro.html">Tunnel Pro</a>
+            <a class="button-link" href="tunnel-particulier.html">Tunnel Particulier</a>
           </div>
-        </section>
-
-        <section class="timeline-details" aria-label="Détails mois & projets 2026">
-          <div class="timeline-details-inner" id="detailsContainer">
-            <!-- Rempli en JS -->
+        </div>
+        <div class="info-card">
+          <h3>Monétisation & média</h3>
+          <p>Espace publicitaire, gamification et contenus éditoriaux pour soutenir la croissance.</p>
+          <div class="button-row">
+            <a class="button-link" href="espace-publicitaire.html">Espace publicitaire</a>
+            <a class="button-link" href="gamification-pro.html">Gamification Pro</a>
+            <a class="button-link" href="gamification-particulier.html">Gamification Particulier</a>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
     </div>
   </div>
 </body>
