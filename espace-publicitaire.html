@@ -10,18 +10,17 @@
 <body>
   <div class="page-wrapper">
     <div class="content-shell">
-      <header class="simple-header">
+      <header class="site-header" aria-label="Navigation principale">
         <div class="brand-block">
           <div class="brand-logo" aria-hidden="true">
             <svg viewBox="0 0 64 64" aria-hidden="true">
               <defs>
-                <linearGradient id="pawGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#1e293b" />
-                  <stop offset="50%" stop-color="#0f172a" />
-                  <stop offset="100%" stop-color="#020617" />
+                <linearGradient id="pawGradNav" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0f8c3c" />
+                  <stop offset="100%" stop-color="#0b7031" />
                 </linearGradient>
               </defs>
-              <circle cx="32" cy="32" r="30" fill="url(#pawGrad)" />
+              <circle cx="32" cy="32" r="30" fill="url(#pawGradNav)" />
               <path
                 d="M21 24c2.8 0 4.6-2.2 4.6-4.7C25.6 17.9 23.8 16 21 16s-4.7 1.9-4.7 3.3C16.3 21.8 18.2 24 21 24zm10.9 0c2.8 0 4.6-2.2 4.7-4.7 0-1.4-1.9-3.3-4.7-3.3-2.8 0-4.6 1.9-4.6 3.3 0 2.5 1.8 4.7 4.6 4.7zm9.7 2.8c2.6 0 4.3-2.1 4.3-4.5 0-1.3-1.7-3.1-4.3-3.1s-4.4 1.8-4.4 3.1c0 2.4 1.8 4.5 4.4 4.5zM24.3 40c0 4.5 4 8 7.7 8 3.7 0 7.7-3.5 7.7-8 0-4.9-3.1-9-7.7-9s-7.7 4.1-7.7 9z"
                 fill="#fefce8"
@@ -33,17 +32,385 @@
             </svg>
           </div>
           <div class="brand-meta">
-            <div class="brand-meta-title">Espace publicitaire</div>
-            <div class="brand-meta-sub">Offres média & partenaires (brouillon)</div>
+            <div class="brand-meta-title">Planipets</div>
+            <div class="brand-meta-sub">Espace annonceurs & partenariats</div>
           </div>
         </div>
-        <a class="back-link" href="Planipets.html">← Retour à l’accueil</a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+        <nav class="nav-links">
+          <a href="Planipets.html">Accueil</a>
+          <a href="chronologie.html">Chronologie 2026</a>
+          <a href="swot.html">SWOT 2026</a>
+          <div class="nav-item has-submenu" tabindex="0">Tunnel de ventes
+            <div class="nav-submenu" aria-hidden="true">
+              <a href="tunnel-pro.html">Tunnel Professionnel</a>
+              <a href="tunnel-particulier.html">Tunnel Particulier</a>
+            </div>
+          </div>
+          <a href="espace-publicitaire.html" aria-current="page">Espace publicitaire</a>
+          <div class="nav-item has-submenu" tabindex="0">Gamification
+            <div class="nav-submenu" aria-hidden="true">
+              <a href="gamification-pro.html">Gamification Professionnels</a>
+              <a href="gamification-particulier.html">Gamification Particuliers</a>
+            </div>
+          </div>
+        </nav>
       </header>
 
+      <div class="breadcrumb-bar">
+        <div class="breadcrumbs">Accueil &gt; Espace publicitaire</div>
+        <a class="back-link" href="Planipets.html">← Retour à l’accueil</a>
+      </div>
+
       <main>
-        <h1>Espace publicitaire – brouillon</h1>
-        <section class="page-placeholder">
-          <p><strong>Section à compléter.</strong><br />Ajoute ici les packs média, les placements et le media kit.</p>
+        <section id="hero-annonceurs" class="hero-annonceurs">
+          <div>
+            <p class="eyebrow">Media & plateforme bien-être animal</p>
+            <h1>Devenez partenaire média de Planipets</h1>
+            <p class="subtitle">
+              Touchez des milliers de propriétaires d’animaux et de professionnels du bien-être animal, au cœur d’un média de confiance dédié à la relation humain–animal.
+            </p>
+            <div class="hero-ctas">
+              <a href="#contact-annonceurs" class="btn btn-primary" id="cta-annonceurs">Parler de votre campagne avec Nasser</a>
+              <a href="#" class="btn btn-secondary">Télécharger le kit annonceur (PDF)</a>
+            </div>
+            <div class="hero-stats">
+              <span class="hero-stats-pill">+ 6 000 visites / mois sur la plateforme</span>
+              <span class="hero-stats-pill">+ 10 000 lecteurs / mois sur Planipets Media</span>
+              <span class="hero-stats-pill">Une communauté engagée de pros et de particuliers</span>
+            </div>
+          </div>
+          <div class="hero-highlight">
+            <div class="hero-card">
+              <h3>Un écosystème qui vit déjà</h3>
+              <p>Plateforme de réservation, média éditorial, série Rex &amp; Minou : vous entrez dans une histoire suivie, construite sans achat massif de publicité payante.</p>
+              <ul>
+                <li>Plusieurs milliers de visites organiques mensuelles côté plateforme.</li>
+                <li>10 000 lecteurs mensuels sur le média, autour du lien humain–animal.</li>
+                <li>50+ professionnels accompagnés et mis en avant auprès de milliers de personnes.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="pourquoi-planipets" class="section-spacious">
+          <div class="section-header">
+            <h2>Pourquoi acheter un espace publicitaire sur Planipets ?</h2>
+            <p>Vous n’achetez pas seulement des impressions. Vous entrez dans un écosystème éditorial qui vit au rythme du lien entre humains et animaux.</p>
+          </div>
+          <div class="four-grid">
+            <article class="reason-card">
+              <h3>Audience ultra ciblée “bien-être animal”</h3>
+              <p>Planipets attire des propriétaires d’animaux qui cherchent activement des solutions pour le bien-être de leur chien, chat, cheval ou NAC.</p>
+              <p>Votre message s’affiche dans un contexte de recherche de solutions, pas au milieu d’un flux générique.</p>
+              <p>Double audience : particuliers + professionnels animaliers.</p>
+            </article>
+            <article class="reason-card">
+              <h3>Média de confiance & charte éditoriale</h3>
+              <p>Les contenus Planipets Media respectent une charte éditoriale exigeante : indépendance, rigueur, pas de sensationnalisme.</p>
+              <p>Les professionnels listés signent une charte du bien-être animal en 8 piliers.</p>
+              <p>Vos campagnes s’affichent dans un environnement brand safe, aligné sur les valeurs du soin et du respect de l’animal.</p>
+            </article>
+            <article class="reason-card">
+              <h3>Impact long terme, pas seulement du clic</h3>
+              <p>Vos campagnes peuvent se décliner en contenus sponsorisés, en séries pédagogiques, en épisodes Rex &amp; Minou ou en partenariats avec des pros.</p>
+              <p>L’enjeu n’est pas uniquement le CTR, mais la construction d’une préférence de marque auprès d’un public passionné.</p>
+            </article>
+            <article class="reason-card">
+              <h3>Une plateforme qui vit déjà, sans pub dispendieuse</h3>
+              <p>La croissance actuelle s’est construite presque sans publicité payante, ce qui garantit une audience organique solide.</p>
+              <p>Vous ne financez pas de l’achat de trafic artificiel, mais du contenu et de la valeur pour votre cœur de marché.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="persona-annonceurs" class="section-spacious">
+          <div class="section-header">
+            <h2>À qui s’adressent nos espaces publicitaires ?</h2>
+            <p>Planipets n’est pas une régie généraliste. Nos espaces sont pensés pour des acteurs qui partagent notre exigence sur le bien-être animal.</p>
+          </div>
+          <div class="three-grid persona-grid">
+            <article class="persona-card persona-card--primary">
+              <div class="persona-badge">Cœur de cible</div>
+              <h3>Marques & PME du bien-être animal</h3>
+              <p>Fabricants de croquettes, compléments, accessoires, litières, solutions d’enrichissement du milieu, assurances santé animale, plateformes de services complémentaires…</p>
+              <p>Taille typique : de la jeune marque DNVB en forte croissance à la PME installée qui cherche un canal affinitaire.</p>
+              <ul>
+                <li>Budget annuel communication : 10 à 100 k€.</li>
+                <li>Recherche de contextes éditoriaux qualitatifs.</li>
+                <li>Sensibilité forte aux questions d’éthique et de respect de l’animal.</li>
+              </ul>
+            </article>
+            <article class="persona-card">
+              <h3>Collectivités & structures d’intérêt général</h3>
+              <p>Mairies, collectivités territoriales, refuges, associations, fondations qui lancent des campagnes sur le lien humain–animal, la prévention ou l’adoption responsable.</p>
+              <ul>
+                <li>Besoin de toucher un public large de propriétaires d’animaux avec un message responsable.</li>
+                <li>Recherche d’un partenaire éditorial capable de vulgariser sans simplifier à l’excès.</li>
+                <li>Enjeu d’image publique forte : zéro dérapage, zéro contexte toxique.</li>
+              </ul>
+            </article>
+            <article class="persona-card">
+              <h3>Services & outils pour les professionnels</h3>
+              <p>Formations, logiciels, organismes, assureurs, équipementiers qui ciblent directement les pros animaliers.</p>
+              <ul>
+                <li>Cœur de cible : éducateurs, toiletteurs, comportementalistes, vétérinaires déjà présents sur Planipets Pro.</li>
+                <li>Enjeu : être visible là où les pros viennent chercher du soutien et des ressources.</li>
+                <li>Possibilité de co-programmes avec des pros ambassadeurs.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="formats-publicitaires" class="section-spacious">
+          <div class="section-header">
+            <h2>Quels formats et quels emplacements proposons-nous ?</h2>
+            <p>L’idée n’est pas de tapisser le site de bannières, mais de créer des points de contact utiles et respectueux, qui servent à la fois l’annonceur et le lecteur.</p>
+          </div>
+          <div class="formats-grid">
+            <article class="format-card">
+              <h3>Display responsable</h3>
+              <ul>
+                <li>Bannière horizontale sur les pages stratégiques (accueil, catégories, “Trouver un pro”).</li>
+                <li>Pavés latéraux sur la colonne droite des articles (desktop), réorganisés en bas sur mobile.</li>
+                <li>Insertion modérée en fin d’article (“sponsorisé par…”).</li>
+                <li>Nombre limité d’annonceurs simultanés, fréquence contrôlée, aucune pop-up intrusive ni vidéo auto-play.</li>
+              </ul>
+            </article>
+            <article class="format-card">
+              <h3>Contenu sponsorisé & partenariats éditoriaux</h3>
+              <ul>
+                <li>Articles co-construits “En partenariat avec [Marque]” sur nutrition, anxiété, mobilité ou adoption responsable.</li>
+                <li>Intégration dans une mini-série éditoriale ou un arc de la série Rex &amp; Minou.</li>
+                <li>Interview d’experts de la marque, en respectant la charte éditoriale.</li>
+                <li>Signalement clair des contenus sponsorisés, ton et structure Planipets conservés.</li>
+              </ul>
+            </article>
+            <article class="format-card">
+              <h3>Activations avec les professionnels</h3>
+              <ul>
+                <li>Programmes où les pros Planipets recommandent un produit/service avec codes ou liens dédiés.</li>
+                <li>Challenges ou campagnes co-brandées avec des pros (ex : “Mois du chat sénior”).</li>
+                <li>Votre campagne vit aussi sur le terrain, incarnée par des pros alignés avec vos valeurs.</li>
+              </ul>
+            </article>
+          </div>
+          <div class="format-schema">
+            <div class="schema-title">Où vos campagnes apparaissent dans l’écosystème</div>
+            <div class="schema-grid">
+              <div class="schema-block">
+                <div class="schema-label">Homepage</div>
+                <div class="schema-rect schema-rect--banner">Bannière horizontale</div>
+                <div class="schema-rect schema-rect--cta">CTA discret</div>
+              </div>
+              <div class="schema-block">
+                <div class="schema-label">Articles & Média</div>
+                <div class="schema-rect schema-rect--sidebar">Pavé latéral</div>
+                <div class="schema-rect schema-rect--intext">Insertion fin d’article</div>
+                <div class="schema-rect schema-rect--series">Série Rex &amp; Minou</div>
+              </div>
+              <div class="schema-block">
+                <div class="schema-label">Fiches pros</div>
+                <div class="schema-rect schema-rect--pro">Badge partenaire</div>
+                <div class="schema-rect schema-rect--activation">Activation terrain</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="packs-visibilite" class="section-spacious">
+          <div class="section-header">
+            <h2>Nos packs de visibilité</h2>
+            <p>Les chiffres sont indicatifs et modulables selon la durée et l’intensité souhaitées. L’objectif : aligner votre budget sur la profondeur de collaboration.</p>
+          </div>
+          <div class="packs-grid">
+            <article class="pack-card" data-title="Pack Découverte – Tester l’écosystème Planipets" data-description="Idéal pour une jeune marque ou structure qui veut tester Planipets sur une courte période sans sacrifier le contexte éditorial." data-points="1 mois de campagne display ciblée;Mention dans une newsletter éditoriale;Rapport de fin de campagne (impressions, clics, pages clés)">
+              <h3>Pack Découverte</h3>
+              <p class="pack-baseline">Tester l’écosystème Planipets</p>
+              <p class="pack-price">À partir de 800 €</p>
+              <ul>
+                <li>1 mois de campagne display sur une sélection de pages.</li>
+                <li>Mention dans une newsletter éditoriale.</li>
+                <li>Rapport de fin de campagne.</li>
+              </ul>
+              <p class="pack-target">Pour tester l’affinité avant d’élargir.</p>
+            </article>
+            <article class="pack-card pack-card--featured" data-title="Pack Storytelling – Campagne éditoriale 3 000 €" data-description="Pensé pour construire une narration cohérente autour de votre marque sur 3 mois, avec du display, du contenu et la série Rex &amp; Minou." data-points="3 mois de présence combinée;2 à 3 articles sponsorisés co-écrits;Présence display sur les articles et pages connexes;Mentions dans la série Rex &amp; Minou;Newsletter dédiée à la campagne;Bilan complet : impressions, clics, temps de lecture">
+              <h3>Pack Storytelling</h3>
+              <p class="pack-baseline">Campagne éditoriale 3 000 €</p>
+              <p class="pack-price">3 000 € HT</p>
+              <ul>
+                <li>3 mois de présence combinée sur l’écosystème.</li>
+                <li>1 série de 2 à 3 articles sponsorisés.</li>
+                <li>Présence display sur les articles concernés + sélection connexes.</li>
+                <li>Mentions dans 2 épisodes de la série Rex &amp; Minou.</li>
+                <li>Relais dans une newsletter dédiée.</li>
+                <li>Bilan complet chiffré et qualitatif.</li>
+              </ul>
+              <p class="pack-target">Pour raconter votre marque et construire la préférence.</p>
+            </article>
+            <article class="pack-card" data-title="Pack Partenariat Annuel – Devenir partenaire officiel" data-description="Un programme structurant et visible tout au long de l’année, co-construit avec l’équipe Planipets pour garder le cap sur vos objectifs." data-points="Présence continue et plafonnée sur l’écosystème;Contenus éditoriaux récurrents;Intégration aux événements et campagnes thématiques;Accès prioritaire aux programmes avec les pros;Tableau de bord trimestriel et points stratégiques">
+              <h3>Pack Partenariat Annuel</h3>
+              <p class="pack-baseline">Devenir partenaire officiel Planipets</p>
+              <p class="pack-price">À partir de 9 000 € / an</p>
+              <ul>
+                <li>Présence continue dans l’écosystème (display plafonné).</li>
+                <li>Contenus éditoriaux récurrents, co-programmes thématiques.</li>
+                <li>Accès prioritaire aux programmes avec les pros.</li>
+                <li>Tableau de bord trimestriel + points stratégiques.</li>
+              </ul>
+              <p class="pack-target">Pour les marques ou institutions qui veulent durer.</p>
+            </article>
+          </div>
+          <div id="pack-detail" class="pack-detail" aria-live="polite">
+            <h3 id="pack-detail-title">Sélectionnez un pack pour voir les détails</h3>
+            <p id="pack-detail-description">Survolez ou cliquez sur un pack pour afficher un résumé complet, utile sur mobile.</p>
+            <ul id="pack-detail-points"></ul>
+          </div>
+        </section>
+
+        <section id="processus-annonceurs" class="section-spacious">
+          <div class="section-header">
+            <h2>Comment se passe une collaboration avec Planipets ?</h2>
+            <p>Une méthodologie claire pour aligner vos objectifs et nos chartes, puis déployer une campagne visible et brand safe.</p>
+          </div>
+          <div class="process-timeline">
+            <div class="timeline-step">
+              <span class="timeline-index">1</span>
+              <h3>Prise de contact</h3>
+              <p>Partagez votre marque, vos objectifs et vos contraintes (budget, timing, messages non négociables).</p>
+            </div>
+            <div class="timeline-step">
+              <span class="timeline-index">2</span>
+              <h3>Appel avec Nasser</h3>
+              <p>30 à 45 minutes pour comprendre votre univers, vérifier l’alignement avec nos chartes et clarifier les objectifs.</p>
+            </div>
+            <div class="timeline-step">
+              <span class="timeline-index">3</span>
+              <h3>Proposition éditoriale & média</h3>
+              <p>1 à 2 scénarios de campagne : formats, calendrier, estimations de reach.</p>
+            </div>
+            <div class="timeline-step">
+              <span class="timeline-index">4</span>
+              <h3>Validation & préparation des contenus</h3>
+              <p>Vous validez, nous rédigeons ou co-rédigeons, puis vous relisez avant publication.</p>
+            </div>
+            <div class="timeline-step">
+              <span class="timeline-index">5</span>
+              <h3>Diffusion & suivi</h3>
+              <p>Campagnes diffusées selon le calendrier prévu, avec un suivi intermédiaire.</p>
+            </div>
+            <div class="timeline-step">
+              <span class="timeline-index">6</span>
+              <h3>Bilan & projection</h3>
+              <p>Bilan chiffré et qualitatif partagé, puis décision sur la suite.</p>
+            </div>
+          </div>
+
+          <div id="contact-annonceurs" class="contact-card">
+            <h3>Prêts à lancer votre campagne ?</h3>
+            <p>Planifiez un échange avec Nasser pour cadrer vos objectifs et vos formats.</p>
+            <form class="contact-form">
+              <label>
+                Nom de la structure
+                <input type="text" name="structure" placeholder="Votre organisation" />
+              </label>
+              <label>
+                Secteur
+                <select name="secteur">
+                  <option>Marque / PME</option>
+                  <option>Collectivité / Association</option>
+                  <option>Acteur B2B</option>
+                  <option>Autre</option>
+                </select>
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="vous@exemple.com" />
+              </label>
+              <label>
+                Budget envisagé
+                <select name="budget">
+                  <option>&lt; 3 000 €</option>
+                  <option>3 000 – 10 000 €</option>
+                  <option>&gt; 10 000 €</option>
+                </select>
+              </label>
+              <label>
+                Message / objectifs
+                <textarea name="message" rows="4" placeholder="Parlez-nous de votre campagne, de vos attentes, des formats envisagés..."></textarea>
+              </label>
+              <button type="button" class="btn btn-primary">Planifier un échange avec Nasser</button>
+            </form>
+          </div>
+        </section>
+
+        <section id="arguments-reassurance" class="section-spacious">
+          <div class="section-header">
+            <h2>Ce que nous garantissons à nos annonceurs</h2>
+            <p>Des partenariats alignés sur nos chartes, dans un environnement brand safe et suivi.</p>
+          </div>
+          <div class="four-grid">
+            <article class="reason-card">
+              <h3>Alignement éthique et éditorial</h3>
+              <p>Respect strict de la charte éditoriale et de la charte du bien-être animal.</p>
+              <p>Aucune campagne en contradiction avec le respect de l’animal ou de ses humains.</p>
+            </article>
+            <article class="reason-card">
+              <h3>Transparence sur les performances</h3>
+              <p>Reporting clair : impressions, clics, temps de lecture, portée estimée.</p>
+              <p>Pas de promesses mensongères sur des chiffres que nous ne maîtrisons pas.</p>
+            </article>
+            <article class="reason-card">
+              <h3>Nombre limité d’annonceurs</h3>
+              <p>Planipets n’a pas vocation à devenir un mur de bannières.</p>
+              <p>Quelques partenariats solides plutôt que des dizaines de campagnes simultanées.</p>
+            </article>
+            <article class="reason-card">
+              <h3>Accompagnement humain</h3>
+              <p>Nasser reste votre interlocuteur dédié tout au long de la collaboration.</p>
+              <p>Possibilité d’ajuster la campagne en cours de route selon les retours.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="faq-annonceurs" class="section-spacious">
+          <div class="section-header">
+            <h2>Questions fréquentes des annonceurs</h2>
+            <p>Une FAQ rapide pour répondre aux questions qui reviennent le plus souvent.</p>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-question">En quoi investir sur Planipets est différent d’acheter des pubs Facebook/Google ?</button>
+              <div class="faq-answer">
+                <p>Vous bénéficiez d’un contexte éditorial affinitaire, d’une double audience pros + particuliers et d’un environnement sans contenus toxiques. Les campagnes s’appuient sur des contenus travaillés (articles, séries, Rex &amp; Minou) et sur une communauté réellement intéressée par le bien-être animal.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">Pouvez-vous garantir un nombre de vues ou de clics pour 3 000 € ?</button>
+              <div class="faq-answer">
+                <p>Nous nous appuyons sur l’audience actuelle (plusieurs milliers de visites mensuelles et 10 000 lecteurs côté média) et sur l’historique des campagnes pour estimer les impressions cumulées. L’enjeu principal reste la qualité du contexte et des contenus plutôt qu’un chiffre figé de clics.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">Quels types de produits ou associations refusez-vous ?</button>
+              <div class="faq-answer">
+                <p>Nous refusons tout ce qui va à l’encontre du bien-être animal, du respect des personnes ou de la transparence : élevages douteux, produits pseudo-miracles, promesses impossibles ou contextes toxiques.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">Combien de temps faut-il pour lancer une campagne ?</button>
+              <div class="faq-answer">
+                <p>Comptez 2 à 4 semaines selon la complexité éditoriale : temps de brief, rédaction, validation, puis mise en ligne.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">Peut-on combiner campagne annonceur et mise en avant auprès des pros Planipets ?</button>
+              <div class="faq-answer">
+                <p>Oui, via les activations terrain et les programmes avec les pros. Nous calibrons avec Nasser en fonction de vos objectifs et du calendrier.</p>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
     </div>

@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupTimeline();
   setupProFunnel();
   setupTunnelParticulier();
+  setupAdPageInteractions();
 });
 
 function setupNavMenus() {
@@ -1453,4 +1454,71 @@ function renderTunnelSummary(container) {
     `;
     container.appendChild(card);
   });
+}
+
+function setupAdPageInteractions() {
+  const packsContainer = document.getElementById("packs-visibilite");
+  const packCards = document.querySelectorAll(".pack-card");
+  const detailTitle = document.getElementById("pack-detail-title");
+  const detailDescription = document.getElementById("pack-detail-description");
+  const detailPoints = document.getElementById("pack-detail-points");
+
+  if (packsContainer && packCards.length && detailTitle && detailDescription && detailPoints) {
+    const activateCard = (card) => {
+      packCards.forEach((c) => c.classList.remove("pack-card--active"));
+      card.classList.add("pack-card--active");
+
+      const title = card.dataset.title || card.querySelector("h3")?.textContent || "Pack";
+      const description =
+        card.dataset.description || card.querySelector(".pack-baseline")?.textContent || "";
+      const points = (card.dataset.points || "")
+        .split(";")
+        .map((p) => p.trim())
+        .filter(Boolean);
+
+      detailTitle.textContent = title;
+      detailDescription.textContent = description;
+      detailPoints.innerHTML = "";
+
+      points.forEach((point) => {
+        const li = document.createElement("li");
+        li.textContent = point;
+        detailPoints.appendChild(li);
+      });
+    };
+
+    packCards.forEach((card) => {
+      card.addEventListener("click", () => activateCard(card));
+      card.addEventListener("mouseenter", () => activateCard(card));
+    });
+
+    activateCard(packCards[0]);
+  }
+
+  const faqButtons = document.querySelectorAll(".faq-question");
+  if (faqButtons.length) {
+    faqButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const item = btn.closest(".faq-item");
+        const isOpen = item?.classList.contains("is-open");
+
+        document.querySelectorAll(".faq-item.is-open").forEach((openItem) => {
+          openItem.classList.remove("is-open");
+        });
+
+        if (item && !isOpen) {
+          item.classList.add("is-open");
+        }
+      });
+    });
+  }
+
+  const heroCta = document.getElementById("cta-annonceurs");
+  const contactSection = document.getElementById("contact-annonceurs");
+  if (heroCta && contactSection) {
+    heroCta.addEventListener("click", (event) => {
+      event.preventDefault();
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    });
+  }
 }
