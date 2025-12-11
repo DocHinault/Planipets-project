@@ -7,21 +7,20 @@
   <link rel="stylesheet" href="assets/css/planipets.css" />
   <script src="assets/js/planipets.js" defer></script>
 </head>
-<body>
-  <div class="page-wrapper">
+<body class="gamification-pro-page">
+  <div class="page-wrapper" id="gamificationProRoot">
     <div class="content-shell">
-      <header class="simple-header">
+      <header class="site-header" aria-label="Navigation principale">
         <div class="brand-block">
           <div class="brand-logo" aria-hidden="true">
             <svg viewBox="0 0 64 64" aria-hidden="true">
               <defs>
-                <linearGradient id="pawGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#1e293b" />
-                  <stop offset="50%" stop-color="#0f172a" />
-                  <stop offset="100%" stop-color="#020617" />
+                <linearGradient id="pawGradNav" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0f8c3c" />
+                  <stop offset="100%" stop-color="#0b7031" />
                 </linearGradient>
               </defs>
-              <circle cx="32" cy="32" r="30" fill="url(#pawGrad)" />
+              <circle cx="32" cy="32" r="30" fill="url(#pawGradNav)" />
               <path
                 d="M21 24c2.8 0 4.6-2.2 4.6-4.7C25.6 17.9 23.8 16 21 16s-4.7 1.9-4.7 3.3C16.3 21.8 18.2 24 21 24zm10.9 0c2.8 0 4.6-2.2 4.7-4.7 0-1.4-1.9-3.3-4.7-3.3-2.8 0-4.6 1.9-4.6 3.3 0 2.5 1.8 4.7 4.6 4.7zm9.7 2.8c2.6 0 4.3-2.1 4.3-4.5 0-1.3-1.7-3.1-4.3-3.1s-4.4 1.8-4.4 3.1c0 2.4 1.8 4.5 4.4 4.5zM24.3 40c0 4.5 4 8 7.7 8 3.7 0 7.7-3.5 7.7-8 0-4.9-3.1-9-7.7-9s-7.7 4.1-7.7 9z"
                 fill="#fefce8"
@@ -33,17 +32,151 @@
             </svg>
           </div>
           <div class="brand-meta">
-            <div class="brand-meta-title">Gamification Pro</div>
-            <div class="brand-meta-sub">Parcours professionnels (brouillon)</div>
+            <div class="brand-meta-title">Planipets</div>
+            <div class="brand-meta-sub">Revenus, bien-être animal & feuille de route 2026</div>
           </div>
         </div>
-        <a class="back-link" href="Planipets.html">← Retour à l’accueil</a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+        <nav class="nav-links">
+          <a href="Planipets.html">Accueil</a>
+          <a href="chronologie.html">Chronologie 2026</a>
+          <a href="swot.html">SWOT 2026</a>
+          <div class="nav-item has-submenu" tabindex="0">Tunnel de ventes
+            <div class="nav-submenu" aria-hidden="true">
+              <a href="tunnel-pro.html">Tunnel Professionnel</a>
+              <a href="tunnel-particulier.html">Tunnel Particulier</a>
+            </div>
+          </div>
+          <a href="espace-publicitaire.html">Espace publicitaire</a>
+          <div class="nav-item has-submenu" tabindex="0">Gamification
+            <div class="nav-submenu" aria-hidden="true">
+              <a href="gamification-pro.html">Gamification Professionnels</a>
+              <a href="gamification-particulier.html">Gamification Particuliers</a>
+            </div>
+          </div>
+        </nav>
       </header>
 
       <main>
-        <h1>Gamification – côté Professionnels (brouillon)</h1>
-        <section class="page-placeholder">
-          <p><strong>Section à compléter.</strong><br />Prévois ici les niveaux, quêtes et récompenses pour les pros.</p>
+        <section class="gamification-hero">
+          <div class="hero-text">
+            <p class="eyebrow">Expérience côté pros</p>
+            <h1>Gamification Planipets – Côté professionnels</h1>
+            <p class="hero-subtitle">
+              Transforme ton activité en parcours de progression : niveaux, quêtes, boutique Pro et arbre de compétences aligné avec ta pratique.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Visualise ta progression</span>
+              <span class="pill">Gagne des avantages utiles pour ton activité</span>
+              <span class="pill">Bénéficie d’un accompagnement structuré</span>
+            </div>
+            <div class="hero-actions">
+              <a class="cta primary" href="#levels-pro">Découvrir les niveaux Pro</a>
+            </div>
+          </div>
+          <div class="hero-panel">
+            <div class="hero-panel-title">XP Pro & Points Pro</div>
+            <ul class="hero-counter-list">
+              <li><strong>XP Pro</strong> : finalisation de la fiche, agenda actif, volume de rendez-vous, avis.</li>
+              <li><strong>Points Pro</strong> : jalons clés, formations, implications communautaires.</li>
+              <li><strong>Boutique Pro</strong> : des leviers concrets pour ton activité, sans hasard.</li>
+            </ul>
+            <p class="hero-panel-foot">Transparence totale, récompenses prévisibles.</p>
+          </div>
+        </section>
+
+        <section class="section-card" id="pourquoi-pro">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Valeur pour ton activité</p>
+              <h2>Pourquoi une gamification pour les pros ?</h2>
+              <p class="section-sub">Valoriser ton engagement, structurer ta montée en puissance et aligner tes actions avec la charte Planipets.</p>
+            </div>
+          </div>
+          <div class="card-grid four-cols">
+            <article class="info-card">
+              <h3>Donner du sens à ton investissement</h3>
+              <p>Chaque action (mettre à jour ton profil, collecter des avis, participer à des événements) est reconnue.</p>
+            </article>
+            <article class="info-card">
+              <h3>Structurer ta montée en puissance</h3>
+              <p>Les niveaux et l’arbre de compétences te montrent clairement où tu en es et où tu peux aller.</p>
+            </article>
+            <article class="info-card">
+              <h3>Créer des revenus plus stables</h3>
+              <p>Les quêtes et la boutique encouragent des comportements qui optimisent ta visibilité et ta relation clients.</p>
+            </article>
+            <article class="info-card">
+              <h3>Aligner avec la charte Planipets</h3>
+              <p>On récompense les pros qui respectent les valeurs et le bien-être animal, pas les pratiques agressives.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-card" id="xp-points-pro">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">XP Pro & points Pro</p>
+              <h2>XP Pro, points Pro : comment ça marche ?</h2>
+              <p class="section-sub">Montée en niveau via l’XP, avantages via les points Pro : voici quelques exemples d’actions.</p>
+            </div>
+          </div>
+          <div class="quest-table" id="proQuestTable"></div>
+          <p class="legend-text">Tableau indicatif, ajusté avec les pros pilotes.</p>
+        </section>
+
+        <section class="section-card" id="levels-pro">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Progression</p>
+              <h2>Niveaux Pro & avantages</h2>
+              <p class="section-sub">L’XP Pro ne se dépense pas : elle débloque des paliers et une reconnaissance visible.</p>
+            </div>
+          </div>
+          <div class="gamification-levels">
+            <div class="level-list" id="proLevelList" aria-label="Choix de niveau"></div>
+            <div class="level-detail-panel" id="proLevelDetail"></div>
+          </div>
+        </section>
+
+        <section class="section-card" id="skill-tree-pro">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Arbre de compétences</p>
+              <h2>Quêtes Pro & arbre de compétences Planipets</h2>
+              <p class="section-sub">Des piliers alignés sur ta pratique pour guider tes prochaines actions.</p>
+            </div>
+          </div>
+          <div class="skill-tree" id="proSkillTree"></div>
+          <div class="skill-detail" id="proSkillDetail" aria-live="polite"></div>
+        </section>
+
+        <section class="section-card" id="shop-pro">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Boutique Pro</p>
+              <h2>La boutique Pro : transformer tes points en leviers</h2>
+              <p class="section-sub">Tu sais exactement ce que tu obtiens pour chaque nombre de points. Pas de jackpot aléatoire.</p>
+            </div>
+          </div>
+          <div class="shop-grid" id="proShop"></div>
+          <div class="shop-detail" id="proShopDetail" aria-live="polite"></div>
+        </section>
+
+        <section class="section-card golden-rules" id="golden-rules-pro">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Éthique</p>
+              <h2>Les règles d’or de la gamification Planipets</h2>
+              <p class="section-sub">Même logique que pour les particuliers : bien-être animal avant tout.</p>
+            </div>
+          </div>
+          <ul class="golden-rules-list">
+            <li><strong>Pas un casino</strong> – Pas de roulette, pas de jackpot aléatoire : les récompenses sont claires et prévisibles.</li>
+            <li><strong>Pas d’incitation à surconsommer</strong> – On valorise la qualité de service, pas la surenchère commerciale.</li>
+            <li><strong>Toujours au service du bien-être animal</strong> – Les mécaniques sont alignées avec la charte Planipets.</li>
+            <li><strong>Lisible & compréhensible</strong> – Pour chaque action : quel impact, quelle récompense, pourquoi.</li>
+          </ul>
         </section>
       </main>
     </div>

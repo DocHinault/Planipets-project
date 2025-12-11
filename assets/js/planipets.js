@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   setupProFunnel();
   setupTunnelParticulier();
   setupAdPageInteractions();
+  initGamificationParticulier();
+  initGamificationPro();
 });
 
 function setupNavMenus() {
@@ -1521,4 +1523,647 @@ function setupAdPageInteractions() {
       contactSection.scrollIntoView({ behavior: "smooth" });
     });
   }
+}
+
+function initGamificationParticulier() {
+  const root = document.getElementById("gamificationParticulierRoot");
+  if (!root) return;
+
+  const levelList = document.getElementById("particulierLevelList");
+  const levelDetail = document.getElementById("particulierLevelDetail");
+  const questTable = document.getElementById("particulierQuestTable");
+  const skillTree = document.getElementById("particulierSkillTree");
+  const skillDetail = document.getElementById("particulierSkillDetail");
+  const shopGrid = document.getElementById("particulierShop");
+  const shopDetail = document.getElementById("particulierShopDetail");
+
+  const gamificationParticulierLevels = [
+    {
+      id: "p1",
+      title: "Niveau 1 – Découvreur",
+      range: "0–199 XP",
+      description: "Tu découvres Planipets et prends en main ton espace.",
+      benefits: ["Badge \"Découvreur\"", "Accès aux quêtes de base"],
+    },
+    {
+      id: "p2",
+      title: "Niveau 2 – Gardien attentif",
+      range: "200–599 XP",
+      description: "Tu commences à suivre régulièrement le bien-être de ton animal.",
+      benefits: [
+        "Badge \"Gardien attentif\"",
+        "Suggestions d’articles personnalisés",
+        "Premiers codes promo / offres test (placeholder)",
+      ],
+    },
+    {
+      id: "p3",
+      title: "Niveau 3 – Protecteur engagé",
+      range: "600–1 299 XP",
+      description: "Tu utilises Planipets pour prévenir plutôt que subir.",
+      benefits: [
+        "Badge \"Protecteur engagé\"",
+        "Accès à des quêtes intermédiaires",
+        "Invitations à des webinaires thématiques",
+      ],
+    },
+    {
+      id: "p4",
+      title: "Niveau 4 – Complice exemplaire",
+      range: "1 300–2 499 XP",
+      description: "Tu es très actif : avis, quêtes, suivi régulier.",
+      benefits: [
+        "Badge \"Complice exemplaire\"",
+        "Accès prioritaire à certains événements / lives",
+        "Avantages renforcés en boutique (ex : options réservées aux niveaux 4+)",
+      ],
+    },
+    {
+      id: "p5",
+      title: "Niveau 5 – Héros Planipets",
+      range: "2 500+ XP",
+      description: "Ton compte devient un vrai carnet de vie pour ton animal.",
+      benefits: [
+        "Badge \"Héros Planipets\"",
+        "Accès à tous les arcs de quêtes",
+        "Invitations spéciales (tests de nouvelles fonctionnalités, clubs locaux, etc.)",
+      ],
+    },
+  ];
+
+  const particulierQuests = [
+    {
+      type: "Création du compte & profil de ton animal",
+      examples: [
+        "Créer ton compte Planipets et ajouter la fiche de ton animal.",
+        "Compléter les infos clés (âge, poids, habitudes, particularités).",
+      ],
+      reward: "+50 XP · +20 points",
+    },
+    {
+      type: "Première prise de rendez-vous via Planipets",
+      examples: ["Réserver un rendez-vous avec un pro (éducateur, comportementaliste, toiletteur…)."],
+      reward: "+80 XP · +40 points",
+    },
+    {
+      type: "Laisser un avis après un rendez-vous",
+      examples: [
+        "Donner une note et un retour sur la séance.",
+        "Aide d’autres propriétaires à choisir en confiance.",
+      ],
+      reward: "+40 XP · +20 points",
+    },
+    {
+      type: "Lire un article et cocher une mini check-list",
+      examples: [
+        "Lire un article ‘Prévenir l’ennui chez le chat d’intérieur’ et cocher les actions que tu appliques.",
+      ],
+      reward: "+20 XP · +10 points",
+    },
+    {
+      type: "Participer à un défi bien-être",
+      examples: ["Challenge 7 jours : 10 minutes de jeu par jour avec ton chien / chat."],
+      reward: "+100 XP · +50 points",
+    },
+  ];
+
+  const particulierSkillTree = [
+    {
+      branch: "Santé & prévention",
+      nodes: [
+        {
+          title: "Vaccins & visites régulières",
+          quests: ["Renseigner la date du dernier vaccin"],
+          reward: "+25 XP · +10 points",
+        },
+        {
+          title: "Suivi du poids",
+          quests: ["Ajouter le poids de ton animal ce mois-ci"],
+          reward: "+15 XP · +8 points",
+        },
+        {
+          title: "Prévention parasites",
+          quests: ["Lire un article sur la prévention des tiques"],
+          reward: "+20 XP · +10 points",
+        },
+      ],
+    },
+    {
+      branch: "Éducation & comportement",
+      nodes: [
+        {
+          title: "Apprentissages de base",
+          quests: ["Appliquer un exercice simple 3 jours de suite et cocher la case"],
+          reward: "+30 XP · +12 points",
+        },
+        {
+          title: "Gestion de la peur / réactivité",
+          quests: ["Prendre un RDV avec un éducateur si nécessaire"],
+          reward: "+40 XP · +20 points",
+        },
+        {
+          title: "Jeu structuré",
+          quests: ["Prévoir 10 minutes de jeu guidé et le reporter"],
+          reward: "+24 XP · +12 points",
+        },
+      ],
+    },
+    {
+      branch: "Activité & environnement",
+      nodes: [
+        {
+          title: "Activité physique",
+          quests: ["Reporter la durée des sorties sur une semaine"],
+          reward: "+28 XP · +12 points",
+        },
+        {
+          title: "Enrichissement de l’environnement",
+          quests: ["Ajouter un nouveau jeu d’enrichissement"],
+          reward: "+24 XP · +10 points",
+        },
+        {
+          title: "Routine quotidienne",
+          quests: ["Cadrer la routine matin/soir pendant 5 jours"],
+          reward: "+22 XP · +10 points",
+        },
+      ],
+    },
+    {
+      branch: "Lien émotionnel & quotidien",
+      nodes: [
+        {
+          title: "Interpréter les signaux de ton animal",
+          quests: ["Lire un article sur les signaux d’apaisement"],
+          reward: "+20 XP · +10 points",
+        },
+        {
+          title: "Créer des rituels positifs",
+          quests: ["Faire un rituel calme le soir pendant 7 jours"],
+          reward: "+32 XP · +14 points",
+        },
+        {
+          title: "Réduire le stress au quotidien",
+          quests: ["Tester une astuce anti-stress validée par un pro"],
+          reward: "+24 XP · +12 points",
+        },
+      ],
+    },
+  ];
+
+  const particulierShop = [
+    {
+      title: "Pack avatars & badges premium",
+      cost: "150 points",
+      description: "Badges visuels spéciaux, thèmes de profil, avatars pour ton animal.",
+    },
+    {
+      title: "Accès à un atelier en ligne",
+      cost: "300 points",
+      description: "Atelier en visio avec un pro sur un thème (prévention, jeu, cohabitation…).",
+    },
+    {
+      title: "Réduction chez un pro partenaire",
+      cost: "400 points",
+      description: "Code promo pour une séance ou un pack (ex : -10 %, placeholder).",
+    },
+    {
+      title: "Accès anticipé à une nouvelle fonctionnalité Planipets",
+      cost: "250 points",
+      description: "Tu testes en avant-première des nouveautés.",
+    },
+  ];
+
+  if (questTable) {
+    renderQuestTable(questTable, particulierQuests);
+  }
+
+  if (levelList && levelDetail) {
+    gamificationParticulierLevels.forEach((level, index) => {
+      const item = document.createElement("button");
+      item.className = "level-item";
+      item.innerHTML = `<div class="level-item-title">${level.title}</div><div class="level-item-range">${level.range}</div>`;
+      item.addEventListener("click", () => renderParticulierLevel(level.id));
+      item.addEventListener("mouseenter", () => renderParticulierLevel(level.id));
+      levelList.appendChild(item);
+      if (index === 0) {
+        item.classList.add("level-item--active");
+      }
+    });
+
+    const renderParticulierLevel = (levelId) => {
+      const level = gamificationParticulierLevels.find((l) => l.id === levelId) || gamificationParticulierLevels[0];
+
+      levelList.querySelectorAll(".level-item").forEach((btn, idx) => {
+        const matches = gamificationParticulierLevels[idx].id === level.id;
+        btn.classList.toggle("level-item--active", matches);
+      });
+
+      levelDetail.innerHTML = `
+        <div class="level-meta">${level.range}</div>
+        <h3>${level.title}</h3>
+        <p>${level.description}</p>
+        <ul class="level-benefits">${level.benefits.map((b) => `<li>${b}</li>`).join("")}</ul>
+      `;
+    };
+
+    renderParticulierLevel(gamificationParticulierLevels[0].id);
+  }
+
+  if (skillTree && skillDetail) {
+    particulierSkillTree.forEach((branch) => {
+      const branchEl = document.createElement("div");
+      branchEl.className = "skill-branch";
+      branchEl.innerHTML = `<h4>${branch.branch}</h4>`;
+      const nodeList = document.createElement("div");
+      nodeList.className = "skill-node-list";
+
+      branch.nodes.forEach((node) => {
+        const nodeEl = document.createElement("button");
+        nodeEl.className = "skill-node";
+        nodeEl.textContent = node.title;
+        nodeEl.addEventListener("mouseenter", () => updateSkillDetail(branch.branch, node));
+        nodeEl.addEventListener("click", () => updateSkillDetail(branch.branch, node));
+        nodeList.appendChild(nodeEl);
+      });
+
+      branchEl.appendChild(nodeList);
+      skillTree.appendChild(branchEl);
+    });
+
+    const updateSkillDetail = (branchName, node) => {
+      skillDetail.innerHTML = `
+        <strong>${branchName} · ${node.title}</strong>
+        <p>${node.quests.join(" ")}</p>
+        <p class="muted">Récompense indicative : ${node.reward}</p>
+      `;
+    };
+
+    updateSkillDetail(particulierSkillTree[0].branch, particulierSkillTree[0].nodes[0]);
+  }
+
+  if (shopGrid && shopDetail) {
+    const renderShopDetail = (item) => {
+      shopDetail.innerHTML = `
+        <strong>${item.title}</strong>
+        <p class="cost">${item.cost}</p>
+        <p>${item.description}</p>
+      `;
+    };
+
+    particulierShop.forEach((item, idx) => {
+      const card = document.createElement("button");
+      card.className = "shop-item";
+      card.innerHTML = `<div class="shop-title">${item.title}</div><div class="cost">${item.cost}</div><p>${item.description}</p>`;
+      card.addEventListener("click", () => activateCard(card, item));
+      card.addEventListener("mouseenter", () => activateCard(card, item));
+      shopGrid.appendChild(card);
+
+      if (idx === 0) {
+        card.classList.add("shop-item--active");
+        renderShopDetail(item);
+      }
+    });
+
+    const activateCard = (card, item) => {
+      shopGrid.querySelectorAll(".shop-item").forEach((c) => c.classList.remove("shop-item--active"));
+      card.classList.add("shop-item--active");
+      renderShopDetail(item);
+    };
+  }
+
+  const ctaVoirComment = document.getElementById("ctaVoirComment");
+  if (ctaVoirComment) {
+    ctaVoirComment.addEventListener("click", (event) => {
+      event.preventDefault();
+      document.getElementById("pourquoi-particulier")?.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+}
+
+function initGamificationPro() {
+  const root = document.getElementById("gamificationProRoot");
+  if (!root) return;
+
+  const levelList = document.getElementById("proLevelList");
+  const levelDetail = document.getElementById("proLevelDetail");
+  const questTable = document.getElementById("proQuestTable");
+  const skillTree = document.getElementById("proSkillTree");
+  const skillDetail = document.getElementById("proSkillDetail");
+  const shopGrid = document.getElementById("proShop");
+  const shopDetail = document.getElementById("proShopDetail");
+
+  const gamificationProLevels = [
+    {
+      id: "pro1",
+      title: "Niveau 1 – Explorateur",
+      range: "0–299 XP Pro",
+      description: "Tu découvres l’écosystème Planipets.",
+      benefits: ["Badge Explorateur sur ton espace Pro.", "Accès aux quêtes de base."],
+    },
+    {
+      id: "pro2",
+      title: "Niveau 2 – Partenaire",
+      range: "300–899 XP Pro",
+      description: "Ton profil est en ligne, tu commences à recevoir des rendez-vous.",
+      benefits: [
+        "Badge Partenaire.",
+        "Accès à des statistiques simples sur tes rendez-vous.",
+        "Accès aux premiers slots de mise en avant (via la boutique).",
+      ],
+    },
+    {
+      id: "pro3",
+      title: "Niveau 3 – Référent local",
+      range: "900–2 299 XP Pro",
+      description: "Tu es régulièrement choisi dans ta zone.",
+      benefits: [
+        "Badge Référent local.",
+        "Visibilité renforcée dans certaines listes (ex : tag ‘Recommandé’).",
+        "Priorité pour certains programmes pilotes (boutique, campagnes).",
+      ],
+    },
+    {
+      id: "pro4",
+      title: "Niveau 4 – Expert Planipets",
+      range: "2 300–4 499 XP Pro",
+      description: "Tu t’impliques dans la communauté et la pédagogie.",
+      benefits: [
+        "Badge Expert Planipets.",
+        "Accès à des modules de formation avancés.",
+        "Visibilité renforcée dans les contenus (ex : citations, interviews).",
+      ],
+    },
+    {
+      id: "pro5",
+      title: "Niveau 5 – Ambassadeur",
+      range: "4 500+ XP Pro",
+      description: "Tu deviens un partenaire clé de Planipets.",
+      benefits: [
+        "Badge Ambassadeur.",
+        "Accès aux programmes d’ambassadeurs (co-création, événements, co-branding).",
+        "Conditions privilégiées sur certains leviers (à définir).",
+      ],
+    },
+  ];
+
+  const proQuests = [
+    {
+      type: "Fiche Pro complète",
+      examples: ["Compléter photo, bio, tarifs, zones d’intervention."],
+      reward: "+90 XP Pro · +40 points Pro",
+    },
+    {
+      type: "Activation de l’agenda",
+      examples: ["Activer tes créneaux réservables et confirmer ton premier rendez-vous."],
+      reward: "+110 XP Pro · +60 points Pro",
+    },
+    {
+      type: "Collecte d’avis",
+      examples: ["Obtenir X avis avec note ≥ 4,5.", "Répondre aux retours pour rassurer les futurs clients."],
+      reward: "+70 XP Pro · +30 points Pro",
+    },
+    {
+      type: "Participation formation / live",
+      examples: ["Participer à un live ou atelier ‘Communication avec les clients humains’."],
+      reward: "+60 XP Pro · +30 points Pro",
+    },
+    {
+      type: "Contribution média",
+      examples: ["Contribuer à un article ou témoignage sur Planipets Media."],
+      reward: "+80 XP Pro · +40 points Pro",
+    },
+  ];
+
+  const gamificationProSkillTree = [
+    {
+      branch: "Qualité de service & bien-être animal",
+      nodes: [
+        {
+          title: "Charte Planipets signée & intégrée",
+          quests: ["Compléter & valider la charte sur ton espace Pro."],
+          reward: "+60 XP Pro · +30 points Pro",
+        },
+        {
+          title: "Collecte d’avis de qualité",
+          quests: ["Obtenir X avis avec note ≥ 4,5."],
+          reward: "+70 XP Pro · +30 points Pro",
+        },
+        {
+          title: "Suivi post-séance",
+          quests: ["Mettre en place un message post-séance via Planipets."],
+          reward: "+55 XP Pro · +24 points Pro",
+        },
+      ],
+    },
+    {
+      branch: "Relation & pédagogie avec les humains",
+      nodes: [
+        {
+          title: "Explication claire des méthodes",
+          quests: ["Rédiger un texte pédagogique dans ta fiche Pro."],
+          reward: "+45 XP Pro · +20 points Pro",
+        },
+        {
+          title: "Gestion des attentes clients",
+          quests: ["Créer un guide d’accueil envoyable après chaque prise de rendez-vous."],
+          reward: "+50 XP Pro · +22 points Pro",
+        },
+        {
+          title: "Outils pédagogiques",
+          quests: ["Participer à un live ou atelier ‘Communication avec les clients humains’."],
+          reward: "+60 XP Pro · +30 points Pro",
+        },
+      ],
+    },
+    {
+      branch: "Visibilité & marketing éthique",
+      nodes: [
+        {
+          title: "Profil complet & cohérent",
+          quests: ["Compléter photo, bio, tarifs, zones d’intervention."],
+          reward: "+65 XP Pro · +28 points Pro",
+        },
+        {
+          title: "Participation à des contenus média",
+          quests: ["Contribuer à un article ou témoignage sur Planipets Media."],
+          reward: "+80 XP Pro · +40 points Pro",
+        },
+        {
+          title: "Présence locale amplifiée",
+          quests: ["Partager une actualité locale ou un atelier sur Planipets."],
+          reward: "+55 XP Pro · +26 points Pro",
+        },
+      ],
+    },
+    {
+      branch: "Vie de la communauté & co-construction",
+      nodes: [
+        {
+          title: "Participation aux groupes / forum",
+          quests: ["Répondre à une discussion d’entraide (forum, groupe…)."],
+          reward: "+45 XP Pro · +20 points Pro",
+        },
+        {
+          title: "Parrainage de nouveaux pros",
+          quests: ["Parrainer un pro qui signe & s’active."],
+          reward: "+70 XP Pro · +35 points Pro",
+        },
+        {
+          title: "Feedback produit structuré",
+          quests: ["Participer à un atelier feedback sur de nouvelles fonctionnalités."],
+          reward: "+60 XP Pro · +28 points Pro",
+        },
+      ],
+    },
+  ];
+
+  const proShopItems = [
+    {
+      title: "Boost visibilité 7 jours",
+      cost: "300 points Pro",
+      description: "Mise en avant de ta fiche sur certaines pages / résultats (placeholders).",
+    },
+    {
+      title: "Slot newsletter Pro ou grand public",
+      cost: "500 points Pro",
+      description: "Mention de ton activité dans une newsletter ciblée (Pro ou particuliers).",
+    },
+    {
+      title: "Réduction sur accompagnement Planipets",
+      cost: "400 points Pro",
+      description: "Réduction sur un accompagnement / coaching avec l’équipe Planipets.",
+    },
+    {
+      title: "Accès à un module de formation avancé",
+      cost: "250 points Pro",
+      description: "Formation sur un sujet clé (marketing éthique, gestion de clientèle, etc.).",
+    },
+  ];
+
+  if (questTable) {
+    renderQuestTable(questTable, proQuests);
+  }
+
+  if (levelList && levelDetail) {
+    gamificationProLevels.forEach((level, index) => {
+      const item = document.createElement("button");
+      item.className = "level-item";
+      item.innerHTML = `<div class="level-item-title">${level.title}</div><div class="level-item-range">${level.range}</div>`;
+      item.addEventListener("click", () => renderProLevel(level.id));
+      item.addEventListener("mouseenter", () => renderProLevel(level.id));
+      levelList.appendChild(item);
+      if (index === 0) {
+        item.classList.add("level-item--active");
+      }
+    });
+
+    const renderProLevel = (levelId) => {
+      const level = gamificationProLevels.find((l) => l.id === levelId) || gamificationProLevels[0];
+
+      levelList.querySelectorAll(".level-item").forEach((btn, idx) => {
+        const matches = gamificationProLevels[idx].id === level.id;
+        btn.classList.toggle("level-item--active", matches);
+      });
+
+      levelDetail.innerHTML = `
+        <div class="level-meta">${level.range}</div>
+        <h3>${level.title}</h3>
+        <p>${level.description}</p>
+        <ul class="level-benefits">${level.benefits.map((b) => `<li>${b}</li>`).join("")}</ul>
+      `;
+    };
+
+    renderProLevel(gamificationProLevels[0].id);
+  }
+
+  if (skillTree && skillDetail) {
+    gamificationProSkillTree.forEach((branch) => {
+      const branchEl = document.createElement("div");
+      branchEl.className = "skill-branch";
+      branchEl.innerHTML = `<h4>${branch.branch}</h4>`;
+      const nodeList = document.createElement("div");
+      nodeList.className = "skill-node-list";
+
+      branch.nodes.forEach((node) => {
+        const nodeEl = document.createElement("button");
+        nodeEl.className = "skill-node";
+        nodeEl.textContent = node.title;
+        nodeEl.addEventListener("mouseenter", () => updateSkillDetail(branch.branch, node));
+        nodeEl.addEventListener("click", () => updateSkillDetail(branch.branch, node));
+        nodeList.appendChild(nodeEl);
+      });
+
+      branchEl.appendChild(nodeList);
+      skillTree.appendChild(branchEl);
+    });
+
+    const updateSkillDetail = (branchName, node) => {
+      skillDetail.innerHTML = `
+        <strong>${branchName} · ${node.title}</strong>
+        <p>${node.quests.join(" ")}</p>
+        <p class="muted">Récompense indicative : ${node.reward}</p>
+      `;
+    };
+
+    updateSkillDetail(gamificationProSkillTree[0].branch, gamificationProSkillTree[0].nodes[0]);
+  }
+
+  if (shopGrid && shopDetail) {
+    const renderShopDetail = (item) => {
+      shopDetail.innerHTML = `
+        <strong>${item.title}</strong>
+        <p class="cost">${item.cost}</p>
+        <p>${item.description}</p>
+      `;
+    };
+
+    proShopItems.forEach((item, idx) => {
+      const card = document.createElement("button");
+      card.className = "shop-item";
+      card.innerHTML = `<div class="shop-title">${item.title}</div><div class="cost">${item.cost}</div><p>${item.description}</p>`;
+      card.addEventListener("click", () => activateCard(card, item));
+      card.addEventListener("mouseenter", () => activateCard(card, item));
+      shopGrid.appendChild(card);
+
+      if (idx === 0) {
+        card.classList.add("shop-item--active");
+        renderShopDetail(item);
+      }
+    });
+
+    const activateCard = (card, item) => {
+      shopGrid.querySelectorAll(".shop-item").forEach((c) => c.classList.remove("shop-item--active"));
+      card.classList.add("shop-item--active");
+      renderShopDetail(item);
+    };
+  }
+}
+
+function renderQuestTable(container, quests) {
+  const table = document.createElement("table");
+  const thead = document.createElement("thead");
+  const tbody = document.createElement("tbody");
+
+  thead.innerHTML = `
+    <tr>
+      <th>Type d’action</th>
+      <th>Exemple concret</th>
+      <th>XP + Points boutique obtenus</th>
+    </tr>
+  `;
+
+  quests.forEach((quest) => {
+    const row = document.createElement("tr");
+    const examples = quest.examples.map((ex) => `<div>${ex}</div>`).join("");
+    row.innerHTML = `
+      <td>${quest.type}</td>
+      <td>${examples}</td>
+      <td><strong>${quest.reward}</strong></td>
+    `;
+    tbody.appendChild(row);
+  });
+
+  table.appendChild(thead);
+  table.appendChild(tbody);
+  container.appendChild(table);
 }
