@@ -59,28 +59,45 @@
         </nav>
       </header>
 
-      <header class="simple-header reveal-on-scroll">
-        <h1>Chronologie 2026</h1>
-        <a class="back-link" href="Planipets.html">← Retour à l’accueil</a>
-      </header>
+      <main class="timeline-layout" id="timeline-2026">
+        <section class="timeline-rail-section">
+          <header class="section-header">
+            <div>
+              <p class="eyebrow">Roadmap 2026</p>
+              <h1>Feuille de route Planipets 2026</h1>
+              <p class="section-sub">
+                Survole ou clique sur chaque mois pour découvrir les projets, semaine par semaine.
+              </p>
+            </div>
+          </header>
 
-      <section id="timeline-2026" class="timeline-section">
-        <div class="timeline-header reveal-on-scroll">
-          <p class="timeline-kicker">Roadmap 2026</p>
-          <h1>Feuille de route Planipets 2026</h1>
-          <p class="timeline-intro">
-            Survole ou clique sur chaque mois pour découvrir les projets, semaine par semaine.
-          </p>
-        </div>
-
-        <div class="timeline-rail-wrapper">
-          <div class="timeline-rail" id="timelineRail" aria-label="Chronologie 2026">
-            <!-- Injecté en JS -->
+          <div class="timeline-rail-wrapper">
+            <div class="timeline-rail" aria-label="Chronologie 2026">
+              <div class="timeline-months" id="timelineMonths"></div>
+              <div class="timeline-highlight-bar" id="timelineHighlightBar"></div>
+            </div>
           </div>
-        </div>
 
-        <div class="timeline-month-panel" id="timelineMonthPanel" aria-live="polite"></div>
-      </section>
+          <div class="quarter-summary" id="quarterSummary">
+            <div class="quarter-summary-header">
+              <div class="quarter-pill">
+                <span class="quarter-dot"></span>
+                <span id="quarterLabel">T1 2026 – Fondations</span>
+              </div>
+              <span class="quarter-north-star">
+                North Star : revenu mensuel généré pour les pros
+              </span>
+            </div>
+            <div class="quarter-key-metrics" id="quarterMetrics"></div>
+          </div>
+        </section>
+
+        <section class="timeline-details" aria-label="Détails mois & projets 2026">
+          <div class="timeline-details-inner" id="detailsContainer">
+            <!-- Filled by JS -->
+          </div>
+        </section>
+      </main>
     </div>
   </div>
 </body>

@@ -1,11 +1,18 @@
 const roadmap2026 = [
   {
     id: "2026-01",
+    label: "Janvier 2026",
     monthLabel: "Janvier 2026",
     monthShort: "Jan.",
     theme: "Fondations & clarification de l’offre Pro",
     icon: "calendar",
     summary: "Clarifier la promesse Pro, cadrer les KPIs et poser les bases produit.",
+    quarter: "T1 2026 · Fondations",
+    metrics: [
+      "Promesse Pro clarifiée",
+      "KPIs prioritaires alignés",
+      "Sprint correctif planifié",
+    ],
     weeks: [
       {
         label: "Semaine 1",
@@ -47,11 +54,18 @@ const roadmap2026 = [
   },
   {
     id: "2026-02",
+    label: "Février 2026",
     monthLabel: "Février 2026",
     monthShort: "Fév.",
     theme: "Hygiène produit & stack data",
     icon: "layers",
     summary: "Corrections rapides, uniformisation des formulaires et instrumentation des événements clés.",
+    quarter: "T1 2026 · Fondations",
+    metrics: [
+      "Irritants critiques corrigés",
+      "Formulaires uniformisés",
+      "Tracking déployé sur parcours clés",
+    ],
     weeks: [
       {
         label: "Semaine 1",
@@ -93,11 +107,18 @@ const roadmap2026 = [
   },
   {
     id: "2026-03",
+    label: "Mars 2026",
     monthLabel: "Mars 2026",
     monthShort: "Mars",
     theme: "Spécification boutique & gamification",
     icon: "rocket",
     summary: "Choix catalogue pilote, règles de commission et conception des niveaux Pro.",
+    quarter: "T1 2026 · Fondations",
+    metrics: [
+      "Catalogue pilote cadré",
+      "Règles de commission définies",
+      "Scénarios de niveaux Pro validés",
+    ],
     weeks: [
       {
         label: "Semaine 1",
@@ -139,11 +160,18 @@ const roadmap2026 = [
   },
   {
     id: "2026-04",
+    label: "Avril 2026",
     monthLabel: "Avril 2026",
     monthShort: "Avr.",
     theme: "Partenaires boutique & intégration",
     icon: "handshake",
     summary: "Sélection des partenaires, mapping catalogue et premiers flux techniques.",
+    quarter: "T2 2026 · Boutique & pilotes",
+    metrics: [
+      "Partenaires pilotes signés",
+      "Catalogue structuré",
+      "Flux d’import validés",
+    ],
     weeks: [
       {
         label: "Semaine 1",
@@ -185,11 +213,18 @@ const roadmap2026 = [
   },
   {
     id: "2026-05",
+    label: "Mai 2026",
     monthLabel: "Mai 2026",
     monthShort: "Mai",
     theme: "Interfaces Pro & parcours particuliers",
     icon: "layout",
     summary: "Interface recommandation Pro et parcours d’achat particulier v1.",
+    quarter: "T2 2026 · Boutique & pilotes",
+    metrics: [
+      "Onglet Reco disponible",
+      "Parcours d’achat testé",
+      "Flux de paiement sécurisés",
+    ],
     weeks: [
       {
         label: "Semaine 1",
@@ -231,11 +266,18 @@ const roadmap2026 = [
   },
   {
     id: "2026-06",
+    label: "Juin 2026",
     monthLabel: "Juin 2026",
     monthShort: "Juin",
     theme: "Cohorte pilote & coaching pros",
     icon: "users",
     summary: "Onboarding de 20–30 pros pilotes, suivi rapproché et contenus pédagogiques.",
+    quarter: "T2 2026 · Boutique & pilotes",
+    metrics: [
+      "Cohorte pilote onboardée",
+      "Support & coaching actifs",
+      "Feedbacks collectés pour T3",
+    ],
     weeks: [
       {
         label: "Semaine 1",
@@ -277,11 +319,18 @@ const roadmap2026 = [
   },
   {
     id: "2026-07",
+    label: "Juillet 2026",
     monthLabel: "Juillet 2026",
     monthShort: "Juil.",
     theme: "Compte Particulier & carnet animal",
     icon: "book",
     summary: "Espace particulier v1, fiches animaux et historique de rendez-vous.",
+    quarter: "T3 2026 · Engagement particuliers",
+    metrics: [
+      "Compte particulier déployé",
+      "Carnet animal opérationnel",
+      "Feedbacks UX collectés",
+    ],
     weeks: [
       {
         label: "Semaine 1",
@@ -323,11 +372,18 @@ const roadmap2026 = [
   },
   {
     id: "2026-08",
+    label: "Août 2026",
     monthLabel: "Août 2026",
     monthShort: "Août",
     theme: "Clubs locaux & gamification douce",
     icon: "map",
     summary: "Statuts particuliers, défis bien-être et premières animations locales.",
+    quarter: "T3 2026 · Engagement particuliers",
+    metrics: [
+      "Statuts & badges définis",
+      "Défis bien-être lancés",
+      "Clubs locaux pilotes actifs",
+    ],
     weeks: [
       {
         label: "Semaine 1",
@@ -369,11 +425,18 @@ const roadmap2026 = [
   },
   {
     id: "2026-09",
+    label: "Septembre 2026",
     monthLabel: "Septembre 2026",
     monthShort: "Sept.",
     theme: "Boutique élargie & packages",
     icon: "box",
     summary: "Élargissement du catalogue et packages récurrents pour les pros.",
+    quarter: "T3 2026 · Engagement particuliers",
+    metrics: [
+      "Catalogue élargi",
+      "Packages récurrents prêts",
+      "Ambassadeurs activés",
+    ],
     weeks: [
       {
         label: "Semaine 1",
@@ -415,11 +478,18 @@ const roadmap2026 = [
   },
   {
     id: "2026-10",
+    label: "Octobre 2026",
     monthLabel: "Octobre 2026",
     monthShort: "Oct.",
     theme: "Offre média & publicité",
     icon: "megaphone",
     summary: "Structuration des offres média, storytelling Rex & Minou et partenariats marques.",
+    quarter: "T4 2026 · Monétisation & média",
+    metrics: [
+      "Offres média packagées",
+      "Médiakits prêts",
+      "Tests sponsorisés lancés",
+    ],
     weeks: [
       {
         label: "Semaine 1",
@@ -461,11 +531,18 @@ const roadmap2026 = [
   },
   {
     id: "2026-11",
+    label: "Novembre 2026",
     monthLabel: "Novembre 2026",
     monthShort: "Nov.",
     theme: "Optimisation revenus & fidélisation",
     icon: "target",
     summary: "Optimiser l’upsell, la récurrence et le suivi des revenus générés.",
+    quarter: "T4 2026 · Monétisation & média",
+    metrics: [
+      "Upsell automatisé",
+      "Relances récurrentes",
+      "Suivi revenus consolidé",
+    ],
     weeks: [
       {
         label: "Semaine 1",
@@ -507,11 +584,18 @@ const roadmap2026 = [
   },
   {
     id: "2026-12",
+    label: "Décembre 2026",
     monthLabel: "Décembre 2026",
     monthShort: "Déc.",
     theme: "Clôture & vision 2027",
     icon: "sparkles",
     summary: "Clôturer l’année, célébrer les réussites et préparer les enjeux 2027.",
+    quarter: "T4 2026 · Monétisation & média",
+    metrics: [
+      "Bilan produit partagé",
+      "Succès célébrés",
+      "Axes 2027 cadrés",
+    ],
     weeks: [
       {
         label: "Semaine 1",
@@ -555,15 +639,14 @@ const roadmap2026 = [
 
 document.addEventListener("DOMContentLoaded", () => {
   setupNavMenus();
-  setupHeaderOnScroll();
-  setupTimelineRail();
+  setupTimeline();
   setupTimelinePreview();
-  setupRevealOnScroll();
   setupProFunnel();
   setupTunnelParticulier();
   setupAdPageInteractions();
   initGamificationParticulier();
   initGamificationPro();
+  setupRevealOnScroll();
 });
 
 
@@ -692,235 +775,188 @@ function setupRevealOnScroll() {
   revealElements.forEach((el) => observer.observe(el));
 }
 
-function setupTimelineRail() {
-  const rail = document.getElementById("timelineRail");
-  const monthPanel = document.getElementById("timelineMonthPanel");
-  if (!rail || !monthPanel) return;
+function setupTimeline() {
+  const monthsWrapper = document.getElementById("timelineMonths");
+  const detailsContainer = document.getElementById("detailsContainer");
+  const highlightBar = document.getElementById("timelineHighlightBar");
+  const quarterLabel = document.getElementById("quarterLabel");
+  const quarterMetrics = document.getElementById("quarterMetrics");
 
-  rail.innerHTML = "";
-  monthPanel.innerHTML = "";
+  if (!monthsWrapper || !detailsContainer || !highlightBar) return;
 
-  const nodes = [];
   let activeMonthId = roadmap2026[0]?.id;
+  const monthElements = new Map();
 
-  const selectMonth = (monthId) => {
-    activeMonthId = monthId;
-    nodes.forEach((node) => {
-      node.classList.toggle("timeline-node--active", node.dataset.monthId === monthId);
-      const plus = node.querySelector(".timeline-node-plus");
-      if (plus) plus.setAttribute("aria-hidden", node.dataset.monthId === monthId ? "false" : "true");
-    });
-    const currentMonth = roadmap2026.find((m) => m.id === monthId);
-    if (currentMonth) {
-      renderMonthPanel(currentMonth);
-      const activeNode = nodes.find((n) => n.dataset.monthId === monthId);
-      activeNode?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-    }
-  };
-
+  monthsWrapper.innerHTML = "";
   roadmap2026.forEach((month, index) => {
-    const node = document.createElement("button");
-    node.type = "button";
-    node.className = `timeline-node ${index % 2 === 0 ? "is-top" : "is-bottom"} reveal-on-scroll`;
-    node.dataset.monthId = month.id;
-    node.setAttribute("aria-label", `${month.monthLabel} – ${month.theme}`);
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "timeline-node";
+    btn.dataset.monthId = month.id;
 
-    const dot = document.createElement("span");
-    dot.className = "timeline-node-dot";
+    btn.innerHTML = `
+      <span class="timeline-node-stick"></span>
+      <span class="timeline-node-dot">
+        <span class="timeline-node-plus">+</span>
+      </span>
+      <span class="timeline-node-label">
+        <span class="timeline-node-month">${month.monthShort}</span>
+        <span class="timeline-node-theme">${month.theme}</span>
+      </span>
+    `;
 
-    const plus = document.createElement("span");
-    plus.className = "timeline-node-plus";
-    plus.innerHTML = "+";
+    if (index % 2 === 0) {
+      btn.classList.add("timeline-node--top");
+    } else {
+      btn.classList.add("timeline-node--bottom");
+    }
 
-    const stick = document.createElement("span");
-    stick.className = "timeline-node-stick";
+    monthsWrapper.appendChild(btn);
+    monthElements.set(month.id, btn);
 
-    const card = document.createElement("div");
-    card.className = "timeline-card";
-
-    const icon = document.createElement("span");
-    icon.className = "timeline-card-icon";
-    icon.textContent = "•";
-
-    const title = document.createElement("h3");
-    title.textContent = month.monthLabel;
-
-    const subtitle = document.createElement("p");
-    subtitle.className = "timeline-card-theme";
-    subtitle.textContent = month.theme;
-
-    const excerpt = document.createElement("p");
-    excerpt.className = "timeline-card-summary";
-    excerpt.textContent = month.summary;
-
-    card.appendChild(icon);
-    card.appendChild(title);
-    card.appendChild(subtitle);
-    card.appendChild(excerpt);
-
-    node.appendChild(dot);
-    node.appendChild(plus);
-    node.appendChild(stick);
-    node.appendChild(card);
-
-    const handleActivate = (event) => {
-      event.preventDefault();
-      selectMonth(month.id);
-    };
-
-    node.addEventListener("click", handleActivate);
-    node.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        handleActivate(event);
-      }
-    });
-
-    rail.appendChild(node);
-    nodes.push(node);
+    const activate = () => setActiveMonth(month.id);
+    btn.addEventListener("click", activate);
+    btn.addEventListener("mouseenter", activate);
+    btn.addEventListener("focus", activate);
   });
 
-  if (activeMonthId) {
-    selectMonth(activeMonthId);
+  function setActiveMonth(id) {
+    const month = roadmap2026.find((m) => m.id === id);
+    if (!month) return;
+    activeMonthId = id;
+
+    monthElements.forEach((el) => el.classList.remove("active"));
+    const activeEl = monthElements.get(id);
+    if (activeEl) {
+      activeEl.classList.add("active");
+      updateHighlightBar(activeEl);
+    }
+    renderDetails(month);
   }
-}
 
-function renderMonthPanel(month) {
-  const monthPanel = document.getElementById("timelineMonthPanel");
-  if (!monthPanel) return;
+  function renderDetails(month) {
+    detailsContainer.innerHTML = "";
 
-  monthPanel.innerHTML = "";
+    const wrapper = document.createElement("div");
+    wrapper.className = "details-wrapper";
 
-  const wrapper = document.createElement("div");
-  wrapper.className = "month-details detail-fade-in";
+    const header = document.createElement("header");
+    header.className = "details-header";
+    header.innerHTML = `
+      <div class="details-title-block">
+        <span class="details-month-label">${month.label || month.monthLabel}</span>
+        <h2 class="details-main-title">${month.theme}</h2>
+        <p class="details-summary">${month.summary || ""}</p>
+      </div>
+    `;
+    wrapper.appendChild(header);
 
-  const header = document.createElement("header");
-  header.className = "month-details-header";
+    if (quarterLabel && quarterMetrics) {
+      quarterLabel.textContent = month.quarter || "";
+      quarterMetrics.innerHTML = "";
+      (month.metrics || []).forEach((text) => {
+        const pill = document.createElement("span");
+        pill.className = "quarter-metric";
+        pill.textContent = text;
+        quarterMetrics.appendChild(pill);
+      });
+    }
 
-  const title = document.createElement("h2");
-  title.textContent = `${month.monthLabel} – ${month.theme}`;
+    const weeksContainer = document.createElement("div");
+    weeksContainer.className = "week-accordion-list";
 
-  const summary = document.createElement("p");
-  summary.textContent = month.summary;
+    month.weeks.forEach((week, index) => {
+      const item = document.createElement("article");
+      item.className = "week-accordion";
 
-  header.appendChild(title);
-  header.appendChild(summary);
+      const headerBtn = document.createElement("button");
+      headerBtn.type = "button";
+      headerBtn.className = "week-accordion-header";
+      headerBtn.setAttribute("aria-expanded", index === 0 ? "true" : "false");
+      headerBtn.innerHTML = `
+        <span class="week-label">${week.label}</span>
+        <span class="week-subtitle">${week.subtitle || ""}</span>
+        <span class="week-chevron"></span>
+      `;
 
-  const weeksContainer = document.createElement("div");
-  weeksContainer.className = "month-weeks";
+      const panel = document.createElement("div");
+      panel.className = "week-accordion-panel";
+      if (index !== 0) panel.hidden = true;
 
-  (month.weeks || []).forEach((week, index) => {
-    const weekArticle = document.createElement("article");
-    weekArticle.className = `week-collapse ${index === 0 ? "is-open" : "is-closed"}`;
+      const ul = document.createElement("ul");
+      (week.tasks || []).forEach((task) => {
+        const li = document.createElement("li");
+        li.textContent = task;
+        ul.appendChild(li);
+      });
+      panel.appendChild(ul);
 
-    const toggle = document.createElement("button");
-    toggle.type = "button";
-    toggle.className = "week-toggle";
+      headerBtn.addEventListener("click", () => {
+        const isOpen = headerBtn.getAttribute("aria-expanded") === "true";
+        headerBtn.setAttribute("aria-expanded", String(!isOpen));
+        panel.hidden = isOpen;
+      });
 
-    const label = document.createElement("span");
-    label.className = "week-label";
-    label.textContent = week.label;
-
-    const subtitle = document.createElement("span");
-    subtitle.className = "week-subtitle";
-    subtitle.textContent = week.subtitle || "";
-
-    const chevron = document.createElement("span");
-    chevron.className = "week-chevron";
-
-    toggle.appendChild(label);
-    toggle.appendChild(subtitle);
-    toggle.appendChild(chevron);
-
-    const content = document.createElement("div");
-    content.className = "week-content";
-
-    const taskList = document.createElement("ul");
-    taskList.className = "task-list";
-
-    (week.tasks || []).forEach((task) => {
-      const li = document.createElement("li");
-      li.textContent = task;
-      taskList.appendChild(li);
+      item.appendChild(headerBtn);
+      item.appendChild(panel);
+      weeksContainer.appendChild(item);
     });
 
-    content.appendChild(taskList);
-    weekArticle.appendChild(toggle);
-    weekArticle.appendChild(content);
+    wrapper.appendChild(weeksContainer);
+    detailsContainer.appendChild(wrapper);
 
-    const setOpenState = (isOpen) => {
-      weekArticle.classList.toggle("is-open", isOpen);
-      weekArticle.classList.toggle("is-closed", !isOpen);
-      content.style.maxHeight = isOpen ? `${content.scrollHeight}px` : "0px";
-      content.style.opacity = isOpen ? "1" : "0";
-    };
-
-    setOpenState(index === 0);
-
-    toggle.addEventListener("click", () => {
-      const willOpen = !weekArticle.classList.contains("is-open");
-      setOpenState(willOpen);
+    requestAnimationFrame(() => {
+      wrapper.classList.add("details-enter");
     });
+  }
 
-    weeksContainer.appendChild(weekArticle);
-  });
+  function updateHighlightBar(activeEl) {
+    const { offsetLeft, offsetWidth } = activeEl;
+    highlightBar.style.transform = `translateX(${offsetLeft}px)`;
+    highlightBar.style.width = `${offsetWidth}px`;
+  }
 
-  wrapper.appendChild(header);
-  wrapper.appendChild(weeksContainer);
-  monthPanel.appendChild(wrapper);
+  function handleKeyboardNav(event) {
+    if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+    const index = roadmap2026.findIndex((m) => m.id === activeMonthId);
+    if (index === -1) return;
+    const nextIndex =
+      event.key === "ArrowRight"
+        ? Math.min(index + 1, roadmap2026.length - 1)
+        : Math.max(index - 1, 0);
 
-  window.requestAnimationFrame(() => {
-    wrapper.classList.add("is-visible");
-    setTimeout(() => wrapper.classList.remove("detail-fade-in"), 450);
-  });
+    const nextMonth = roadmap2026[nextIndex];
+    if (nextMonth) {
+      setActiveMonth(nextMonth.id);
+      const el = monthElements.get(nextMonth.id);
+      if (el) el.scrollIntoView({ behavior: "smooth", inline: "center" });
+    }
+  }
+
+  window.addEventListener("keydown", handleKeyboardNav);
+
+  if (roadmap2026.length) setActiveMonth(roadmap2026[0].id);
 }
 
 function setupTimelinePreview() {
-  const rail = document.getElementById("timelineRailPreview");
+  const rail = document.getElementById("timelinePreviewRail");
   if (!rail) return;
 
+  const keyMonths = roadmap2026.filter((m) =>
+    ["2026-01", "2026-04", "2026-07", "2026-10"].includes(m.id)
+  );
+
   rail.innerHTML = "";
-  const previewMonths = [roadmap2026[0], roadmap2026[3], roadmap2026[6], roadmap2026[9]].filter(Boolean);
-
-  previewMonths.forEach((month, index) => {
-    const node = document.createElement("button");
-    node.type = "button";
-    node.className = `timeline-node timeline-node--preview ${index % 2 === 0 ? "is-top" : "is-bottom"}`;
-    node.setAttribute("aria-label", `${month.monthLabel} – ${month.theme}`);
-
-    const dot = document.createElement("span");
-    dot.className = "timeline-node-dot";
-
-    const plus = document.createElement("span");
-    plus.className = "timeline-node-plus";
-    plus.textContent = "+";
-
-    const stick = document.createElement("span");
-    stick.className = "timeline-node-stick";
-
-    const card = document.createElement("div");
-    card.className = "timeline-card timeline-card--mini";
-
-    const title = document.createElement("h3");
-    title.textContent = month.monthShort;
-
-    const subtitle = document.createElement("p");
-    subtitle.className = "timeline-card-theme";
-    subtitle.textContent = month.theme;
-
-    card.appendChild(title);
-    card.appendChild(subtitle);
-
-    node.appendChild(dot);
-    node.appendChild(plus);
-    node.appendChild(stick);
-    node.appendChild(card);
-
-    node.addEventListener("click", () => {
-      window.location.href = "chronologie.html#timeline-2026";
-    });
-
-    rail.appendChild(node);
+  keyMonths.forEach((month) => {
+    const card = document.createElement("a");
+    card.href = "chronologie.html";
+    card.className = "timeline-preview-card";
+    card.innerHTML = `
+      <div class="preview-plus">+</div>
+      <div class="preview-month">${month.monthShort}</div>
+      <div class="preview-theme">${month.theme}</div>
+    `;
+    rail.appendChild(card);
   });
 }
 
@@ -1239,87 +1275,98 @@ function setupProFunnel() {
 
   if (!column || !detailCard) return;
 
-  const detailElements = {
-    title: document.getElementById("funnelProDetailTitle"),
-    subtitle: document.getElementById("funnelProDetailSubtitle"),
-    context: document.getElementById("funnelProContext"),
-    goal: document.getElementById("funnelProGoal"),
-    messages: document.getElementById("funnelProMessages"),
-    kpis: document.getElementById("funnelProKpis"),
-    risks: document.getElementById("funnelProRisks"),
-    example: document.getElementById("funnelProExample"),
-  };
-
   let activeStepId = tunnelProSteps[0]?.id;
+  const stepButtons = new Map();
 
-  tunnelProSteps.forEach((step) => {
-    const stepEl = document.createElement("div");
-    stepEl.className = "funnel-step funnel-step--pro";
-    stepEl.dataset.stepId = step.id;
-    const scale = Math.max(0.7, 1 - (step.order - 1) * 0.04);
-    stepEl.style.setProperty("--funnel-scale", scale.toString());
-    stepEl.innerHTML = `
-      <div class="funnel-step-order">Étape ${step.order}/9</div>
-      <div class="funnel-step-title">${step.title}</div>
+  column.innerHTML = "";
+  detailCard.innerHTML = "";
+
+  tunnelProSteps.forEach((step, index) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "funnel-step";
+    btn.dataset.stepId = step.id;
+    btn.style.setProperty("--step-index", index.toString());
+    btn.innerHTML = `
+      <span class="funnel-step-index">Étape ${index + 1}/${tunnelProSteps.length}</span>
+      <span class="funnel-step-title">${step.title}</span>
     `;
 
-    stepEl.addEventListener("mouseover", () => setActiveStep(step.id));
-    stepEl.addEventListener("click", () => setActiveStep(step.id));
+    const activate = () => setActiveStep(step.id);
+    btn.addEventListener("click", activate);
+    btn.addEventListener("mouseover", activate);
 
-    if (step.id === activeStepId) {
-      stepEl.classList.add("funnel-step--active");
-    }
-
-    column.appendChild(stepEl);
+    column.appendChild(btn);
+    stepButtons.set(step.id, btn);
   });
 
-  function fillList(listEl, items) {
-    if (!listEl) return;
-    listEl.innerHTML = "";
-    (items || []).forEach((item) => {
-      const li = document.createElement("li");
-      li.textContent = item;
-      listEl.appendChild(li);
+  function renderProDetail(step) {
+    detailCard.innerHTML = "";
+
+    const header = document.createElement("div");
+    header.className = "detail-header";
+    header.innerHTML = `
+      <p class="detail-meta">Parcours côté Pro animalier</p>
+      <h2>${step.title}</h2>
+      <p class="detail-subtitle">${step.shortDescription || ""}</p>
+    `;
+
+    const grid = document.createElement("div");
+    grid.className = "detail-grid";
+
+    const blocks = [
+      { title: "Profil & contexte du Pro", items: step.context },
+      { title: "Objectif de Planipets", items: step.goal },
+      { title: "Messages & arguments clés", items: step.messages },
+      { title: "Indicateurs (KPI)", items: step.kpis },
+      {
+        title: "Risques & leviers d’amélioration",
+        items: [...(step.risks || []), ...(step.improvements || [])],
+      },
+    ];
+
+    blocks.forEach((block) => {
+      const card = document.createElement("div");
+      card.className = "detail-block";
+      card.innerHTML = `<div class="detail-block-title">${block.title}</div>`;
+      const ul = document.createElement("ul");
+      (block.items || []).forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+      card.appendChild(ul);
+      grid.appendChild(card);
     });
-  }
 
-  function renderProFunnelDetail(stepId) {
-    const step = tunnelProSteps.find((s) => s.id === stepId);
-    if (!step) return;
+    const example = document.createElement("div");
+    example.className = "detail-example";
+    example.innerHTML = `
+      <div class="detail-block-title">Exemple concret</div>
+      <p>${step.example || ""}</p>
+    `;
 
-    detailCard.classList.remove("detail-fade-in");
-    void detailCard.offsetWidth;
-    detailCard.classList.add("detail-fade-in");
+    detailCard.appendChild(header);
+    detailCard.appendChild(grid);
+    detailCard.appendChild(example);
 
-    if (detailElements.title) detailElements.title.textContent = step.title;
-    if (detailElements.subtitle)
-      detailElements.subtitle.textContent = step.shortDescription;
-
-    fillList(detailElements.context, step.context);
-    fillList(detailElements.goal, step.goal);
-    fillList(detailElements.messages, step.messages);
-    fillList(detailElements.kpis, step.kpis);
-    fillList(detailElements.risks, [...(step.risks || []), ...(step.improvements || [])]);
-
-    if (detailElements.example) detailElements.example.textContent = step.example;
+    requestAnimationFrame(() => detailCard.classList.add("details-enter"));
   }
 
   function setActiveStep(stepId) {
-    if (!stepId || stepId === activeStepId) return;
+    const step = tunnelProSteps.find((s) => s.id === stepId);
+    if (!step) return;
     activeStepId = stepId;
 
-    column.querySelectorAll(".funnel-step").forEach((stepEl) => {
-      stepEl.classList.toggle(
-        "funnel-step--active",
-        stepEl.dataset.stepId === stepId
-      );
-    });
+    stepButtons.forEach((btn) => btn.classList.remove("funnel-step--active"));
+    const activeBtn = stepButtons.get(stepId);
+    if (activeBtn) activeBtn.classList.add("funnel-step--active");
 
-    renderProFunnelDetail(stepId);
+    renderProDetail(step);
   }
 
   if (activeStepId) {
-    renderProFunnelDetail(activeStepId);
+    setActiveStep(activeStepId);
   }
 }
 const tunnelParticulierSteps = [
@@ -1603,110 +1650,130 @@ function setupTunnelParticulier() {
   const summary = document.getElementById("tunnelSummaryList");
   if (!column || !detail || !summary) return;
 
-  const icons = ["✨", "📍", "🔍", "📄", "🗓️", "✅", "🤝", "💌", "🎯"];
   let activeStepId = tunnelParticulierSteps[0]?.id;
+  const stepButtons = new Map();
 
   column.innerHTML = "";
+  detail.innerHTML = "";
+  summary.innerHTML = "";
+
   tunnelParticulierSteps.forEach((step, index) => {
     const el = document.createElement("button");
     el.type = "button";
     el.className = "funnel-step";
     el.dataset.stepId = step.id;
-    el.style.setProperty("--step-shrink", `${index * 10}px`);
+    el.style.setProperty("--step-index", index.toString());
     el.innerHTML = `
-      <div class="step-label">Étape ${step.order}/9</div>
-      <div class="step-title"><span class="step-icon">${icons[index % icons.length]}</span>${step.title}</div>
+      <span class="funnel-step-index">Étape ${index + 1}/${tunnelParticulierSteps.length}</span>
+      <span class="funnel-step-title">${step.title}</span>
     `;
 
     const activate = () => setActiveStep(step.id);
     el.addEventListener("click", activate);
     el.addEventListener("mouseover", activate);
 
-    if (index === 0) {
-      el.classList.add("funnel-step--active");
-    }
     column.appendChild(el);
+    stepButtons.set(step.id, el);
   });
 
-  renderTunnelDetail(activeStepId, detail);
   renderTunnelSummary(summary);
 
-  function setActiveStep(stepId) {
-    if (!stepId || stepId === activeStepId) return;
-    activeStepId = stepId;
-    column.querySelectorAll(".funnel-step").forEach((el) => {
-      el.classList.toggle("funnel-step--active", el.dataset.stepId === stepId);
+  function renderTunnelDetail(stepId) {
+    const step = tunnelParticulierSteps.find((item) => item.id === stepId);
+    if (!step) return;
+
+    detail.innerHTML = "";
+
+    const header = document.createElement("div");
+    header.className = "detail-header";
+    header.innerHTML = `
+      <p class="detail-meta">Parcours côté particulier</p>
+      <h2>${step.title}</h2>
+      <p class="detail-subtitle">${step.shortDescription || ""}</p>
+    `;
+
+    const grid = document.createElement("div");
+    grid.className = "detail-grid";
+
+    const blocks = [
+      { title: "Contexte & enjeux", items: step.context },
+      { title: "Rôle de Planipets", items: step.role },
+      { title: "Messages clés", items: step.messages },
+      { title: "KPIs & signaux", items: step.kpis },
+      { title: "Frictions & risques", items: step.frictions },
+      { title: "Pistes d’amélioration", items: step.improvements },
+    ];
+
+    blocks.forEach((block) => {
+      const card = document.createElement("div");
+      card.className = "detail-block";
+      card.innerHTML = `<div class="detail-block-title">${block.title}</div>`;
+      const ul = document.createElement("ul");
+      (block.items || []).forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+      card.appendChild(ul);
+      grid.appendChild(card);
     });
-    renderTunnelDetail(stepId, detail);
+
+    const example = document.createElement("div");
+    example.className = "detail-example";
+    example.innerHTML = `
+      <div class="detail-block-title">Exemple</div>
+      <p>${step.example || ""}</p>
+    `;
+
+    detail.appendChild(header);
+    detail.appendChild(grid);
+    detail.appendChild(example);
+
+    requestAnimationFrame(() => detail.classList.add("details-enter"));
   }
 
-  const firstStep = column.querySelector(`[data-step-id="${activeStepId}"]`);
-  if (firstStep) firstStep.classList.add("funnel-step--active");
+  function renderTunnelSummary(container) {
+    if (!container) return;
+    container.innerHTML = "";
+
+    tunnelParticulierSteps.forEach((step, index) => {
+      const card = document.createElement("article");
+      card.className = "summary-card";
+      card.innerHTML = `
+        <div class="summary-step">Étape ${index + 1}</div>
+        <h4>${step.title}</h4>
+        <ul>
+          ${(step.messages || [])
+            .slice(0, 2)
+            .map((msg) => `<li>${msg}</li>`)
+            .join("")}
+        </ul>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  function setActiveStep(stepId) {
+    const step = tunnelParticulierSteps.find((item) => item.id === stepId);
+    if (!step) return;
+    activeStepId = stepId;
+
+    stepButtons.forEach((btn) => btn.classList.remove("funnel-step--active"));
+    const activeBtn = stepButtons.get(stepId);
+    if (activeBtn) activeBtn.classList.add("funnel-step--active");
+
+    renderTunnelDetail(stepId);
+  }
 
   if (activeStepId) {
-    renderTunnelDetail(activeStepId, detail);
+    setActiveStep(activeStepId);
   }
-}
-
-function renderTunnelDetail(stepId, container) {
-  if (!container) return;
-  const step = tunnelParticulierSteps.find((item) => item.id === stepId);
-  if (!step) return;
-
-  container.classList.remove("is-switching");
-  // trigger reflow to restart animation
-  // eslint-disable-next-line no-unused-expressions
-  container.offsetHeight;
-  container.classList.add("is-switching");
-
-  const renderList = (title, items) => {
-    if (!items || !items.length) return "";
-    const listItems = items.map((item) => `<li>${item}</li>`).join("");
-    return `
-      <div class="detail-section">
-        <h4>${title}</h4>
-        <ul class="detail-list">${listItems}</ul>
-      </div>
-    `;
-  };
-
-  const subtitle = step.shortDescription || "";
-  const example = step.example || "";
-
-  container.innerHTML = `
-    <h3>${step.title}</h3>
-    <p class="detail-subtitle">${subtitle}</p>
-    <div class="detail-columns">
-      ${renderList("Contexte côté propriétaire", step.context)}
-      ${renderList("Rôle de Planipets", step.role)}
-      ${renderList("Messages & contenus clés", step.messages)}
-      ${renderList("Indicateurs (KPI)", step.kpis)}
-      ${renderList("Frictions & pistes d’amélioration", step.frictions)}
-      ${renderList("Améliorations prévues", step.improvements)}
-    </div>
-    <div class="example-block">
-      <strong>Exemple concret</strong>
-      <p>${example}</p>
-    </div>
-  `;
-}
-
-function renderTunnelSummary(container) {
-  if (!container) return;
-  container.innerHTML = "";
-  tunnelParticulierSteps.forEach((step) => {
-    const card = document.createElement("article");
-    card.className = "summary-card";
-    card.innerHTML = `
-      <div class="summary-step-label">Étape ${step.order}/9</div>
-      <h3>${step.title}</h3>
-      <p>${step.shortDescription}</p>
-    `;
-    container.appendChild(card);
-  });
 }
 
 function setupAdPageInteractions() {
+  const root = document.getElementById("packs-visibilite") || document.querySelector(".faq-question");
+  if (!root) return;
+
   const packsContainer = document.getElementById("packs-visibilite");
   const detailTitle = document.getElementById("pack-detail-title");
   const detailDescription = document.getElementById("pack-detail-description");
