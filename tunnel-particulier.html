@@ -10,18 +10,17 @@
 <body>
   <div class="page-wrapper">
     <div class="content-shell">
-      <header class="simple-header">
+      <header class="site-header" aria-label="Navigation principale">
         <div class="brand-block">
           <div class="brand-logo" aria-hidden="true">
             <svg viewBox="0 0 64 64" aria-hidden="true">
               <defs>
-                <linearGradient id="pawGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#1e293b" />
-                  <stop offset="50%" stop-color="#0f172a" />
-                  <stop offset="100%" stop-color="#020617" />
+                <linearGradient id="pawGradNav" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0f8c3c" />
+                  <stop offset="100%" stop-color="#0b7031" />
                 </linearGradient>
               </defs>
-              <circle cx="32" cy="32" r="30" fill="url(#pawGrad)" />
+              <circle cx="32" cy="32" r="30" fill="url(#pawGradNav)" />
               <path
                 d="M21 24c2.8 0 4.6-2.2 4.6-4.7C25.6 17.9 23.8 16 21 16s-4.7 1.9-4.7 3.3C16.3 21.8 18.2 24 21 24zm10.9 0c2.8 0 4.6-2.2 4.7-4.7 0-1.4-1.9-3.3-4.7-3.3-2.8 0-4.6 1.9-4.6 3.3 0 2.5 1.8 4.7 4.6 4.7zm9.7 2.8c2.6 0 4.3-2.1 4.3-4.5 0-1.3-1.7-3.1-4.3-3.1s-4.4 1.8-4.4 3.1c0 2.4 1.8 4.5 4.4 4.5zM24.3 40c0 4.5 4 8 7.7 8 3.7 0 7.7-3.5 7.7-8 0-4.9-3.1-9-7.7-9s-7.7 4.1-7.7 9z"
                 fill="#fefce8"
@@ -33,17 +32,98 @@
             </svg>
           </div>
           <div class="brand-meta">
-            <div class="brand-meta-title">Tunnel Particulier</div>
-            <div class="brand-meta-sub">Parcours clients finaux (brouillon)</div>
+            <div class="brand-meta-title">Planipets</div>
+            <div class="brand-meta-sub">Revenus, bien-être animal & feuille de route 2026</div>
           </div>
         </div>
-        <a class="back-link" href="Planipets.html">← Retour à l’accueil</a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+        <nav class="nav-links">
+          <a href="Planipets.html">Accueil</a>
+          <a href="chronologie.html">Chronologie 2026</a>
+          <a href="swot.html">SWOT 2026</a>
+          <div class="nav-item has-submenu" tabindex="0">Tunnel de ventes
+            <div class="nav-submenu" aria-hidden="true">
+              <a href="tunnel-pro.html">Tunnel Professionnel</a>
+              <a href="tunnel-particulier.html">Tunnel Particulier</a>
+            </div>
+          </div>
+          <a href="espace-publicitaire.html">Espace publicitaire</a>
+          <div class="nav-item has-submenu" tabindex="0">Gamification
+            <div class="nav-submenu" aria-hidden="true">
+              <a href="gamification-pro.html">Gamification Professionnels</a>
+              <a href="gamification-particulier.html">Gamification Particuliers</a>
+            </div>
+          </div>
+        </nav>
       </header>
 
-      <main>
-        <h1>Tunnel de ventes – côté Particuliers (brouillon)</h1>
-        <section class="page-placeholder">
-          <p><strong>Section à compléter.</strong><br />Décris ici le tunnel de ventes dédié aux particuliers.</p>
+      <div class="return-link-row">
+        <a class="back-link" href="Planipets.html">← Retour à l’accueil</a>
+      </div>
+
+      <main class="tunnel-main">
+        <section class="tunnel-hero" aria-labelledby="tunnel-hero-title">
+          <div class="tunnel-hero-inner">
+            <div class="hero-badge">Parcours côté propriétaire d’animal & version 2026</div>
+            <h1 id="tunnel-hero-title">Tunnel de vente – Particulier</h1>
+            <p class="hero-subtitle">
+              De la première découverte de Planipets jusqu’au propriétaire fidèle qui revient régulièrement pour le bien-être de son animal.
+            </p>
+            <div class="hero-breadcrumb" aria-label="Fil d’Ariane">Accueil &gt; Tunnel de ventes &gt; Particulier</div>
+          </div>
+        </section>
+
+        <section class="tunnel-wrapper" aria-labelledby="funnel-title">
+          <div class="tunnel-header">
+            <div>
+              <p class="section-label">Entonnoir</p>
+              <h2 id="funnel-title">Les 9 étapes clés du parcours particulier</h2>
+              <p class="section-sub">Survole ou clique une étape pour afficher les détails du rôle de Planipets, les messages, KPIs et frictions.</p>
+            </div>
+            <div class="funnel-legend">
+              <span class="legend-item"><span class="legend-dot active"></span>Étape active</span>
+              <span class="legend-item"><span class="legend-dot"></span>Étapes suivantes</span>
+            </div>
+          </div>
+          <div class="tunnel-grid">
+            <div class="funnel-column" id="funnelColumn" aria-label="Étapes de l’entonnoir"></div>
+            <div class="funnel-detail-card" id="funnelDetail" aria-live="polite"></div>
+          </div>
+        </section>
+
+        <section class="tunnel-summary" aria-labelledby="tunnel-summary-title">
+          <div class="tunnel-summary-header">
+            <p class="section-label">Synthèse</p>
+            <h2 id="tunnel-summary-title">Résumé en une page</h2>
+            <p class="section-sub">Vue rapide des intentions et messages principaux pour chaque étape du parcours.</p>
+          </div>
+          <div class="summary-grid" id="tunnelSummaryList"></div>
+        </section>
+
+        <section class="tunnel-ideas" aria-labelledby="tunnel-ideas-title">
+          <div class="tunnel-ideas-header">
+            <p class="section-label">Roadmap continue</p>
+            <h2 id="tunnel-ideas-title">Points d’amélioration & idées produit</h2>
+            <p class="section-sub">Actions transverses à prioriser pour réduire les frictions et consolider la relation avec les particuliers.</p>
+          </div>
+          <div class="ideas-list">
+            <article class="idea-card">
+              <h3>Renforcer la réassurance dès la découverte</h3>
+              <p>Multiplier les preuves sociales (avis, témoignages détaillés, cas concrets) et clarifier la promesse en 3 secondes pour les visiteurs qui arrivent d’articles ou réseaux sociaux.</p>
+            </article>
+            <article class="idea-card">
+              <h3>Simplifier le tunnel de réservation</h3>
+              <p>Limiter les champs obligatoires, harmoniser les messages d’erreur et afficher une mini FAQ sur les conditions d’annulation, paiement et préparation du rendez-vous.</p>
+            </article>
+            <article class="idea-card">
+              <h3>Outiller le suivi post-rendez-vous</h3>
+              <p>Automatiser la collecte d’avis courts, proposer des contenus complémentaires ciblés et mettre en avant l’historique dans le compte pour encourager le retour.</p>
+            </article>
+            <article class="idea-card">
+              <h3>Valoriser la fidélisation multi-services</h3>
+              <p>Créer des rappels récurrents, des clubs ou challenges doux et des recommandations produits/services personnalisées pour faire de Planipets le réflexe bien-être animal.</p>
+            </article>
+          </div>
         </section>
       </main>
     </div>
