@@ -1018,6 +1018,10 @@ function setupProFunnel() {
     stepEl.addEventListener("mouseover", () => setActiveStep(step.id));
     stepEl.addEventListener("click", () => setActiveStep(step.id));
 
+    if (step.id === activeStepId) {
+      stepEl.classList.add("funnel-step--active");
+    }
+
     column.appendChild(stepEl);
   });
 
@@ -1051,6 +1055,25 @@ function setupProFunnel() {
 
     if (detailElements.example) detailElements.example.textContent = step.example;
   }
+
+  function setActiveStep(stepId) {
+    if (!stepId || stepId === activeStepId) return;
+    activeStepId = stepId;
+
+    column.querySelectorAll(".funnel-step").forEach((stepEl) => {
+      stepEl.classList.toggle(
+        "funnel-step--active",
+        stepEl.dataset.stepId === stepId
+      );
+    });
+
+    renderProFunnelDetail(stepId);
+  }
+
+  if (activeStepId) {
+    renderProFunnelDetail(activeStepId);
+  }
+}
 const tunnelParticulierSteps = [
   {
     id: "step1",
@@ -1366,20 +1389,14 @@ function setupTunnelParticulier() {
     column.querySelectorAll(".funnel-step").forEach((el) => {
       el.classList.toggle("funnel-step--active", el.dataset.stepId === stepId);
     });
-    renderProFunnelDetail(stepId);
+    renderTunnelDetail(stepId, detail);
   }
 
   const firstStep = column.querySelector(`[data-step-id="${activeStepId}"]`);
   if (firstStep) firstStep.classList.add("funnel-step--active");
-  if (activeStepId) renderProFunnelDetail(activeStepId);
 
-    column.querySelectorAll(".funnel-step").forEach((stepEl) => {
-      stepEl.classList.toggle(
-        "funnel-step--active",
-        stepEl.dataset.stepId === stepId
-      );
-    });
-    renderTunnelDetail(stepId, detail);
+  if (activeStepId) {
+    renderTunnelDetail(activeStepId, detail);
   }
 }
 
