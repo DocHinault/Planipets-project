@@ -129,7 +129,8 @@ section[id] {
 }
 
 .nav-links a,
-.nav-links .nav-item {
+.nav-links .nav-item,
+.nav-link-button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -144,8 +145,16 @@ section[id] {
   font-size: 0.95rem;
 }
 
+.nav-link-button {
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
 .nav-links a:hover,
 .nav-links a:focus-visible,
+.nav-link-button:hover,
+.nav-link-button:focus-visible,
 .nav-links .nav-item:hover,
 .nav-links .nav-item:focus-visible {
   background: var(--green-soft);
@@ -163,7 +172,8 @@ section[id] {
   position: absolute;
   top: calc(100% + 6px);
   right: 0;
-  display: none;
+  display: block;
+  pointer-events: none;
   min-width: 210px;
   background: #fff;
   border: 1px solid var(--border);
@@ -171,6 +181,9 @@ section[id] {
   box-shadow: var(--card-shadow);
   padding: 8px;
   z-index: 10;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--transition-med), transform var(--transition-med);
 }
 
 .nav-submenu a {
@@ -190,7 +203,9 @@ section[id] {
 }
 
 .nav-item.is-open .nav-submenu {
-  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 @media (max-width: 860px) {

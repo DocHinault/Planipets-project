@@ -566,6 +566,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initGamificationPro();
 });
 
+
 function setupNavMenus() {
   const header = document.querySelector(".site-header");
   if (!header) return;
@@ -577,9 +578,10 @@ function setupNavMenus() {
   const setSubmenuState = (item, isOpen) => {
     if (!item) return;
     const submenu = item.querySelector(".nav-submenu");
-    if (!submenu) return;
+    const trigger = item.querySelector(".nav-link-button");
+    if (!submenu || !trigger) return;
     item.classList.toggle("is-open", isOpen);
-    item.setAttribute("aria-expanded", String(isOpen));
+    trigger.setAttribute("aria-expanded", String(isOpen));
     submenu.setAttribute("aria-hidden", String(!isOpen));
   };
 
@@ -592,54 +594,64 @@ function setupNavMenus() {
       event.stopPropagation();
       const isOpen = navLinks.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", String(isOpen));
-      if (!isOpen) {
-        closeAllSubmenus();
-      }
+      if (!isOpen) closeAllSubmenus();
     });
   }
 
   submenuItems.forEach((item) => {
     const submenu = item.querySelector(".nav-submenu");
-    if (!submenu) return;
+    const trigger = item.querySelector(".nav-link-button");
+    if (!submenu || !trigger) return;
 
     setSubmenuState(item, item.classList.contains("is-open"));
 
-    const toggleSubmenu = (event) => {
+    let closeTimeout;
+    const openWithDelay = () => {
+      clearTimeout(closeTimeout);
+      closeAllSubmenus();
+      setSubmenuState(item, true);
+    };
+
+    const closeWithDelay = () => {
+      clearTimeout(closeTimeout);
+      closeTimeout = setTimeout(() => setSubmenuState(item, false), 220);
+    };
+
+    trigger.addEventListener("click", (event) => {
       event.stopPropagation();
       const willOpen = !item.classList.contains("is-open");
       closeAllSubmenus();
       setSubmenuState(item, willOpen);
-    };
+    });
 
-    item.addEventListener("click", toggleSubmenu);
     item.addEventListener("mouseenter", () => {
       if (!window.matchMedia("(pointer: fine)").matches) return;
-      closeAllSubmenus();
-      setSubmenuState(item, true);
+      openWithDelay();
     });
-    item.addEventListener("mouseleave", () => setSubmenuState(item, false));
-    item.addEventListener("focusin", () => setSubmenuState(item, true));
-    item.addEventListener("focusout", (event) => {
-      if (item.contains(event.relatedTarget)) return;
-      setSubmenuState(item, false);
+
+    item.addEventListener("mouseleave", () => {
+      if (!window.matchMedia("(pointer: fine)").matches) return;
+      closeWithDelay();
     });
+
+    submenu.addEventListener("mouseenter", () => clearTimeout(closeTimeout));
+    submenu.addEventListener("mouseleave", closeWithDelay);
   });
 
   document.addEventListener("click", (event) => {
     if (!header.contains(event.target)) {
       closeAllSubmenus();
-      if (navLinks && navLinks.classList.contains("is-open")) {
-        navLinks.classList.remove("is-open");
-        toggle?.setAttribute("aria-expanded", "false");
-      }
+      if (navLinks) navLinks.classList.remove("is-open");
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
     }
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key !== "Escape") return;
-    closeAllSubmenus();
-    if (navLinks) navLinks.classList.remove("is-open");
-    if (toggle) toggle.setAttribute("aria-expanded", "false");
+    if (event.key === "Escape") {
+      closeAllSubmenus();
+      if (navLinks) navLinks.classList.remove("is-open");
+      if (toggle) toggle.setAttribute("aria-expanded", "false");
+    }
   });
 }
 
