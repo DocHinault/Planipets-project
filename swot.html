@@ -10,18 +10,17 @@
 <body>
   <div class="page-wrapper">
     <div class="content-shell">
-      <header class="simple-header">
+      <header class="site-header" aria-label="Navigation principale">
         <div class="brand-block">
           <div class="brand-logo" aria-hidden="true">
             <svg viewBox="0 0 64 64" aria-hidden="true">
               <defs>
-                <linearGradient id="pawGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#1e293b" />
-                  <stop offset="50%" stop-color="#0f172a" />
-                  <stop offset="100%" stop-color="#020617" />
+                <linearGradient id="pawGradNav" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0f8c3c" />
+                  <stop offset="100%" stop-color="#0b7031" />
                 </linearGradient>
               </defs>
-              <circle cx="32" cy="32" r="30" fill="url(#pawGrad)" />
+              <circle cx="32" cy="32" r="30" fill="url(#pawGradNav)" />
               <path
                 d="M21 24c2.8 0 4.6-2.2 4.6-4.7C25.6 17.9 23.8 16 21 16s-4.7 1.9-4.7 3.3C16.3 21.8 18.2 24 21 24zm10.9 0c2.8 0 4.6-2.2 4.7-4.7 0-1.4-1.9-3.3-4.7-3.3-2.8 0-4.6 1.9-4.6 3.3 0 2.5 1.8 4.7 4.6 4.7zm9.7 2.8c2.6 0 4.3-2.1 4.3-4.5 0-1.3-1.7-3.1-4.3-3.1s-4.4 1.8-4.4 3.1c0 2.4 1.8 4.5 4.4 4.5zM24.3 40c0 4.5 4 8 7.7 8 3.7 0 7.7-3.5 7.7-8 0-4.9-3.1-9-7.7-9s-7.7 4.1-7.7 9z"
                 fill="#fefce8"
@@ -33,19 +32,225 @@
             </svg>
           </div>
           <div class="brand-meta">
-            <div class="brand-meta-title">SWOT Planipets</div>
-            <div class="brand-meta-sub">Brouillon stratégique 2026</div>
+            <div class="brand-meta-title">Planipets</div>
+            <div class="brand-meta-sub">Vision stratégique 2026</div>
           </div>
         </div>
-        <a class="back-link" href="Planipets.html">← Retour à l’accueil</a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+        <nav class="nav-links">
+          <a href="Planipets.html">Accueil</a>
+          <a href="chronologie.html">Chronologie 2026</a>
+          <a href="swot.html">SWOT 2026</a>
+          <div class="nav-item has-submenu" tabindex="0">Tunnel de ventes
+            <div class="nav-submenu" aria-hidden="true">
+              <a href="tunnel-pro.html">Tunnel Professionnel</a>
+              <a href="tunnel-particulier.html">Tunnel Particulier</a>
+            </div>
+          </div>
+          <a href="espace-publicitaire.html">Espace publicitaire</a>
+          <div class="nav-item has-submenu" tabindex="0">Gamification
+            <div class="nav-submenu" aria-hidden="true">
+              <a href="gamification-pro.html">Gamification Professionnels</a>
+              <a href="gamification-particulier.html">Gamification Particuliers</a>
+            </div>
+          </div>
+        </nav>
       </header>
 
-      <main>
-        <h1>SWOT Planipets – brouillon 2026</h1>
-        <section class="page-placeholder">
-          <p><strong>Section à compléter.</strong><br />Ajoute ici forces, faiblesses, opportunités et menaces.</p>
-        </section>
-      </main>
+      <a class="back-link" href="Planipets.html">← Retour à l’accueil</a>
+
+      <section class="swot-hero">
+        <div class="swot-breadcrumb">Accueil > SWOT 2026</div>
+        <h1>SWOT Planipets 2026</h1>
+        <p>
+          Une vue stratégique des forces, faiblesses, opportunités et menaces de Planipets pour cadrer la feuille de route 2026.
+        </p>
+        <div class="swot-badge">Mis à jour pour la vision 2026 (boutique, gamification, média & partenariats).</div>
+      </section>
+
+      <section aria-labelledby="resume-exec">
+        <div class="page-header">
+          <h2 id="resume-exec">Résumé exécutif</h2>
+        </div>
+        <div class="swot-summary-grid">
+          <article class="info-card">
+            <h3>Axe central</h3>
+            <p>
+              Planipets n’est plus seulement un agenda de prise de rendez-vous : la priorité 2026 est de <strong>générer du revenu stable pour les professionnels animaliers</strong> grâce à la boutique, à la gamification et à l’écosystème média.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Périmètre de l’analyse</h3>
+            <p>
+              Cette SWOT couvre :<br />
+              • le produit (plateforme Pro, boutique, gamification, espace particuliers),<br />
+              • le média Planipets (articles, Rex & Minou, relations avec les mairies),<br />
+              • l’organisation interne (ressources, priorisation, exécution).
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Objectif</h3>
+            <p>
+              Identifier <strong>ce qu’il faut amplifier</strong> (forces & opportunités) et <strong>ce qu’il faut sécuriser</strong> (faiblesses & menaces) pour prioriser la roadmap 2026.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="grille-swot">
+        <div class="page-header">
+          <h2 id="grille-swot">Analyse SWOT</h2>
+        </div>
+        <div class="swot-quadrants">
+          <article class="quadrant-card">
+            <h3>Forces</h3>
+            <p>Planipets possède déjà plusieurs atouts structurels qui le différencient d’un simple « Doctolib pour animaux ». Ces forces sont autant de leviers à amplifier en 2026.</p>
+            <h4>A. Positionnement & valeur pour les pros</h4>
+            <ul>
+              <li>Niche très claire : focus exclusif sur les professionnels du bien-être animal (éducateurs, comportementalistes, toiletteurs, pet-sitters, etc.).</li>
+              <li>Promesse orientée <strong>revenu et sérénité</strong>, pas uniquement agenda : plus de rendez-vous, plus de récurrence, moins de charge mentale.</li>
+              <li>Capacité à proposer un écosystème complet (réservation, visibilité, boutique, gamification, formation).</li>
+            </ul>
+            <h4>B. Produit & expérience Pro</h4>
+            <ul>
+              <li>Plateforme de prise de rendez-vous 24/7 déjà existante, avec rappels et gestion des disponibilités.</li>
+              <li>Espace Pro structuré avec des modules de formation, webinaires, accompagnement et entraide entre pairs.</li>
+              <li>Possibilité d’intégrer des partenaires et une future boutique directement depuis l’interface Pro.</li>
+            </ul>
+            <h4>C. Média & marque</h4>
+            <ul>
+              <li>Contenus éditoriaux réguliers : articles, conseils, ressources autour du lien humain–animal.</li>
+              <li>Univers narratif différenciant avec la série Rex & Minou, qui humanise la marque et renforce la mémorisation.</li>
+              <li>Image de marque proche des <strong>collectivités et associations</strong> (charte bien-être, intérêt général, prévention).</li>
+            </ul>
+            <h4>D. Communauté & accompagnement</h4>
+            <ul>
+              <li>Relation de proximité avec les pros : accompagnement personnalisé, lives, feedbacks réguliers.</li>
+              <li>Volonté de co-construire certaines features avec une cohorte de pros pilotes.</li>
+              <li>Culture d’écoute qui permet de faire évoluer le produit au contact du terrain.</li>
+            </ul>
+          </article>
+
+          <article class="quadrant-card">
+            <h3>Faiblesses</h3>
+            <p>Certaines limites structurantes freinent aujourd’hui la vitesse d’exécution et la perception de valeur, côté pros comme côté particuliers. Elles doivent être adressées en priorité dans la feuille de route 2026.</p>
+            <h4>A. Ressources & capacité d’exécution</h4>
+            <ul>
+              <li>Équipe réduite : forte dépendance à un noyau très restreint, avec un fondateur multi-casquettes (produit, technique, relation pros, média…).</li>
+              <li>Difficulté à mener plusieurs chantiers lourds en parallèle (boutique, gamification, espace particuliers, publicité, partenariats).</li>
+              <li>Risque de dispersion si la priorisation n’est pas stricte trimestriellement.</li>
+            </ul>
+            <h4>B. Produit & clarté de l’offre</h4>
+            <ul>
+              <li>Offre parfois perçue comme « tout en un » difficile à résumer en une phrase par les nouveaux pros.</li>
+              <li>Complexité potentielle de la gamification Pro si les règles de commission ne sont pas <strong>simples et transparentes</strong>.</li>
+              <li>Absence de dashboards simples pour les pros montrant clairement ce qu’ils gagnent grâce à Planipets.</li>
+            </ul>
+            <h4>C. Relation avec les particuliers</h4>
+            <ul>
+              <li>Les propriétaires d’animaux ne sont pas encore pleinement intégrés comme membres (peu ou pas de comptes, peu de fonctionnalités dédiées).</li>
+              <li>Usage encore très orienté « je viens uniquement en cas de besoin ponctuel » au lieu d’un réflexe de suivi régulier.</li>
+              <li>Peu de boucles de feedback direct des particuliers sur l’expérience globale.</li>
+            </ul>
+            <h4>D. Technique & dette UX</h4>
+            <ul>
+              <li>Endroits du site avec des 404, formulaires peu visibles ou textes non harmonisés (FR/EN).</li>
+              <li>Cohérence visuelle à renforcer entre la partie Pro, le site grand public et le média.</li>
+              <li>Tracking des événements produit partiel ou incomplet, ce qui limite l’analyse fine des funnels.</li>
+            </ul>
+          </article>
+
+          <article class="quadrant-card">
+            <h3>Opportunités</h3>
+            <p>Le marché du bien-être animal et de la pet-économie est en forte croissance. Planipets peut capitaliser sur plusieurs tendances pour accélérer en 2026.</p>
+            <h4>A. Marché & tendances</h4>
+            <ul>
+              <li>Augmentation continue du nombre d’animaux de compagnie et du budget consacré à leur bien-être.</li>
+              <li>Professionnalisation des métiers animaliers, qui ont besoin d’outils numériques pour exister et se structurer.</li>
+              <li>Volonté croissante des propriétaires de suivre la qualité et la traçabilité des services et produits utilisés.</li>
+            </ul>
+            <h4>B. Boutique & revenus récurrents</h4>
+            <ul>
+              <li>Mise en place d’une boutique B2B2C permet de transformer des métiers peu récurrents (éducateur, comportementaliste) en <strong>revenu régulier</strong> grâce aux recommandations produits.</li>
+              <li>Possibilité d’élargir la gamme : alimentation, accessoires, assurances, services en ligne, formations.</li>
+              <li>Négociation de partenariats avec des marques qui cherchent une audience qualifiée et engagée.</li>
+            </ul>
+            <h4>C. Gamification & engagement communautaire</h4>
+            <ul>
+              <li>Système de niveaux et de quêtes pour les pros, récompensant la qualité de service et l’implication : levier fort de rétention.</li>
+              <li>Gamification douce pour les particuliers (statuts, challenges, clubs locaux) centrée sur le bien-être de l’animal.</li>
+              <li>Potentiel de création d’événements récurrents (en ligne et locaux) autour du lien humain–animal.</li>
+            </ul>
+            <h4>D. Partenariats institutionnels & média</h4>
+            <ul>
+              <li>Intérêt des mairies, collectivités et associations pour des initiatives qui structurent le lien humain–animal sur leur territoire.</li>
+              <li>Possibilité de devenir un <strong>référent média</strong> sur ces sujets auprès du grand public et des professionnels.</li>
+              <li>Monétisation de l’audience via des offres publicitaires ciblées, tout en gardant une ligne éditoriale exigeante.</li>
+            </ul>
+          </article>
+
+          <article class="quadrant-card">
+            <h3>Menaces</h3>
+            <p>Plusieurs risques externes pourraient ralentir ou fragiliser le développement de Planipets. Ils doivent être anticipés et intégrés dans la stratégie 2026.</p>
+            <h4>A. Concurrence & imitation</h4>
+            <ul>
+              <li>Acteurs généralistes de la prise de rendez-vous (plateformes médicales, beauté, bien-être) pouvant progressivement cibler le segment animalier.</li>
+              <li>Plateformes horizontales type marketplaces de services (pet-sitting, promenade, etc.) susceptibles d’ajouter des fonctionnalités proches.</li>
+              <li>Risque de « clonage » des meilleures fonctionnalités si la proposition de valeur n’est pas suffisamment différenciée.</li>
+            </ul>
+            <h4>B. Sensibilité des pros & dépendance</h4>
+            <ul>
+              <li>Pros parfois méfiants face aux plateformes qui prennent une commission ou imposent des règles complexes.</li>
+              <li>Crainte de devenir dépendant d’un intermédiaire unique pour l’acquisition de clients et les recommandations.</li>
+              <li>Risque de churn si la perception de valeur n’est pas rapidement tangible (revenus, visibilité, soutien).</li>
+            </ul>
+            <h4>C. Cadre légal & RGPD</h4>
+            <ul>
+              <li>Nécessité de gérer proprement les données personnelles (pros, particuliers, animaux) et le consentement.</li>
+              <li>Risques réglementaires autour des partenariats publicitaires (transparence, recommandations, conflits d’intérêts).</li>
+              <li>Éventuelles contraintes nouvelles liées au secteur de la santé ou du bien-être animal.</li>
+            </ul>
+            <h4>D. Contexte économique & priorités des ménages</h4>
+            <ul>
+              <li>Pression sur le pouvoir d’achat qui peut réduire les dépenses jugées « non essentielles » pour les animaux.</li>
+              <li>Pros potentiellement fragilisés par des baisses d’activité locales ou saisonnières.</li>
+              <li>Marques et annonceurs plus sélectifs dans leurs investissements marketing en cas de ralentissement.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="synthese-strategique">
+        <div class="page-header">
+          <h2 id="synthese-strategique">Synthèse stratégique 2026</h2>
+        </div>
+        <div class="swot-strategy-grid">
+          <article class="info-card">
+            <h3>Leviers à exploiter</h3>
+            <ul>
+              <li>Capitaliser sur le positionnement très clair « revenu & sérénité pour les pros animaliers ».</li>
+              <li>S’appuyer sur le média et Rex & Minou pour renforcer la marque et attirer des partenaires.</li>
+              <li>Transformer la boutique et la gamification en moteurs de revenus récurrents pour les pros.</li>
+            </ul>
+          </article>
+          <article class="info-card">
+            <h3>Points de vigilance</h3>
+            <ul>
+              <li>Ne pas complexifier inutilement la vie des pros : règles de commissions et de niveaux <strong>simples, lisibles, prévisibles</strong>.</li>
+              <li>Éviter la dispersion : limiter le nombre de gros chantiers menés en parallèle.</li>
+              <li>Anticiper les enjeux juridiques (RGPD, transparence des recommandations, partenariats).</li>
+            </ul>
+          </article>
+          <article class="info-card">
+            <h3>Priorités 2026</h3>
+            <ul>
+              <li>Q1–Q2 : consolider la plateforme Pro, la data et la boutique pilote + lancer la gamification Pro v1.</li>
+              <li>Q3 : donner une vraie place aux particuliers (comptes, carnets animaux, clubs locaux, gamification douce).</li>
+              <li>Q4 : structurer et vendre les offres média/publicité + sécuriser 1–3 partenariats collectivités/assos.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
     </div>
   </div>
 </body>
