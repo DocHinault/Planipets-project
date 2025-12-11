@@ -10,18 +10,17 @@
 <body>
   <div class="page-wrapper">
     <div class="content-shell">
-      <header class="simple-header">
+      <header class="site-header" aria-label="Navigation principale">
         <div class="brand-block">
           <div class="brand-logo" aria-hidden="true">
             <svg viewBox="0 0 64 64" aria-hidden="true">
               <defs>
-                <linearGradient id="pawGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#1e293b" />
-                  <stop offset="50%" stop-color="#0f172a" />
-                  <stop offset="100%" stop-color="#020617" />
+                <linearGradient id="pawGradNav" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0f8c3c" />
+                  <stop offset="100%" stop-color="#0b7031" />
                 </linearGradient>
               </defs>
-              <circle cx="32" cy="32" r="30" fill="url(#pawGrad)" />
+              <circle cx="32" cy="32" r="30" fill="url(#pawGradNav)" />
               <path
                 d="M21 24c2.8 0 4.6-2.2 4.6-4.7C25.6 17.9 23.8 16 21 16s-4.7 1.9-4.7 3.3C16.3 21.8 18.2 24 21 24zm10.9 0c2.8 0 4.6-2.2 4.7-4.7 0-1.4-1.9-3.3-4.7-3.3-2.8 0-4.6 1.9-4.6 3.3 0 2.5 1.8 4.7 4.6 4.7zm9.7 2.8c2.6 0 4.3-2.1 4.3-4.5 0-1.3-1.7-3.1-4.3-3.1s-4.4 1.8-4.4 3.1c0 2.4 1.8 4.5 4.4 4.5zM24.3 40c0 4.5 4 8 7.7 8 3.7 0 7.7-3.5 7.7-8 0-4.9-3.1-9-7.7-9s-7.7 4.1-7.7 9z"
                 fill="#fefce8"
@@ -33,17 +32,168 @@
             </svg>
           </div>
           <div class="brand-meta">
-            <div class="brand-meta-title">Tunnel Professionnel</div>
-            <div class="brand-meta-sub">Parcours ventes (brouillon)</div>
+            <div class="brand-meta-title">Planipets</div>
+            <div class="brand-meta-sub">Tunnel de vente – Professionnels</div>
           </div>
         </div>
-        <a class="back-link" href="Planipets.html">← Retour à l’accueil</a>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
+        <nav class="nav-links">
+          <a href="Planipets.html">Accueil</a>
+          <a href="chronologie.html">Chronologie 2026</a>
+          <a href="swot.html">SWOT 2026</a>
+          <div class="nav-item has-submenu" tabindex="0">Tunnel de ventes
+            <div class="nav-submenu" aria-hidden="true">
+              <a href="tunnel-pro.html">Tunnel Professionnel</a>
+              <a href="tunnel-particulier.html">Tunnel Particulier</a>
+            </div>
+          </div>
+          <a href="espace-publicitaire.html">Espace publicitaire</a>
+          <div class="nav-item has-submenu" tabindex="0">Gamification
+            <div class="nav-submenu" aria-hidden="true">
+              <a href="gamification-pro.html">Gamification Professionnels</a>
+              <a href="gamification-particulier.html">Gamification Particuliers</a>
+            </div>
+          </div>
+        </nav>
       </header>
 
-      <main>
-        <h1>Tunnel de ventes – côté Professionnels (brouillon)</h1>
-        <section class="page-placeholder">
-          <p><strong>Section à compléter.</strong><br />Décris ici le tunnel de ventes dédié aux pros.</p>
+      <main class="page-main">
+        <div class="backlink-inline">
+          <a class="back-link-plain" href="Planipets.html">← Retour à l’accueil</a>
+        </div>
+
+        <section class="hero hero-pro">
+          <div class="hero-inner">
+            <div class="hero-badge">Parcours côté Pro animalier · Vision 2026</div>
+            <h1>Tunnel de vente – Professionnels</h1>
+            <p class="hero-sub">
+              Du premier contact avec Planipets jusqu’au professionnel ambassadeur, stabilisé en revenu et pleinement intégré à l’écosystème.
+            </p>
+            <div class="hero-breadcrumbs">Accueil &gt; Tunnel de ventes &gt; Professionnel</div>
+          </div>
+        </section>
+
+        <section class="section-card">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Entonnoir vertical</p>
+              <h2>Parcours Pro, étape par étape</h2>
+              <p class="section-sub">
+                Un entonnoir lisible pour suivre le passage d’un professionnel animalier de la découverte à l’ambassadeur engagé. Survolez ou cliquez sur une étape pour voir les détails opérationnels.
+              </p>
+            </div>
+          </div>
+          <div class="tunnel-pro-wrapper">
+            <div class="funnel-column" id="funnelProColumn" aria-label="Étapes du tunnel pro"></div>
+            <div class="funnel-detail-card" id="funnelProDetail" aria-live="polite">
+              <div class="detail-meta">Parcours côté Pro animalier</div>
+              <h2 id="funnelProDetailTitle"></h2>
+              <p class="detail-subtitle" id="funnelProDetailSubtitle"></p>
+              <div class="detail-grid">
+                <div class="detail-block">
+                  <div class="detail-block-title">Profil &amp; contexte du Pro</div>
+                  <ul id="funnelProContext"></ul>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-block-title">Objectif de Planipets</div>
+                  <ul id="funnelProGoal"></ul>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-block-title">Messages &amp; arguments clés</div>
+                  <ul id="funnelProMessages"></ul>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-block-title">Indicateurs (KPI)</div>
+                  <ul id="funnelProKpis"></ul>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-block-title">Risques &amp; leviers d’amélioration</div>
+                  <ul id="funnelProRisks"></ul>
+                </div>
+              </div>
+              <div class="detail-example">
+                <div class="detail-block-title">Exemple concret</div>
+                <p id="funnelProExample"></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-card">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Résumé rapide</p>
+              <h2>Une page pour les équipes sales &amp; produit</h2>
+            </div>
+          </div>
+          <div class="resume-grid">
+            <div class="resume-card">
+              <h3>Moments clés</h3>
+              <ul>
+                <li>Découverte contrôlée avec des messages par métier.</li>
+                <li>Rendez-vous diagnostic avec Nasser pour qualifier le fit.</li>
+                <li>Onboarding guidé pour publier rapidement la fiche pro.</li>
+                <li>Activation rapide : premiers rendez-vous dans les 30–60 jours.</li>
+                <li>Montée en puissance via boutique, gamification et formations.</li>
+              </ul>
+            </div>
+            <div class="resume-card">
+              <h3>Expérience cible</h3>
+              <ul>
+                <li>Promesse lisible en moins de 10 secondes.</li>
+                <li>Accompagnement humain continu, pas un outil « laissé tout seul ».</li>
+                <li>KPIs visibles par étape pour piloter le passage à l’action.</li>
+                <li>Rituels de suivi à 30/60 jours pour éviter le décrochage.</li>
+                <li>Programme ambassadeur structuré et valorisant.</li>
+              </ul>
+            </div>
+            <div class="resume-card">
+              <h3>Attendus 2026</h3>
+              <ul>
+                <li>Réduction du délai découverte → signature.</li>
+                <li>Courbe de rétention pro stabilisée après l’activation.</li>
+                <li>Boutique et gamification comme leviers de revenus récurrents.</li>
+                <li>Ambassadeurs visibles dans le média et les événements.</li>
+                <li>Alignement fort avec la charte bien-être animal.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-card process-section">
+          <div class="section-header">
+            <div>
+              <p class="eyebrow">Process commercial &amp; produit</p>
+              <h2>Synchroniser ventes, onboarding et expérience pro</h2>
+              <p class="section-sub">Une feuille de route opérationnelle pour passer d’une intention à un pro engagé et ambassadeur.</p>
+            </div>
+          </div>
+          <div class="process-grid">
+            <div class="process-card">
+              <div class="process-badge">Avant appel</div>
+              <ul>
+                <li>Affiner les messages par métier et par canal (réseaux, salons, mailings).</li>
+                <li>Landing claire : promesse + CTA vers l’appel avec Nasser.</li>
+                <li>Pré-qualification légère pour filtrer les profils hors cible.</li>
+              </ul>
+            </div>
+            <div class="process-card">
+              <div class="process-badge">Pendant / après appel</div>
+              <ul>
+                <li>Diagnostic détaillé, proposition d’une offre simple et lisible.</li>
+                <li>Email de récap et documents d’engagement sans jargon.</li>
+                <li>Plan d’onboarding daté dès la signature pour garder l’élan.</li>
+              </ul>
+            </div>
+            <div class="process-card">
+              <div class="process-badge">Activation &amp; montée en puissance</div>
+              <ul>
+                <li>Suivi à 30/60 jours avec indicateurs de rendez-vous et de revenus.</li>
+                <li>Déploiement progressif de la boutique et des quêtes.</li>
+                <li>Programme ambassadeur structuré : témoignages, parrainage, co-construction.</li>
+              </ul>
+            </div>
+          </div>
         </section>
       </main>
     </div>
