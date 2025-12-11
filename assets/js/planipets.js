@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupNavMenus();
   setupTimeline();
   setupProFunnel();
+  setupTunnelParticulier();
 });
 
 function setupNavMenus() {
@@ -1050,6 +1051,314 @@ function setupProFunnel() {
 
     if (detailElements.example) detailElements.example.textContent = step.example;
   }
+const tunnelParticulierSteps = [
+  {
+    id: "step1",
+    order: 1,
+    title: "Découverte & prise de conscience",
+    shortDescription:
+      "Le propriétaire se rend compte qu’il a besoin d’aide pour le bien-être de son animal, sans forcément connaître Planipets.",
+    context: [
+      "Le chien tire en laisse, le chat fait des bêtises, le lapin s’ennuie, l’animal a peur des manipulations, etc.",
+      "Le propriétaire cherche des solutions : demande des conseils à son entourage, tape des requêtes génériques sur Google, tombe sur des posts réseaux sociaux ou sur un article d’un blog.",
+    ],
+    role: [
+      "Planipets doit apparaître dans cet horizon de solutions comme une référence sérieuse et bienveillante.",
+      "Le média (articles, Rex & Minou, contenus pédagogiques) sert de porte d’entrée naturelle.",
+    ],
+    messages: [
+      "Tu n’es pas seul·e : d’autres propriétaires vivent la même chose.",
+      "Le bien-être de ton animal passe aussi par l’accompagnement de pros formés.",
+      "Planipets t’aide à trouver le bon pro, près de chez toi.",
+    ],
+    kpis: [
+      "Impressions sur les articles et posts réseaux sociaux.",
+      "Clics organiques depuis Google vers le site Planipets.",
+      "Durée moyenne de lecture des contenus de découverte.",
+    ],
+    frictions: [
+      "Le propriétaire ne connaît pas Planipets et peut être méfiant face à une nouvelle plateforme.",
+      "Il ne se sent pas toujours légitime à consulter un pro (peur d’être jugé, de payer cher, etc.).",
+    ],
+    improvements: [
+      "Multiplier les preuves sociales (avis, témoignages, cas concrets).",
+      "Proposer des contenus qui normalisent le recours à un pro (‘Consulter un éducateur, ce n’est pas un échec’).",
+    ],
+    example:
+      "Post Instagram / article : « 5 signes que ton animal a besoin d’un pro (et comment ça se passe concrètement) », avec un CTA discret vers la recherche de pros sur Planipets.",
+  },
+  {
+    id: "step2",
+    order: 2,
+    title: "Arrivée sur Planipets (page d’accueil / article)",
+    shortDescription:
+      "Le propriétaire clique sur un lien et arrive pour la première fois sur une page Planipets (home, article, page média…).",
+    context: [
+      "Il vient d’un moteur de recherche, d’un réseau social, d’un lien partagé par un ami, ou du site d’une mairie/asso partenaire.",
+      "Il découvre le branding, les mascottes, la promesse.",
+    ],
+    role: [
+      "Rassurer immédiatement avec une proposition de valeur claire : Planipets = plateforme pour le bien-être de son animal, avec de vrais pros.",
+      "Proposer un premier chemin simple : rechercher un pro ou lire un contenu adapté à son problème.",
+    ],
+    messages: [
+      "24/7 en quelques clics, trouve un professionnel pour le bien-être de ton animal.",
+      "Des pros sélectionnés et partenaires de la charte Planipets.",
+      "Tu peux commencer par poser un diagnostic léger grâce à nos contenus.",
+    ],
+    kpis: [
+      "Taux de rebond sur la première page visitée.",
+      "Clics sur la barre de recherche ou les boutons ‘Trouver un pro’.",
+      "Clics vers des articles / guides liés au problème rencontré.",
+    ],
+    frictions: [
+      "Trop d’informations en même temps, le propriétaire ne sait pas par où commencer.",
+      "Promesse pas assez claire en 3 secondes (‘Planipets = quoi exactement ?’).",
+    ],
+    improvements: [
+      "Renforcer un bloc ‘Commencer ici’ pour les nouveaux, avec 2 à 3 options maximum.",
+      "Adapter certains textes de la home pour parler au particulier, sans jargon pro.",
+    ],
+    example:
+      "Hero de la home : « Trouve un professionnel animalier près de chez toi – éducateur, comportementaliste, toiletteur, pet-sitter… » avec un champ de recherche simple et un bouton ‘Je cherche pour mon animal’.",
+  },
+  {
+    id: "step3",
+    order: 3,
+    title: "Recherche & comparaison de pros",
+    shortDescription:
+      "Le propriétaire utilise la recherche Planipets pour lister des professionnels pertinents autour de chez lui.",
+    context: [
+      "Il saisit un type de besoin (éducation, massage, comportement…), une ville, ou clique sur une catégorie.",
+      "Il scrute la liste : noms, photos, distances, spécialités, avis.",
+    ],
+    role: [
+      "Aider à passer de l’angoisse à la clarté : oui, il existe des pros formés pour ce problème.",
+      "Faciliter le tri par proximité, spécialité, type d’accompagnement (présentiel / à distance).",
+    ],
+    messages: [
+      "Des pros sélectionnés pour leur sérieux et leur éthique.",
+      "Filtre par localisation, spécialité et type de service.",
+      "Lis les avis d’autres propriétaires comme toi.",
+    ],
+    kpis: [
+      "Recherches effectuées par visiteur.",
+      "Clics sur des fiches Pro.",
+      "Taux de visiteurs qui passent de la home à une fiche Pro.",
+    ],
+    frictions: [
+      "Trop peu de pros visibles dans certaines zones géographiques.",
+      "Difficulté à comprendre les différences entre les professionnels (titres, certifications…).",
+    ],
+    improvements: [
+      "Ajouter des filtres ou tags clairs (ex : ‘Pro spécialisé chiens réactifs’).",
+      "Afficher des micro-infographies rassurantes (exemples de cas résolus).",
+    ],
+    example:
+      "Page de liste avec un bandeau : « Résultats pour ‘chien qui tire en laisse’ à Lille – 3 professionnels trouvés » et une explication en 1 phrase de ce qu’ils font.",
+  },
+  {
+    id: "step4",
+    order: 4,
+    title: "Consultation d’une fiche Pro & réassurance",
+    shortDescription:
+      "Le propriétaire ouvre une fiche Pro et vérifie que c’est la bonne personne pour son animal.",
+    context: [
+      "Il lit la description, les services, les tarifs, les zones d’intervention, les avis, etc.",
+      "Il regarde si le pro ‘comprend’ ce qu’il vit.",
+    ],
+    role: [
+      "Offrir une fiche claire, rassurante, structurée autour du besoin du propriétaire.",
+      "Mettre en avant la charte Planipets, les prises en charge possibles, les avis vérifiés.",
+    ],
+    messages: [
+      "Pro partenaire Planipets, signataire de la charte bien-être.",
+      "Spécialisé dans [type de problématique].",
+      "Avis vérifiés de propriétaires accompagnés.",
+    ],
+    kpis: [
+      "Temps passé sur les fiches.",
+      "Clics sur les boutons ‘Prendre rendez-vous’.",
+      "Taux de conversion fiche → début de prise de RDV.",
+    ],
+    frictions: [
+      "Problème de compréhension des tarifs ou du déroulé de la séance.",
+      "Manque d’exemples concrets de résultats obtenus.",
+    ],
+    improvements: [
+      "Ajouter un bloc ‘Comment se déroule une séance ?’ sur chaque fiche.",
+      "Mettre des exemples avant/après anonymisés ou des témoignages plus détaillés.",
+    ],
+    example:
+      "Bloc sur la fiche : « En pratique : 1er rendez-vous d’1h pour comprendre votre situation, puis 2 à 3 séances de suivi si besoin. »",
+  },
+  {
+    id: "step5",
+    order: 5,
+    title: "Prise de rendez-vous",
+    shortDescription: "Le propriétaire est convaincu et clique sur ‘Prendre rendez-vous’.",
+    context: [
+      "Il choisit un créneau, un lieu (domicile, cabinet, à distance), et renseigne les infos de base (animal, coordonnées).",
+    ],
+    role: [
+      "Rendre le tunnel de réservation ultra simple, rapide et rassurant.",
+      "Montrer clairement ce qui va se passer après validation du rendez-vous.",
+    ],
+    messages: [
+      "Quelques clics pour réserver, tu peux toujours modifier ou annuler selon les conditions du pro.",
+      "Tes informations sont protégées et uniquement utilisées pour ton rendez-vous.",
+      "Tu recevras une confirmation par mail/SMS.",
+    ],
+    kpis: ["Taux de conversion fiche → réservation confirmée.", "Abandons de réservation (où, combien)."],
+    frictions: ["Formulaire trop long ou peu clair.", "Doute sur la politique d’annulation / de paiement."],
+    improvements: [
+      "Limiter le nombre de champs obligatoires, clarifier les messages d’erreur.",
+      "Afficher une mini FAQ ‘avant de confirmer’ (annulation, paiement, durée de la séance).",
+    ],
+    example:
+      "Écran de réservation : « Choisis ton créneau – 60 minutes – 50 € · En présentiel chez le pro à [adresse]. »",
+  },
+  {
+    id: "step6",
+    order: 6,
+    title: "Confirmation & préparation",
+    shortDescription:
+      "Le rendez-vous est confirmé ; on prépare le propriétaire et son animal pour que la séance se passe au mieux.",
+    context: ["Le propriétaire reçoit un email / SMS de confirmation avec les détails pratiques."],
+    role: ["Rassurer, réduire le no-show, préparer le terrain pour une séance utile."],
+    messages: [
+      "Rappel de la date, heure, lieu, durée.",
+      "Conseils spécifiques (ex : ne pas nourrir l’animal juste avant, amener des friandises, carnet de santé si besoin…).",
+      "Lien pour reprogrammer/annuler si nécessaire.",
+    ],
+    kpis: ["Taux de no-show.", "Taux de rendez-vous reprogrammés."],
+    frictions: ["Mail peu clair, propriétaire qui ne retrouve plus les infos."],
+    improvements: [
+      "Templates de mails/SMS plus pédagogiques.",
+      "Lien direct vers une mini-fiche ‘Comment bien préparer le rendez-vous ?’.",
+    ],
+    example:
+      "Mail : « Bonjour, votre rendez-vous avec [Nom du pro] est confirmé le [date] à [heure]. Pensez à venir avec… »",
+  },
+  {
+    id: "step7",
+    order: 7,
+    title: "Rendez-vous & expérience réelle",
+    shortDescription:
+      "Le propriétaire rencontre le pro ; cette expérience conditionne la confiance future envers Planipets.",
+    context: [
+      "L’essentiel se déroule en dehors de l’interface Planipets, mais cela reste une étape clé du tunnel.",
+    ],
+    role: [
+      "S’assurer que les pros référencés respectent la charte bien-être et les standards de qualité.",
+      "Recueillir ensuite le feedback du propriétaire pour améliorer le matching.",
+    ],
+    messages: [
+      "Planipets reste disponible après le rendez-vous pour suivre ton expérience.",
+      "Tu peux partager ton ressenti pour aider d’autres propriétaires.",
+    ],
+    kpis: ["Satisfaction post-rendez-vous (notes/avis).", "Taux de réclamation / demandes de support."],
+    frictions: ["Décalage entre les attentes et la séance réelle (durée, méthode, résultats)."],
+    improvements: [
+      "Affiner la description des services sur les fiches.",
+      "Mettre en place un canal de support si un rendez-vous se passe mal.",
+    ],
+    example:
+      "Message post-séance : « Comment s’est passé ton rendez-vous avec [Nom du pro] ? Dis-le-nous en 1 minute. »",
+  },
+  {
+    id: "step8",
+    order: 8,
+    title: "Suivi & retour d’expérience",
+    shortDescription:
+      "Après le rendez-vous, Planipets sollicite un avis et propose des contenus complémentaires.",
+    context: ["Le propriétaire reçoit un mail quelques jours après la séance."],
+    role: [
+      "Transformer une expérience ponctuelle en relation suivie.",
+      "Collecter des avis utiles pour les autres propriétaires et pour le pro.",
+    ],
+    messages: [
+      "Ton avis compte pour aider le pro et les autres propriétaires.",
+      "Voici quelques ressources pour aller plus loin (articles, vidéos, petits exercices).",
+    ],
+    kpis: ["Taux de collecte d’avis.", "Clics sur les contenus de suivi."],
+    frictions: ["Propriétaire qui ne voit pas l’intérêt de laisser un avis ou manque de temps."],
+    improvements: [
+      "Rendre le formulaire d’avis ultra court (note + 2–3 questions max).",
+      "Montrer concrètement comment les avis aident le pro.",
+    ],
+    example:
+      "Mail : « Peux-tu nous dire en 3 clics comment s’est passée ta séance ? Note, ce que tu as aimé, ce qu’on peut améliorer. »",
+  },
+  {
+    id: "step9",
+    order: 9,
+    title: "Fidélisation & multi-services",
+    shortDescription:
+      "Le propriétaire adopte Planipets comme réflexe pour le suivi du bien-être de son animal.",
+    context: [
+      "Il revient pour d’autres rendez-vous, pour un autre animal, ou pour un autre type de pro.",
+      "Il peut rejoindre un club local, suivre des contenus, profiter de la boutique.",
+    ],
+    role: [
+      "Devenir la plateforme de référence du propriétaire pour tous les sujets bien-être animal.",
+      "Créer des parcours récurrents (rappels, clubs, recommandations de produits/service).",
+    ],
+    messages: [
+      "Ton compte Planipets devient le carnet de vie de ton animal.",
+      "Retrouve l’historique de tes pros, rendez-vous et conseils.",
+      "Profite de recommandations très ciblées (pros, produits, événements).",
+    ],
+    kpis: [
+      "Nombre de visites récurrentes par propriétaire.",
+      "Nombre de pros différents consultés par compte.",
+      "Engagement sur les contenus, clubs, boutique.",
+    ],
+    frictions: [
+      "Le propriétaire ne voit pas la valeur d’un compte ou n’a pas l’habitude de se reconnecter.",
+    ],
+    improvements: [
+      "Mettre en avant les bénéfices concrets d’un compte (historique, rappels, recommandations adaptées).",
+      "Proposer des challenges / gamification douce pour encourager le retour.",
+    ],
+    example:
+      "Interface compte : « Tes animaux : Max, Nala. Prochain rappel : bilan éducatif dans 3 mois. Suggestions : atelier collectif chiots, article sur l’enrichissement du milieu. »",
+  },
+];
+
+function setupTunnelParticulier() {
+  const column = document.getElementById("funnelColumn");
+  const detail = document.getElementById("funnelDetail");
+  const summary = document.getElementById("tunnelSummaryList");
+  if (!column || !detail) return;
+
+  const icons = ["✨", "📍", "🔍", "📄", "🗓️", "✅", "🤝", "💌", "🎯"];
+  let activeStepId = tunnelParticulierSteps[0]?.id;
+
+  column.innerHTML = "";
+  tunnelParticulierSteps.forEach((step, index) => {
+    const el = document.createElement("button");
+    el.type = "button";
+    el.className = "funnel-step";
+    el.dataset.stepId = step.id;
+    el.style.setProperty("--step-shrink", `${index * 10}px`);
+    el.innerHTML = `
+      <div class="step-label">Étape ${step.order}/9</div>
+      <div class="step-title"><span class="step-icon">${icons[index % icons.length]}</span>${step.title}</div>
+    `;
+
+    const activate = () => setActiveStep(step.id);
+    el.addEventListener("click", activate);
+    el.addEventListener("mouseover", activate);
+
+    if (index === 0) {
+      el.classList.add("funnel-step--active");
+    }
+    column.appendChild(el);
+  });
+
+  renderTunnelDetail(activeStepId, detail);
+  renderTunnelSummary(summary);
 
   function setActiveStep(stepId) {
     if (!stepId || stepId === activeStepId) return;
@@ -1063,4 +1372,68 @@ function setupProFunnel() {
   const firstStep = column.querySelector(`[data-step-id="${activeStepId}"]`);
   if (firstStep) firstStep.classList.add("funnel-step--active");
   if (activeStepId) renderProFunnelDetail(activeStepId);
+
+    column.querySelectorAll(".funnel-step").forEach((stepEl) => {
+      stepEl.classList.toggle(
+        "funnel-step--active",
+        stepEl.dataset.stepId === stepId
+      );
+    });
+    renderTunnelDetail(stepId, detail);
+  }
+}
+
+function renderTunnelDetail(stepId, container) {
+  if (!container) return;
+  const step = tunnelParticulierSteps.find((item) => item.id === stepId);
+  if (!step) return;
+
+  container.classList.remove("is-switching");
+  // trigger reflow to restart animation
+  // eslint-disable-next-line no-unused-expressions
+  container.offsetHeight;
+  container.classList.add("is-switching");
+
+  const renderList = (title, items) => {
+    if (!items || !items.length) return "";
+    const listItems = items.map((item) => `<li>${item}</li>`).join("");
+    return `
+      <div class="detail-section">
+        <h4>${title}</h4>
+        <ul class="detail-list">${listItems}</ul>
+      </div>
+    `;
+  };
+
+  container.innerHTML = `
+    <h3>${step.title}</h3>
+    <p class="detail-subtitle">${step.shortDescription}</p>
+    <div class="detail-columns">
+      ${renderList("Contexte côté propriétaire", step.context)}
+      ${renderList("Rôle de Planipets", step.role)}
+      ${renderList("Messages & contenus clés", step.messages)}
+      ${renderList("Indicateurs (KPI)", step.kpis)}
+      ${renderList("Frictions & pistes d’amélioration", step.frictions)}
+      ${renderList("Améliorations prévues", step.improvements)}
+    </div>
+    <div class="example-block">
+      <strong>Exemple concret</strong>
+      <p>${step.example}</p>
+    </div>
+  `;
+}
+
+function renderTunnelSummary(container) {
+  if (!container) return;
+  container.innerHTML = "";
+  tunnelParticulierSteps.forEach((step) => {
+    const card = document.createElement("article");
+    card.className = "summary-card";
+    card.innerHTML = `
+      <div class="summary-step-label">Étape ${step.order}/9</div>
+      <h3>${step.title}</h3>
+      <p>${step.shortDescription}</p>
+    `;
+    container.appendChild(card);
+  });
 }
