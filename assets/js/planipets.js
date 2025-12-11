@@ -1,1420 +1,675 @@
 document.addEventListener("DOMContentLoaded", () => {
-      // ============================================
-      // DATA MODEL
-      // ============================================
-  
-      const timelineData = [
-        {
-          id: "2026-01",
-          monthLabel: "Janvier 2026",
-          shortLabel: "Jan",
-          quarter: "T1 2026 · Fondations",
-          theme: "Clarifier la promesse & lancer l’audit produit",
-          quarterMetrics: [
-            "Objectif T1 : poser les bases d’un produit propre et mesurable",
-            "Focus : offre Pro, hygiène UX, définition des KPIs",
-            "KPI : pros payants actifs, premiers événements trackés"
-          ],
-          meta: {
-            focus: "Offre Pro & message",
-            tags: ["Fondations", "Offre", "UX"]
-          },
-          projects: [
-            {
-              id: "p-jan-1",
-              icon: "🎯",
-              title: "Clarification de l’offre Planipets Pro",
-              tag: "Positionnement",
-              subtitle:
-                "Verrouiller la promesse centrale pour les pros : revenus, visibilité, sérénité.",
-              metaPills: ["Atelier proposition de valeur", "Refonte du hero", "Cas clients chiffrés"],
-              sections: {
-                objectifs: [
-                  "Formuler en une phrase la promesse Planipets pour les pros, orientée revenu et charge mentale.",
-                  "Aligner les pages d’atterrissage Pro avec cette promesse, sans jargon technique.",
-                  "Préparer des arguments réutilisables pour les appels de vente et les partenariats."
-                ],
-                livrables: [
-                  "Phrase de promesse claire (ex. : « Tu soignes les animaux, nous sécurisons tes revenus. »).",
-                  "Nouvelle section « Ce que tu gagnes concrètement » avec 3 à 4 cas d’usage chiffrés.",
-                  "Guide interne de pitch Pro (argumentaire en 5 à 7 bullet points)."
-                ],
-                actions: [
-                  "Organiser un atelier de 2h avec Nasser + 2 à 3 pros ambassadeurs pour tester différentes formulations.",
-                  "Réécrire le hero de la landing Pro : titre, sous-titre, CTA principal orienté prise de rendez-vous.",
-                  "Insérer 2 à 3 témoignages existants avec chiffres (RDV, revenus, temps gagné) mis en avant."
-                ],
-                prototype: [
-                  "Hero avec promesse, CTA « Discuter avec Nasser (30 minutes offertes) » et badges de confiance.",
-                  "Bloc visuel « Avant / Après Planipets » pour un éducateur type : planning vide vs planning stabilisé.",
-                  "Encadré latéral « Ce que tu gagnes en moyenne au bout de 6 mois » (même si estimation)."
-                ]
-              }
-            },
-            {
-              id: "p-jan-2",
-              icon: "🔍",
-              title: "Audit UX & contenu des interfaces existantes",
-              tag: "Qualité produit",
-              subtitle:
-                "Lister toutes les pages clés, liens cassés et frictions avant d’avancer vers la boutique.",
-              metaPills: ["Cartographie des pages", "Check 404 & formulaires", "Plan de correction"],
-              sections: {
-                objectifs: [
-                  "Identifier toutes les pages et parcours réellement utilisés par les pros et les particuliers.",
-                  "Dégommer les erreurs visibles (404, formulaires planqués, textes en anglais).",
-                  "Mettre à niveau la cohérence visuelle entre Planipets Pro, le média et les pages publiques."
-                ],
-                livrables: [
-                  "Tableau de cartographie des pages avec URL, rôle, trafic estimé et problèmes détectés.",
-                  "Liste priorisée des corrections « quick win » (1 à 2 semaines de travail).",
-                  "Convention minimale pour titres, CTA et blocs de confiance sur chaque type de page."
-                ],
-                actions: [
-                  "Exporter la liste des pages principales depuis l’outil d’analytics et les classer par trafic.",
-                  "Tester manuellement les formulaires et parcours critiques (inscription pro, prise de RDV, contact).",
-                  "Faire des captures d’écran « avant » pour chaque page à corriger pour suivre l’évolution."
-                ],
-                prototype: [
-                  "Dossier partagé « Audit UX T1 2026 » dans lequel chaque page a son avant/après.",
-                  "Checklist simple par page : « Compréhensible en 5 secondes ? CTA visible ? Formulaire utilisable ? ».",
-                  "Board de tickets (Trello/Notion/Jira) regroupant les tâches de correction par priorité."
-                ]
-              }
-            }
-          ]
-        },
-        {
-          id: "2026-02",
-          monthLabel: "Février 2026",
-          shortLabel: "Fév",
-          quarter: "T1 2026 · Fondations",
-          theme: "Hygiène produit & stack data",
-          quarterMetrics: [
-            "Taux de correction des erreurs critiques > 80%",
-            "KPIs produits définis et suivis dans un dashboard simple",
-            "Base d’événements produit en place (bookings, paiements, etc.)"
-          ],
-          meta: {
-            focus: "UX & métriques",
-            tags: ["Analytics", "Dashboard"]
-          },
-          projects: [
-            {
-              id: "p-fev-1",
-              icon: "🧹",
-              title: "Sprint correctif UX & cohérence visuelle",
-              tag: "Exécution rapide",
-              subtitle:
-                "Appliquer les corrections identifiées en janvier sur un périmètre clair et mesurable.",
-              metaPills: ["Fix des 404", "Formulaires unifiés", "Charte bien-être visible"],
-              sections: {
-                objectifs: [
-                  "Supprimer les erreurs visibles qui cassent la confiance (404, boutons inactifs, textes incohérents).",
-                  "Rendre les formulaires homogènes, courts, en français et centrés sur l’essentiel.",
-                  "Mettre en avant la charte bien-être et les éléments de légitimité (média, séries, partenaires)."
-                ],
-                livrables: [
-                  "Pages clés corrigées avec captures d’écran avant/après.",
-                  "Formulaire type pour commentaires, contact et inscription (une base réutilisée partout).",
-                  "Bloc « Charte Planipets » standardisé, facilement intégrable sur les pages pro et médias."
-                ],
-                actions: [
-                  "Traiter en priorité les pages les plus vues selon l’audit (top 10).",
-                  "Harmoniser la structure des articles du média : titre, chapeau, contenu, CTA vers les pros.",
-                  "Intégrer un composant réutilisable de formulaire (librairie maison simple)."
-                ],
-                prototype: [
-                  "Composant visuel « Charte Planipets » avec icône et lien vers une page dédiée.",
-                  "Formulaire avec progressivité (nom/email + message, sans friction superflue).",
-                  "Mode sombre cohérent sur toutes les sections Pro & Média."
-                ]
-              }
-            },
-            {
-              id: "p-fev-2",
-              icon: "📊",
-              title: "Mise en place de la stack data & KPIs 2026",
-              tag: "Data produit",
-              subtitle:
-                "Passer de l’intuition aux chiffres en instrumentant les événements clés côté Pro et Particulier.",
-              metaPills: ["North Star", "Événements produit", "Dashboard mensuel"],
-              sections: {
-                objectifs: [
-                  "Définir 4 à 5 métriques principales, dont la North Star : revenu mensuel généré pour les pros.",
-                  "Instrumenter les événements clés dans l’app (création pro, RDV, paiements, commissions, etc.).",
-                  "Créer un dashboard mensuel simple que Nasser peut suivre sans analyste dédié."
-                ],
-                livrables: [
-                  "Doc interne « KPIs Planipets 2026 » avec définitions, sources et fréquence de suivi.",
-                  "Plan de tracking (liste d’événements avec propriétés associées).",
-                  "Dashboard Looker/Plausible/Data Studio avec 3 à 4 vues (Pros, Particuliers, Boutique, Engagement)."
-                ],
-                actions: [
-                  "Lister les parcours critiques (inscription pro, RDV, boutique) et y placer les événements pertinents.",
-                  "Implémenter le tracking côté front/back (en fonction de la stack actuelle).",
-                  "Tester les événements en utilisant un environnement de staging, puis valider les données sur 1 à 2 semaines."
-                ],
-                prototype: [
-                  "Vue « Santé globale » avec pros actifs, RDV, GMV boutique et revenu redistribué.",
-                  "Vue « Acquisition pro » montrant le funnel visite → contact → abonnement → pro actif.",
-                  "Vue « Engagement » pour les quêtes et la gamification (à préparer pour T2/T3)."
-                ]
-              }
-            }
-          ]
-        },
-        {
-          id: "2026-03",
-          monthLabel: "Mars 2026",
-          shortLabel: "Mar",
-          quarter: "T1 2026 · Fondations",
-          theme: "Spécification boutique & gamification pro",
-          quarterMetrics: [
-            "Spécification fonctionnelle boutique validée",
-            "Modèle de niveaux & plafonds commissionné",
-            "Jeu de maquettes UI/UX prêt pour développement T2"
-          ],
-          meta: {
-            focus: "Design fonctionnel",
-            tags: ["Boutique", "Gamification"]
-          },
-          projects: [
-            {
-              id: "p-mar-1",
-              icon: "🛒",
-              title: "Spécification complète de la Boutique Planipets",
-              tag: "B2B2C",
-              subtitle:
-                "Choisir les catégories de produits, les partenaires pilotes et le modèle économique pro/Planipets.",
-              metaPills: ["Catalogue", "Rémunération", "Partenaires pilotes"],
-              sections: {
-                objectifs: [
-                  "Définir l’étendue du catalogue (food, accessoires, assurances, formations, services numériques).",
-                  "Poser les règles de commission par type de produit, pour Planipets et pour les pros.",
-                  "Identifier 3 à 5 partenaires prêts à démarrer un pilote dès T2."
-                ],
-                livrables: [
-                  "Doc de spécification boutique : catégories, fiches produits, logistique et règles de commission.",
-                  "Liste partagée de partenaires candidats avec contact, intérêt et conditions envisagées.",
-                  "Architecture de données pour gérer les produits, les catégories et les liens avec les pros."
-                ],
-                actions: [
-                  "Faire un benchmark rapide des offres partenaires actuelles (food, jouets, assurances).",
-                  "Cartographier ce que chaque pro peut recommander de façon cohérente avec sa pratique.",
-                  "Esquisser les écrans clés : bibliothèque de produits pro, page produit pour le particulier, lien d’affiliation."
-                ],
-                prototype: [
-                  "Maquette Figma ou équivalent de l’onglet « Recommandations & Boutique » côté pro.",
-                  "Maquette d’une page produit « recommandé par X » côté particulier, avec photos et argumentaire clair.",
-                  "Schéma de la chaîne de valeur : pro → Planipets → fournisseur → particulier."
-                ]
-              }
-            },
-            {
-              id: "p-mar-2",
-              icon: "⭐",
-              title: "Conception du système de niveaux & plafonds Pro",
-              tag: "Gamification Pro",
-              subtitle:
-                "Remplacer un système opaque par une progression claire, motivante et éthique pour les pros.",
-              metaPills: ["Niveaux 0 → 10", "Plafonds progressifs", "Quêtes hebdomadaires"],
-              sections: {
-                objectifs: [
-                  "Définir une échelle de niveaux (0 à 10) liée à l’engagement pro (activité, avis, contenus, entraide).",
-                  "Associer à chaque niveau un plafond mensuel de commission et des avantages qualitatifs.",
-                  "Lister les types de quêtes hebdomadaires réalistes et utiles pour la communauté Planipets."
-                ],
-                livrables: [
-                  "Tableau « Levels Planipets Pro » avec critères, plafonds, avantages et exemples.",
-                  "Catalogue de quêtes (10 à 20 actions possibles), réparties par difficulté et impact.",
-                  "Guidelines légales & éthiques basiques pour éviter l’effet casino et protéger les pros."
-                ],
-                actions: [
-                  "Interviewer 3 à 5 pros sur ce qui les motiverait vraiment : argent, visibilité, appartenance, formation.",
-                  "Écrire des scénarios-types : pro débutant, pro confirmé, pro ambassadeur, et leur trajectoire de progression.",
-                  "Préparer les textes front (labels de niveaux, messages de progression, feedbacks visuels)."
-                ],
-                prototype: [
-                  "Écran « Mon niveau Planipets » avec badge, barre de progression et plafond du mois.",
-                  "Fiche « Pro du mois » mettant en avant un pro très engagé (visible sur le média).",
-                  "Mini-guide expliquant en une page A4 comment fonctionne la redistribution et les niveaux."
-                ]
-              }
-            }
-          ]
-        },
-        {
-          id: "2026-04",
-          monthLabel: "Avril 2026",
-          shortLabel: "Avr",
-          quarter: "T2 2026 · Lancement Boutique & Pilote Gamification",
-          theme: "Sélection des partenaires & intégration technique",
-          quarterMetrics: [
-            "3 à 5 partenaires pilotes signés",
-            "Catalogue pilote disponible côté back-office",
-            "Environnement de test prêt pour la cohorte de pros"
-          ],
-          meta: {
-            focus: "Partenaires & intégration",
-            tags: ["API", "Catalogue"]
-          },
-          projects: [
-            {
-              id: "p-avr-1",
-              icon: "🤝",
-              title: "Sélection & contractualisation des partenaires boutique",
-              tag: "Business",
-              subtitle:
-                "Choisir des partenaires alignés avec la charte bien-être et prêts à co-construire.",
-              metaPills: ["Food", "Accessoires", "Assurance", "Services"],
-              sections: {
-                objectifs: [
-                  "Identifier des partenaires qui partagent les valeurs Planipets (bien-être, transparence, qualité).",
-                  "Négocier des conditions de commission permettant de rémunérer les pros de manière attractive.",
-                  "Limiter le nombre de partenaires au départ pour garder un pilote maîtrisé."
-                ],
-                livrables: [
-                  "Liste courte des partenaires retenus avec fiches synthétiques (produits, marges, contraintes).",
-                  "Draft d’accords de partenariat incluant la redistribution vers les pros.",
-                  "Roadmap conjointe pour enrichir le catalogue après le pilote."
-                ],
-                actions: [
-                  "Organiser des appels de qualification avec 5 à 10 marques ciblées.",
-                  "Tester la compatibilité technique (API, flux CSV, conditions d’expédition).",
-                  "Valider la cohérence entre les produits proposés et les profils des pros Planipets."
-                ],
-                prototype: [
-                  "Kit partenaire Planipets (PDF ou deck) expliquant la mécanique B2B2C et les attentes.",
-                  "Tableur centralisé listant les produits pilotes, leur catégorie, leur prix et la commission.",
-                  "Checklist de validation des partenaires (critères qualité, logistique, réputation)."
-                ]
-              }
-            },
-            {
-              id: "p-avr-2",
-              icon: "🧩",
-              title: "Intégration technique du catalogue pilote",
-              tag: "Tech boutique",
-              subtitle:
-                "Faire remonter le catalogue partenaire dans l’écosystème Planipets de façon propre et extensible.",
-              metaPills: ["Back-office", "Mapping", "Tests"],
-              sections: {
-                objectifs: [
-                  "Mettre en place la structure de données pour les produits et leurs attributs (espèce, catégorie, etc.).",
-                  "Créer les écrans de gestion interne pour activer/désactiver des produits dans le pilote.",
-                  "Assurer la robustesse des flux (mises à jour de stock, prix, voire promotions)."
-                ],
-                livrables: [
-                  "Modèle de données stable pour les produits et les commissions.",
-                  "Interface admin minimale pour gérer le catalogue et vérifier les flux.",
-                  "Suite de tests de base pour sécuriser l’intégration (stocks, commandes, erreurs)."
-                ],
-                actions: [
-                  "Implémenter les endpoints nécessaires côté back pour récupérer les produits.",
-                  "Concevoir des scripts de synchronisation (planifiés ou en temps réel selon l’API).",
-                  "Effectuer un pilote technique sur un échantillon réduit de références."
-                ],
-                prototype: [
-                  "Écran back-office « Produits pilotes » avec filtres par catégorie et statut.",
-                  "Affichage technique simplifié côté pro (liste brute) pour valider la cohérence des données.",
-                  "Log d’erreurs lisible pour ajuster rapidement en cas de problème."
-                ]
-              }
-            }
-          ]
-        },
-        {
-          id: "2026-05",
-          monthLabel: "Mai 2026",
-          shortLabel: "Mai",
-          quarter: "T2 2026 · Lancement Boutique & Pilote Gamification",
-          theme: "Interfaces Pro & premiers parcours particuliers",
-          quarterMetrics: [
-            "Interface pro de recommandation prête",
-            "Parcours particulier de commande opérationnel",
-            "Tests internes réussis sur la chaîne complète"
-          ],
-          meta: {
-            focus: "UI/UX boutique",
-            tags: ["Parcours Pro", "Parcours Particulier"]
-          },
-          projects: [
-            {
-              id: "p-mai-1",
-              icon: "📱",
-              title: "Design & dev de l’interface pro « Recommandations & Boutique »",
-              tag: "Front Pro",
-              subtitle:
-                "Permettre à un pro de choisir tranquillement ce qu’il recommande et de le montrer à ses clients.",
-              metaPills: ["Sélection produits", "Liens de recommandation", "Récap commissions"],
-              sections: {
-                objectifs: [
-                  "Créer un espace clair où le pro voit les produits disponibles et coche ceux qu’il approuve.",
-                  "Générer des liens de recommandation partageables (mail, QR-code, réseaux, SMS).",
-                  "Afficher les commissions estimées/obtenues sans complexité technique."
-                ],
-                livrables: [
-                  "Onglet « Recommandations & Boutique » dans l’espace Pro.",
-                  "Liste filtrable de produits avec possibilité d’activation/désactivation.",
-                  "Résumé mensuel des commissions liées aux recommandations."
-                ],
-                actions: [
-                  "Transformer les maquettes T1 en composants UI réels.",
-                  "Tester l’ergonomie avec 3 à 5 pros pilotes, ajuster texte/organisation.",
-                  "Implémenter un affichage des commissions agrégées par mois."
-                ],
-                prototype: [
-                  "Carte produit simple avec photo, description courte et indicateur « recommandé ».",
-                  "Widget récap « Ce mois-ci, tes recommandations ont généré X € (sur Y € de plafond). ».",
-                  "Bouton « Copier le lien » et « Télécharger le QR-code » pour chaque recommandation clé."
-                ]
-              }
-            },
-            {
-              id: "p-mai-2",
-              icon: "🧾",
-              title: "Parcours de commande côté particulier (v1)",
-              tag: "Front Particulier",
-              subtitle:
-                "Offrir aux propriétaires une expérience d’achat simple, rassurante et cohérente avec le pro qui recommande.",
-              metaPills: ["Page produit", "Panier", "Confirmation"],
-              sections: {
-                objectifs: [
-                  "Créer une page produit claire affichant la recommandation du pro et les infos essentielles.",
-                  "Mettre en place un mini tunnel d’achat (panier, coordonnées, paiement, confirmation).",
-                  "Relier la commande aux commissions pro dans le back-office."
-                ],
-                livrables: [
-                  "Page produit « recommandé par » avec photo de l’animal, du pro ou un badge Planipets.",
-                  "Mini-panier avec récap des frais et conditions de livraison.",
-                  "Mail de confirmation de commande incluant la mention Planipets & pro."
-                ],
-                actions: [
-                  "Connecter l’interface d’achat au catalogue pilote et au système de paiement choisi.",
-                  "Tester plusieurs fois le parcours complet avec données de test.",
-                  "Mettre en place un message clair si le produit est indisponible ou en rupture."
-                ],
-                prototype: [
-                  "Page produit avec encart « Conseillé par [Nom du pro] » en haut de page.",
-                  "Récap commande avec mention des délais et du support.",
-                  "Mail de confirmation stylisé, rappelant que le pro touche une commission."
-                ]
-              }
-            }
-          ]
-        },
-        {
-          id: "2026-06",
-          monthLabel: "Juin 2026",
-          shortLabel: "Juin",
-          quarter: "T2 2026 · Lancement Boutique & Pilote Gamification",
-          theme: "Cohorte pilote & coaching des pros",
-          quarterMetrics: [
-            "20–30 pros pilotes onboardés",
-            "Premières commandes validées",
-            "Feedback structuré sur l’usage de la boutique & des niveaux"
-          ],
-          meta: {
-            focus: "Pilote terrain",
-            tags: ["Cohorte", "Coaching", "Feedback"]
-          },
-          projects: [
-            {
-              id: "p-juin-1",
-              icon: "🚀",
-              title: "Lancement du pilote Boutique + Niveaux Pro",
-              tag: "Pilote",
-              subtitle:
-                "Activer la première cohorte qui va tester la mécanique de recommandations et de niveaux.",
-              metaPills: ["Sélection cohorte", "Onboarding", "Suivi rapproché"],
-              sections: {
-                objectifs: [
-                  "Sélectionner 20 à 30 pros motivés et variés (éducateurs, toiletteurs, etc.).",
-                  "Les onboarder sur la boutique et le système de niveaux avec un accompagnement humain.",
-                  "Suivre de près leurs premières recommandations et commandes."
-                ],
-                livrables: [
-                  "Liste des pros pilotes avec profil et objectifs individuels.",
-                  "Sessions d’onboarding groupées (webinaires) enregistrées.",
-                  "Rapport de fin de mois sur l’usage et les premiers résultats (quantitatifs + qualitatifs)."
-                ],
-                actions: [
-                  "Inviter les pros les plus engagés de 2025 à rejoindre le pilote.",
-                  "Proposer une visio d’onboarding où tu expliques les règles et réponds aux questions.",
-                  "Mettre en place un canal privé (Discord/WhatsApp) pour le support pilote."
-                ],
-                prototype: [
-                  "Email d’invitation « Pilote Boutique & Niveaux Planipets ».",
-                  "Canevas de questionnaire de feedback à remplir après 2 à 4 semaines.",
-                  "Mini-dashboards persos envoyés aux pros pilotes (même manuels) pour valoriser leurs résultats."
-                ]
-              }
-            },
-            {
-              id: "p-juin-2",
-              icon: "🎓",
-              title: "Coaching & contenus pédagogiques pour les pros",
-              tag: "Formation",
-              subtitle:
-                "Éviter que la boutique soit juste une feature : en faire un vrai levier business maîtrisé par les pros.",
-              metaPills: ["Webinaires", "Playbooks", "Scripts"],
-              sections: {
-                objectifs: [
-                  "Expliquer comment parler des recommandations sans devenir un « vendeur à la sauvette ». ",
-                  "Donner des scripts simples pour présenter Planipets aux clients finaux.",
-                  "Montrer comment utiliser les niveaux et quêtes sans perdre du temps."
-                ],
-                livrables: [
-                  "3 webinaires enregistrés (boutique, relation client, niveau & quêtes).",
-                  "PDF de scripts & phrases clés pour la recommandation.",
-                  "Module dédié dans l’espace formation Planipets Pro."
-                ],
-                actions: [
-                  "Planifier les lives avec un planning clair et diffuser les replays.",
-                  "Demander aux pros de tester un script et de remonter leurs retours.",
-                  "Intégrer les meilleures pratiques des pros dans le contenu (exemples concrets)."
-                ],
-                prototype: [
-                  "Page formation « Programme de redistribution & boutique » avec 3 à 4 vidéos.",
-                  "Fiche A4 « Comment présenter Planipets en 2 minutes à un nouveau client ».",
-                  "FAQ spécifique sur les niveaux et la limite de plafond de commissions."
-                ]
-              }
-            }
-          ]
-        },
-        {
-          id: "2026-07",
-          monthLabel: "Juillet 2026",
-          shortLabel: "Juil",
-          quarter: "T3 2026 · Espace Particuliers & Communauté",
-          theme: "Compte Particulier & carnet animal",
-          quarterMetrics: [
-            "Espace Particulier (v1) opérationnel",
-            "Fiches animaux créables et consultables",
-            "Historique de RDV débuté"
-          ],
-          meta: {
-            focus: "Profil Particulier",
-            tags: ["Carnet animal", "Historique"]
-          },
-          projects: [
-            {
-              id: "p-juil-1",
-              icon: "🐾",
-              title: "Création de l’espace Particulier & fiches animaux",
-              tag: "Compte",
-              subtitle:
-                "Donner aux propriétaires un espace pour suivre leurs animaux, même hors problème ponctuel.",
-              metaPills: ["Profil", "Fiches animaux", "Historique RDV"],
-              sections: {
-                objectifs: [
-                  "Permettre la création d’un compte Particulier simple (email + 1ère fiche animal).",
-                  "Associer les RDV passés et futurs à chaque animal.",
-                  "Préparer l’intégration future avec la boutique et les recommandations."
-                ],
-                livrables: [
-                  "Page « Mon compte » avec profil et liste d’animaux.",
-                  "Fiches animaux avec nom, photos, âge, notes libres.",
-                  "Ébauche d’historique de RDV relié à chaque fiche."
-                ],
-                actions: [
-                  "Définir le modèle de données pour les animaux et la relation avec le compte Particulier.",
-                  "Créer les écrans de base : liste, création, modification, suppression de fiches.",
-                  "Relier les RDV Planipets existants aux profils animaux lorsqu’ils sont disponibles."
-                ],
-                prototype: [
-                  "Carte « Max, 2 ans, croisé » avec dernier RDV affiché.",
-                  "Vue chronologique des RDV pour un animal donné.",
-                  "Lien vers les recommandations produits/ressources associées."
-                ]
-              }
-            }
-          ]
-        },
-        {
-          id: "2026-08",
-          monthLabel: "Août 2026",
-          shortLabel: "Août",
-          quarter: "T3 2026 · Espace Particuliers & Communauté",
-          theme: "Clubs locaux & échanges",
-          quarterMetrics: [
-            "Clubs locaux créés (2–3 villes pilotes)",
-            "Discussions actives avec modération légère",
-            "Premiers événements en ligne"
-          ],
-          meta: {
-            focus: "Communauté",
-            tags: ["Clubs", "Événements"]
-          },
-          projects: [
-            {
-              id: "p-aout-1",
-              icon: "💬",
-              title: "Mise en place des clubs locaux & discussions",
-              tag: "Communauté",
-              subtitle:
-                "Créer des espaces où les propriétaires échangent et rencontrent les pros Planipets localement.",
-              metaPills: ["Clubs ville", "Q&A", "Modération"],
-              sections: {
-                objectifs: [
-                  "Lancer des clubs pour quelques villes pilotes avec une animation légère.",
-                  "Permettre un échange simple entre particuliers et pros, sans se substituer au RDV.",
-                  "Tester différents formats (Q&A, retours d’expérience, partages de ressources)."
-                ],
-                livrables: [
-                  "Page « Clubs & communauté » accessible depuis l’espace Particulier.",
-                  "Clubs pour 2–3 villes (ex. Lille, Lyon, Bordeaux).",
-                  "Règles de base de modération pour éviter les dérives."
-                ],
-                actions: [
-                  "Identifier des pros ambassadeurs prêts à animer les clubs.",
-                  "Créer un modèle de message d’accueil et des premiers fils de discussion.",
-                  "Surveiller l’activité pour ajuster les rubriques utiles (questions fréquentes, bonnes pratiques)."
-                ],
-                prototype: [
-                  "Fil de discussion « Votre première promenade après adoption ».",
-                  "Badge « Pro Planipets » visible sur les messages des pros.",
-                  "Section épinglée avec les ressources clés (articles, replays, guides)."
-                ]
-              }
-            }
-          ]
-        },
-        {
-          id: "2026-09",
-          monthLabel: "Septembre 2026",
-          shortLabel: "Sep",
-          quarter: "T3 2026 · Espace Particuliers & Communauté",
-          theme: "Gamification Particulier",
-          quarterMetrics: [
-            "Statuts Particulier implémentés",
-            "Premières actions gamifiées",
-            "Taux de retour mensuel Particulier en hausse"
-          ],
-          meta: {
-            focus: "Engagement Particulier",
-            tags: ["Statuts", "Actions gamifiées"]
-          },
-          projects: [
-            {
-              id: "p-sept-1",
-              icon: "🏅",
-              title: "Lancement gamification Particulier (v1)",
-              tag: "Gamification",
-              subtitle:
-                "Encourager les comportements utiles pour le bien-être animal et la communauté.",
-              metaPills: ["Statuts", "Actions", "Récompenses non financières"],
-              sections: {
-                objectifs: [
-                  "Définir 2 à 3 statuts de propriétaire (ex. Gardien attentif, Gardien impliqué, Ambassadeur).",
-                  "Récompenser les actions vertueuses : avis, participation, complétion de profils.",
-                  "Garder une logique éthique, sans hasard sur l’argent."
-                ],
-                livrables: [
-                  "Système de statuts Particulier avec badges visuels.",
-                  "Liste d’actions gamifiées et de points associés.",
-                  "Textes d’explication pour ne pas créer d’incompréhension."
-                ],
-                actions: [
-                  "Rédiger les descriptions des statuts et les avantages (accès prioritaire aux événements, etc.).",
-                  "Implémenter un système de points simple relié aux actions en T3.",
-                  "Déployer une info-bulle/cloche d’info pour expliquer comment progresser."
-                ],
-                prototype: [
-                  "Widget « Ton statut : Gardien impliqué » dans le compte.",
-                  "Liste d’actions hebdomadaires proposées (laisser un avis, participer au live...).",
-                  "Page « Comment fonctionne la gamification Planipets » accessible publiquement."
-                ]
-              }
-            }
-          ]
-        },
-        {
-          id: "2026-10",
-          monthLabel: "Octobre 2026",
-          shortLabel: "Oct",
-          quarter: "T4 2026 · Scalabilité & Publicité",
-          theme: "Packaging des offres média & pub",
-          quarterMetrics: [
-            "Media kit structuré",
-            "2 à 3 offres packagées",
-            "Premiers leads marques & assureurs"
-          ],
-          meta: {
-            focus: "Offre pub",
-            tags: ["Media kit", "Packs publicitaires"]
-          },
-          projects: [
-            {
-              id: "p-oct-1",
-              icon: "📢",
-              title: "Conception des offres publicitaires Planipets Media",
-              tag: "Publicité",
-              subtitle:
-                "Transformer l’audience (pros & particuliers) en offres média claires pour les marques.",
-              metaPills: ["Packs", "Media kit", "Positionnement"],
-              sections: {
-                objectifs: [
-                  "Créer 2 à 3 packs publicitaires simples : Découverte, Premium, sur-mesure.",
-                  "Mettre en avant la valeur unique : niche animaux + pros engagés + média de confiance.",
-                  "Préparer des exemples de placements et de campagnes inspirantes."
-                ],
-                livrables: [
-                  "Media kit PDF/Deck avec audiences, formats et tarifs indicatifs.",
-                  "Fiches d’offres packagées (contenu sponsorisé, intégration Rex & Minou, newsletter).",
-                  "Cas d’usage fictifs ou réels montrant le ROI possible."
-                ],
-                actions: [
-                  "Rassembler les chiffres d’audience 2026 (visites, temps passé, mails, etc.).",
-                  "Définir les emplacements disponibles : site média, newsletters, espaces Pro.",
-                  "Créer des mockups de bannières et d’intégrations dans des articles ou vidéos."
-                ],
-                prototype: [
-                  "Pack « Découverte » : article sponsorisé + bannière + mention newsletter.",
-                  "Pack « Premium » : intégration dans un épisode Rex & Minou + mise en avant dans la boutique.",
-                  "Page web simple « Devenir partenaire Planipets » avec formulaire de contact."
-                ]
-              }
-            }
-          ]
-        },
-        {
-          id: "2026-11",
-          monthLabel: "Novembre 2026",
-          shortLabel: "Nov",
-          quarter: "T4 2026 · Scalabilité & Publicité",
-          theme: "Partenariats mairies, assos & refuges",
-          quarterMetrics: [
-            "1 à 3 villes partenaires",
-            "1 à 2 assos ou refuges signés",
-            "Pages locales actives sur le média"
-          ],
-          meta: {
-            focus: "Institutionnel",
-            tags: ["Collectivités", "Assos"]
-          },
-          projects: [
-            {
-              id: "p-nov-1",
-              icon: "🏛️",
-              title: "Lancement des offres collectivités & associations",
-              tag: "Partenariats publics",
-              subtitle:
-                "Renforcer la légitimité en s’adossant à des acteurs locaux du bien-être animal.",
-              metaPills: ["Pages ville", "Ressources locales", "Campagnes"],
-              sections: {
-                objectifs: [
-                  "Proposer aux mairies et assos un espace dédié sur le média pour valoriser leurs actions.",
-                  "Mettre en avant les pros Planipets dans ces pages locales.",
-                  "Montrer que Planipets est un allié pour la prévention et le lien humain/animal."
-                ],
-                livrables: [
-                  "Page type « Ville de X & Planipets » avec pros, ressources et actualités.",
-                  "Pack de présentation collectivités/assos.",
-                  "Premier partenariat formalisé avec une ville ou une asso phare."
-                ],
-                actions: [
-                  "Cibler quelques villes déjà sensibles au bien-être animal.",
-                  "Préparer un modèle d’accord léger, non contraignant pour démarrer.",
-                  "Proposer un premier événement ou webinaire en commun."
-                ],
-                prototype: [
-                  "Page avec logo de la ville, charte et liste de pros locaux Planipets.",
-                  "Section « Campagnes en cours » (stérilisation, adoption, etc.).",
-                  "Bloc « Planipets accompagne les familles de la ville de X »."
-                ]
-              }
-            }
-          ]
-        },
-        {
-          id: "2026-12",
-          monthLabel: "Décembre 2026",
-          shortLabel: "Déc",
-          quarter: "T4 2026 · Scalabilité & Publicité",
-          theme: "Bilan, optimisation & plan 2027",
-          quarterMetrics: [
-            "Rapport « État de Planipets 2026 »",
-            "Ajustement des funnels & niveaux",
-            "Axes stratégiques 2027 définis"
-          ],
-          meta: {
-            focus: "Analyse & optimisation",
-            tags: ["Funnels", "Roadmap 2027"]
-          },
-          projects: [
-            {
-              id: "p-dec-1",
-              icon: "📈",
-              title: "Analyse des funnels & optimisations clés",
-              tag: "Analyse",
-              subtitle:
-                "Revenir sur 12 mois de données pour simplifier ce qui doit l’être et amplifier ce qui fonctionne.",
-              metaPills: ["Funnels Pro", "Funnels Particuliers", "Synthèse"],
-              sections: {
-                objectifs: [
-                  "Comprendre où les pros et particuliers décrochent dans leurs parcours.",
-                  "Identifier les features et parcours qui créent le plus de valeur.",
-                  "Simplifier autant que possible l’UX et le modèle de niveaux."
-                ],
-                livrables: [
-                  "Rapport synthèse des funnels avec 3 à 5 recommandations majeures.",
-                  "Liste des features à améliorer, à mettre en pause ou à retirer.",
-                  "Plan d’actions priorisé pour Q1 2027."
-                ],
-                actions: [
-                  "Analyser les données de l’outil analytics mis en place en T1.",
-                  "Croiser données quantitatives et ressentis qualitatifs des pros & particuliers.",
-                  "Préparer un atelier stratégique pour définir les priorités 2027."
-                ],
-                prototype: [
-                  "Diagrammes simples montrant les taux de conversion majeurs.",
-                  "Tableau « Ce qui marche / Ce qui bloque / Ce qu’on arrête ».",
-                  "Draft de la roadmap 2027 sur un slide unique."
-                ]
-              }
-            }
-          ]
-        }
-      ];
-  
-      // ============================================
-      // STATE
-      // ============================================
-  
-      const state = {
-        activeMonthId: "2026-01",
-        monthElements: new Map(),
-        highlightBarEl: null,
-        detailsContainerEl: null,
-        quarterSummaryEl: null,
-        quarterLabelEl: null,
-        quarterMetricsEl: null
-      };
-
-      // ============================================
-      // INIT
-      // ============================================
-
-      initNavigationMenus();
-      initTimeline();
-
-      function initNavigationMenus() {
-        const navCards = document.querySelectorAll(".nav-card.has-submenu");
-        if (!navCards.length) return;
-
-        let openCard = null;
-
-        const closeCard = (card) => {
-          const submenu = card?.querySelector(".nav-submenu");
-          card?.classList.remove("is-open");
-          submenu?.setAttribute("aria-hidden", "true");
-          card?.setAttribute("aria-expanded", "false");
-          if (openCard === card) {
-            openCard = null;
-          }
-        };
-
-        const openCardMenu = (card) => {
-          if (openCard && openCard !== card) {
-            closeCard(openCard);
-          }
-          const submenu = card.querySelector(".nav-submenu");
-          card.classList.add("is-open");
-          submenu?.setAttribute("aria-hidden", "false");
-          card.setAttribute("aria-expanded", "true");
-          openCard = card;
-        };
-
-        navCards.forEach((card) => {
-          const submenu = card.querySelector(".nav-submenu");
-          if (!submenu) return;
-
-          card.addEventListener("mouseenter", () => openCardMenu(card));
-          card.addEventListener("mouseleave", () => closeCard(card));
-          card.addEventListener("focusin", () => openCardMenu(card));
-
-          card.addEventListener("click", (event) => {
-            const clickedInsideSubmenu = Boolean(event.target.closest(".nav-submenu"));
-            if (!card.classList.contains("is-open") && !clickedInsideSubmenu) {
-              event.preventDefault();
-              openCardMenu(card);
-            }
-          });
-
-          card.addEventListener("keydown", (event) => {
-            if (event.key === "Escape") {
-              closeCard(card);
-            }
-          });
-        });
-
-        document.addEventListener("click", (event) => {
-          if (openCard && !openCard.contains(event.target)) {
-            closeCard(openCard);
-          }
-        });
-      }
-
-      function initTimeline() {
-        state.monthElements = new Map();
-        state.highlightBarEl = document.getElementById("timelineHighlightBar");
-        state.detailsContainerEl = document.getElementById("detailsContainer");
-        state.quarterSummaryEl = document.getElementById("quarterSummary");
-        state.quarterLabelEl = document.getElementById("quarterLabel");
-        state.quarterMetricsEl = document.getElementById("quarterMetrics");
-
-        const monthsContainer = document.getElementById("timelineMonths");
-        if (!monthsContainer || !state.detailsContainerEl) return;
-
-        buildTimelineMonths();
-        renderActiveMonth(true);
-        setupGlobalListeners();
-      }
-
-      // ============================================
-      // BUILD TIMELINE MONTHS
-      // ============================================
-
-      function buildTimelineMonths() {
-        const container = document.getElementById("timelineMonths");
-        if (!container) return;
-
-        state.monthElements.clear();
-        container.innerHTML = "";
-  
-        timelineData.forEach((month, index) => {
-          const monthEl = document.createElement("button");
-          monthEl.type = "button";
-          monthEl.className = "timeline-month";
-          monthEl.dataset.monthId = month.id;
-          monthEl.setAttribute("aria-label", month.monthLabel);
-  
-          const labelSpan = document.createElement("span");
-          labelSpan.className = "timeline-month-label";
-          labelSpan.textContent = month.shortLabel;
-          monthEl.appendChild(labelSpan);
-  
-          const badgeSpan = document.createElement("span");
-          badgeSpan.className = "timeline-month-badge";
-          badgeSpan.textContent = month.meta.focus;
-          monthEl.appendChild(badgeSpan);
-  
-          monthEl.addEventListener("click", () => {
-            handleMonthClick(month.id);
-          });
-  
-          container.appendChild(monthEl);
-          state.monthElements.set(month.id, monthEl);
-        });
-  
-        // Mark default as active
-        const initial = state.monthElements.get(state.activeMonthId);
-        if (initial) {
-          initial.classList.add("timeline-month-active");
-          updateHighlightBar(initial, true);
-        }
-      }
-  
-      // ============================================
-      // HANDLE MONTH CHANGE
-      // ============================================
-  
-      function handleMonthClick(monthId) {
-        if (monthId === state.activeMonthId) return;
-  
-        const previousEl = state.monthElements.get(state.activeMonthId);
-        const nextEl = state.monthElements.get(monthId);
-  
-        if (previousEl) {
-          previousEl.classList.remove("timeline-month-active");
-        }
-        if (nextEl) {
-          nextEl.classList.add("timeline-month-active");
-          centerMonthInView(nextEl);
-        }
-  
-        state.activeMonthId = monthId;
-        updateHighlightBar(nextEl, false);
-        renderActiveMonth(false);
-      }
-  
-      // ============================================
-      // UPDATE HIGHLIGHT BAR POSITION
-      // ============================================
-  
-      function updateHighlightBar(targetEl, instant) {
-        if (!state.highlightBarEl || !targetEl) return;
-  
-        const wrapperRect = targetEl.parentElement.getBoundingClientRect();
-        const rect = targetEl.getBoundingClientRect();
-  
-        const width = rect.width * 0.7;
-        const centerX = rect.left + rect.width / 2;
-        const relativeX = centerX - wrapperRect.left - width / 2;
-  
-        if (instant) {
-          state.highlightBarEl.style.transition = "none";
-          state.highlightBarEl.style.transform = `translateX(${relativeX}px)`;
-          state.highlightBarEl.style.width = `${width}px`;
-          // force reflow then restore transition
-          void state.highlightBarEl.offsetWidth;
-          state.highlightBarEl.style.transition =
-            "transform var(--transition-slow), width var(--transition-slow)";
-        } else {
-          state.highlightBarEl.style.width = `${width}px`;
-          state.highlightBarEl.style.transform = `translateX(${relativeX}px)`;
-        }
-      }
-  
-      // ============================================
-      // CENTER ACTIVE MONTH IN SCROLLER
-      // ============================================
-  
-      function centerMonthInView(el) {
-        const wrapper = document.querySelector(".timeline-months-wrapper");
-        if (!wrapper || !el) return;
-  
-        const wrapperRect = wrapper.getBoundingClientRect();
-        const elRect = el.getBoundingClientRect();
-        const offset =
-          elRect.left -
-          wrapperRect.left -
-          wrapperRect.width / 2 +
-          elRect.width / 2;
-  
-        wrapper.scrollTo({
-          left: wrapper.scrollLeft + offset,
-          behavior: "smooth"
-        });
-      }
-  
-      // ============================================
-      // RENDER ACTIVE MONTH DETAILS
-      // ============================================
-  
-      function renderActiveMonth(initial) {
-        const month = timelineData.find((m) => m.id === state.activeMonthId);
-        if (!month || !state.detailsContainerEl) return;
-  
-        // Animate out / in
-        if (!initial) {
-          state.detailsContainerEl.classList.remove("details-animate-in");
-          void state.detailsContainerEl.offsetWidth;
-          state.detailsContainerEl.classList.add("details-animate-in");
-        }
-  
-        // Header details
-        state.detailsContainerEl.innerHTML = "";
-  
-        const headerEl = document.createElement("div");
-        headerEl.className = "details-header";
-  
-        const titleBlockEl = document.createElement("div");
-        titleBlockEl.className = "details-title-block";
-  
-        const monthLabelEl = document.createElement("div");
-        monthLabelEl.className = "details-month-label";
-        monthLabelEl.textContent = month.monthLabel;
-  
-        const mainTitleEl = document.createElement("div");
-        mainTitleEl.className = "details-main-title";
-        mainTitleEl.textContent = month.theme;
-  
-        const taglineEl = document.createElement("div");
-        taglineEl.className = "details-tagline";
-        taglineEl.textContent =
-          "Vue détaillée des projets, objectifs, livrables, actions et prototypes à mettre en place.";
-  
-        titleBlockEl.appendChild(monthLabelEl);
-        titleBlockEl.appendChild(mainTitleEl);
-        titleBlockEl.appendChild(taglineEl);
-  
-        const badgesEl = document.createElement("div");
-        badgesEl.className = "details-badges";
-  
-        const badge1 = document.createElement("div");
-        badge1.className = "details-badge";
-        const badge1Icon = document.createElement("div");
-        badge1Icon.className = "details-badge-icon";
-        const badge1Text = document.createElement("span");
-        badge1Text.textContent = month.meta.focus;
-        badge1.appendChild(badge1Icon);
-        badge1.appendChild(badge1Text);
-  
-        const badge2 = document.createElement("div");
-        badge2.className = "details-badge";
-        badge2.textContent = month.meta.tags.join(" · ");
-  
-        badgesEl.appendChild(badge1);
-        badgesEl.appendChild(badge2);
-  
-        headerEl.appendChild(titleBlockEl);
-        headerEl.appendChild(badgesEl);
-  
-        state.detailsContainerEl.appendChild(headerEl);
-  
-        // Projects list
-        const projectsListEl = document.createElement("div");
-        projectsListEl.className = "projects-list";
-  
-        month.projects.forEach((project, index) => {
-          const cardEl = buildProjectCard(project, index);
-          projectsListEl.appendChild(cardEl);
-        });
-  
-        state.detailsContainerEl.appendChild(projectsListEl);
-  
-        // Helper footer hint
-        const footerHint = document.createElement("div");
-        footerHint.className = "details-footer-hint";
-  
-        const dot = document.createElement("span");
-        dot.className = "details-footer-dot";
-  
-        const text = document.createElement("span");
-        text.textContent =
-          "Tu peux ouvrir chaque projet, puis déplier Objectifs, Livrables, Actions & Prototype pour préparer l’exécution.";
-  
-        footerHint.appendChild(dot);
-        footerHint.appendChild(text);
-        state.detailsContainerEl.appendChild(footerHint);
-  
-        // Update quarter summary
-        updateQuarterSummary(month);
-      }
-  
-      // ============================================
-      // UPDATE QUARTER SUMMARY
-      // ============================================
-  
-      function updateQuarterSummary(month) {
-        if (!state.quarterLabelEl || !state.quarterMetricsEl) return;
-  
-        state.quarterLabelEl.textContent = month.quarter;
-        state.quarterMetricsEl.innerHTML = "";
-  
-        month.quarterMetrics.forEach((m) => {
-          const pill = document.createElement("div");
-          pill.className = "quarter-metric";
-          pill.textContent = m;
-          state.quarterMetricsEl.appendChild(pill);
-        });
-      }
-  
-      // ============================================
-      // BUILD PROJECT CARD
-      // ============================================
-  
-      function buildProjectCard(project, index) {
-        const cardEl = document.createElement("article");
-        cardEl.className = "project-card";
-  
-        const headerEl = document.createElement("header");
-        headerEl.className = "project-header";
-  
-        const iconEl = document.createElement("div");
-        iconEl.className = "project-icon";
-        const iconSpan = document.createElement("span");
-        iconSpan.textContent = project.icon;
-        iconEl.appendChild(iconSpan);
-  
-        const mainEl = document.createElement("div");
-        mainEl.className = "project-main";
-  
-        const titleRowEl = document.createElement("div");
-        titleRowEl.className = "project-title-row";
-  
-        const titleEl = document.createElement("h3");
-        titleEl.className = "project-title";
-        titleEl.textContent = project.title;
-  
-        const tagEl = document.createElement("span");
-        tagEl.className = "project-tag";
-        tagEl.textContent = project.tag;
-  
-        titleRowEl.appendChild(titleEl);
-        titleRowEl.appendChild(tagEl);
-  
-        const subtitleEl = document.createElement("p");
-        subtitleEl.className = "project-subtitle";
-        subtitleEl.textContent = project.subtitle;
-  
-        const metaRowEl = document.createElement("div");
-        metaRowEl.className = "project-meta-row";
-        project.metaPills.forEach((pill) => {
-          const pillEl = document.createElement("span");
-          pillEl.className = "project-meta-pill";
-          pillEl.textContent = pill;
-          metaRowEl.appendChild(pillEl);
-        });
-  
-        mainEl.appendChild(titleRowEl);
-        mainEl.appendChild(subtitleEl);
-        mainEl.appendChild(metaRowEl);
-  
-        const chevronEl = document.createElement("div");
-        chevronEl.className = "project-chevron";
-        chevronEl.innerHTML = "&#9654;";
-  
-        headerEl.appendChild(iconEl);
-        headerEl.appendChild(mainEl);
-        headerEl.appendChild(chevronEl);
-  
-        const bodyEl = document.createElement("div");
-        bodyEl.className = "project-body";
-  
-        const bodyInnerEl = document.createElement("div");
-        bodyInnerEl.className = "project-body-inner";
-  
-        // Left section : Objectifs & Livrables
-        const leftSectionEl = document.createElement("div");
-        // Objectifs
-        const objectifsSection = buildProjectSection(
-          "Objectifs",
-          "Ce qui doit être vrai à la fin du mois.",
-          project.sections.objectifs
-        );
-        // Livrables
-        const livrablesSection = buildProjectSection(
-          "Livrables",
-          "Ce que tu peux montrer ou envoyer.",
-          project.sections.livrables
-        );
-        leftSectionEl.appendChild(objectifsSection);
-        leftSectionEl.appendChild(livrablesSection);
-  
-        // Right section : Actions & Prototype
-        const rightSectionEl = document.createElement("div");
-        const actionsSection = buildProjectSection(
-          "Actions",
-          "Ce qu’il faut concrètement faire.",
-          project.sections.actions
-        );
-        const prototypeSection = buildProjectSection(
-          "Prototype",
-          "À quoi ça ressemble une fois visible.",
-          project.sections.prototype
-        );
-  
-        rightSectionEl.appendChild(actionsSection);
-        rightSectionEl.appendChild(prototypeSection);
-  
-        bodyInnerEl.appendChild(leftSectionEl);
-        bodyInnerEl.appendChild(rightSectionEl);
-  
-        bodyEl.appendChild(bodyInnerEl);
-  
-        cardEl.appendChild(headerEl);
-        cardEl.appendChild(bodyEl);
-  
-        // Toggle logic for project
-        headerEl.addEventListener("click", () => {
-          toggleProjectCard(cardEl, bodyEl);
-        });
-  
-        return cardEl;
-      }
-  
-      // ============================================
-      // BUILD PROJECT SECTION (WITH NESTED ACCORDIONS)
-      // ============================================
-  
-      function buildProjectSection(title, badgeText, items) {
-        const sectionEl = document.createElement("section");
-        sectionEl.className = "project-section";
-  
-        const titleRow = document.createElement("div");
-        titleRow.className = "project-section-title";
-  
-        const titleSpan = document.createElement("span");
-        titleSpan.textContent = title;
-  
-        const badge = document.createElement("span");
-        badge.className = "project-section-badge";
-        badge.textContent = badgeText;
-  
-        titleRow.appendChild(titleSpan);
-        titleRow.appendChild(badge);
-  
-        const listEl = document.createElement("ul");
-        items.forEach((it) => {
-          const li = document.createElement("li");
-          li.textContent = it;
-          listEl.appendChild(li);
-        });
-  
-        const nested = buildNestedAccordion(items);
-  
-        sectionEl.appendChild(titleRow);
-        sectionEl.appendChild(listEl);
-        sectionEl.appendChild(nested);
-  
-        return sectionEl;
-      }
-  
-      // ============================================
-      // BUILD NESTED ACCORDION (OBJECTIFS / LIVRABLES / ACTIONS DETAIL)
-      // ============================================
-  
-      function buildNestedAccordion(items) {
-        const nestedEl = document.createElement("div");
-        nestedEl.className = "nested-accordion";
-  
-        const item = document.createElement("div");
-        item.className = "nested-item";
-  
-        const header = document.createElement("div");
-        header.className = "nested-header";
-  
-        const labelSpan = document.createElement("span");
-        labelSpan.textContent = "Zoom détaillé";
-  
-        const chevron = document.createElement("div");
-        chevron.className = "nested-chevron";
-        chevron.innerHTML = "&#9654;";
-  
-        header.appendChild(labelSpan);
-        header.appendChild(chevron);
-  
-        const body = document.createElement("div");
-        body.className = "nested-body";
-  
-        const bodyContent = document.createElement("div");
-        bodyContent.className = "nested-body-content";
-  
-        const nestedList = document.createElement("ul");
-        items.forEach((it) => {
-          const li = document.createElement("li");
-          li.textContent = it;
-          nestedList.appendChild(li);
-        });
-  
-        bodyContent.appendChild(nestedList);
-        body.appendChild(bodyContent);
-  
-        item.appendChild(header);
-        item.appendChild(body);
-        nestedEl.appendChild(item);
-  
-        // Toggle nested
-        header.addEventListener("click", () => {
-          toggleNestedItem(item, body);
-        });
-  
-        return nestedEl;
-      }
-  
-      // ============================================
-      // TOGGLES
-      // ============================================
-  
-      function toggleProjectCard(cardEl, bodyEl) {
-        const isOpen = cardEl.classList.contains("project-card-open");
-        const allCards = document.querySelectorAll(".project-card");
-  
-        // Close others
-        allCards.forEach((c) => {
-          if (c !== cardEl) {
-            c.classList.remove("project-card-open");
-            const body = c.querySelector(".project-body");
-            if (body) {
-              body.style.maxHeight = "0px";
-            }
-          }
-        });
-  
-        if (!isOpen) {
-          cardEl.classList.add("project-card-open");
-          expandElement(bodyEl);
-        } else {
-          cardEl.classList.remove("project-card-open");
-          collapseElement(bodyEl);
-        }
-      }
-  
-      function toggleNestedItem(itemEl, bodyEl) {
-        const isOpen = itemEl.classList.contains("nested-item-open");
-  
-        if (!isOpen) {
-          itemEl.classList.add("nested-item-open");
-          expandElement(bodyEl);
-        } else {
-          itemEl.classList.remove("nested-item-open");
-          collapseElement(bodyEl);
-        }
-      }
-  
-      // ============================================
-      // EXPAND / COLLAPSE HELPERS
-      // ============================================
-  
-      function expandElement(el) {
-        el.style.transition = "none";
-        el.style.maxHeight = "0px";
-        el.style.opacity = "0";
-        el.style.transform = "translateY(-3px)";
-        void el.offsetHeight;
-        el.style.transition =
-          "max-height var(--transition-slow), opacity var(--transition-slow), transform var(--transition-slow)";
-        const scrollHeight = el.scrollHeight;
-        el.style.maxHeight = scrollHeight + "px";
-        el.style.opacity = "1";
-        el.style.transform = "translateY(0)";
-      }
-  
-      function collapseElement(el) {
-        el.style.transition =
-          "max-height var(--transition-slow), opacity var(--transition-slow), transform var(--transition-slow)";
-        el.style.maxHeight = "0px";
-        el.style.opacity = "0";
-        el.style.transform = "translateY(-3px)";
-      }
-  
-      // ============================================
-      // GLOBAL LISTENERS (RESPONSIVE, KEYBOARD NAV)
-      // ============================================
-  
-      function setupGlobalListeners() {
-        window.addEventListener("resize", handleResize, { passive: true });
-        document.addEventListener("keydown", handleKeyboardNav);
-      }
-  
-      function handleResize() {
-        // Re-align highlight bar on resize
-        const activeEl = state.monthElements.get(state.activeMonthId);
-        if (activeEl) {
-          updateHighlightBar(activeEl, true);
-        }
-      }
-  
-      function handleKeyboardNav(event) {
-        const key = event.key;
-        if (key !== "ArrowLeft" && key !== "ArrowRight") return;
-  
-        event.preventDefault();
-  
-        const currentIndex = timelineData.findIndex(
-          (m) => m.id === state.activeMonthId
-        );
-        if (currentIndex === -1) return;
-  
-        let nextIndex;
-        if (key === "ArrowLeft") {
-          nextIndex = Math.max(0, currentIndex - 1);
-        } else {
-          nextIndex = Math.min(timelineData.length - 1, currentIndex + 1);
-        }
-  
-        const nextMonth = timelineData[nextIndex];
-        if (nextMonth) {
-          const el = state.monthElements.get(nextMonth.id);
-          if (el) {
-            el.click();
-          }
-        }
-      }
-    
+  setupNavMenus();
+  setupTimeline();
 });
+
+function setupNavMenus() {
+  const toggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  if (toggle && navLinks) {
+    toggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
+
+  document.querySelectorAll(".nav-item.has-submenu").forEach((item) => {
+    item.addEventListener("click", () => {
+      item.classList.toggle("is-open");
+    });
+  });
+}
+
+function setupTimeline() {
+  const monthsWrapper = document.getElementById("timelineMonths");
+  const detailsContainer = document.getElementById("detailsContainer");
+  const highlightBar = document.getElementById("timelineHighlightBar");
+  const quarterLabel = document.getElementById("quarterLabel");
+  const quarterMetrics = document.getElementById("quarterMetrics");
+
+  if (!monthsWrapper || !detailsContainer || !highlightBar) return;
+
+  const roadmap2026 = [
+    {
+      id: "2026-01",
+      label: "Janvier 2026",
+      theme: "Fondations & clarification de l’offre Pro",
+      summary:
+        "Ateliers promesse, inventaire des parcours actuels et premiers KPIs pour cadrer la suite.",
+      quarter: "T1 2026 · Fondations",
+      metrics: [
+        "Promesse centrale reformulée",
+        "Audit UX complet",
+        "KPIs cibles définis",
+      ],
+      weeks: [
+        {
+          label: "Semaine 1",
+          tasks: [
+            "Atelier sur la promesse centrale Pro.",
+            "Inventaire des pages produit et média existantes.",
+            "Définition des premiers KPIs prioritaires.",
+          ],
+        },
+        {
+          label: "Semaine 2",
+          tasks: [
+            "Rédaction des messages clés et du nouveau hero Pro.",
+            "Maquettage des sections de la landing Pro.",
+            "Préparation du plan d’audit UX.",
+          ],
+        },
+        {
+          label: "Semaine 3",
+          tasks: [
+            "Tests de cohérence des parcours existants.",
+            "Collecte des 404 et irritants majeurs.",
+            "Définition du tableau de suivi des corrections.",
+          ],
+        },
+        {
+          label: "Semaine 4",
+          tasks: [
+            "Synthèse de l’audit et priorisation des corrections.",
+            "Partage des KPIs retenus avec l’équipe.",
+            "Planification du sprint correctif de février.",
+          ],
+        },
+      ],
+    },
+    {
+      id: "2026-02",
+      label: "Février 2026",
+      theme: "Hygiène produit & stack data",
+      summary:
+        "Corrections rapides, uniformisation des formulaires et instrumentation des événements clés.",
+      quarter: "T1 2026 · Fondations",
+      metrics: [
+        "404 corrigées",
+        "Formulaires unifiés",
+        "Tracking événementiel prêt",
+      ],
+      weeks: [
+        {
+          label: "Semaine 1",
+          tasks: [
+            "Traiter les pages les plus vues selon l’audit.",
+            "Uniformiser labels, CTA et messages d’erreur.",
+            "Préparer les gabarits de formulaires communs.",
+          ],
+        },
+        {
+          label: "Semaine 2",
+          tasks: [
+            "Implémenter les correctifs rapides identifiés.",
+            "Repasser sur l’accessibilité des formulaires.",
+            "Lister les événements produit à tracer.",
+          ],
+        },
+        {
+          label: "Semaine 3",
+          tasks: [
+            "Brancher le tracking sur les parcours critiques.",
+            "Tester les événements en staging.",
+            "Préparer un mini dashboard de suivi.",
+          ],
+        },
+        {
+          label: "Semaine 4",
+          tasks: [
+            "Valider les données sur 7 à 10 jours.",
+            "Documenter la base de KPIs.",
+            "Lister les manques pour mars.",
+          ],
+        },
+      ],
+    },
+    {
+      id: "2026-03",
+      label: "Mars 2026",
+      theme: "Spécification boutique & gamification",
+      summary:
+        "Choix catalogue pilote, règles de commission et conception des niveaux Pro.",
+      quarter: "T1 2026 · Fondations",
+      metrics: [
+        "Spécification boutique validée",
+        "Modèle de niveaux cadré",
+        "Maquettes UI prêtes",
+      ],
+      weeks: [
+        {
+          label: "Semaine 1",
+          tasks: [
+            "Benchmark rapide des partenaires boutique.",
+            "Cartographier catalogue pilote (food, accessoires, services).",
+            "Lister les dépendances techniques.",
+          ],
+        },
+        {
+          label: "Semaine 2",
+          tasks: [
+            "Poser les règles de commission pro/Planipets.",
+            "Préparer les écrans clés Pro et particulier.",
+            "Écrire les premiers scénarios de niveaux Pro.",
+          ],
+        },
+        {
+          label: "Semaine 3",
+          tasks: [
+            "Ateliers avec 3 pros pilotes sur les niveaux.",
+            "Affiner la table des quêtes hebdomadaires.",
+            "Valider les critères d’éligibilité des produits.",
+          ],
+        },
+        {
+          label: "Semaine 4",
+          tasks: [
+            "Assembler la spécification finale.",
+            "Clore les maquettes pour T2.",
+            "Communiquer la vision boutique + gamification.",
+          ],
+        },
+      ],
+    },
+    {
+      id: "2026-04",
+      label: "Avril 2026",
+      theme: "Partenaires boutique & intégration",
+      summary: "Sélection des partenaires, mapping catalogue et premiers flux techniques.",
+      quarter: "T2 2026 · Boutique & Gamification",
+      metrics: ["Partenaires pilotes", "Mapping catalogue", "Flux tests"],
+      weeks: [
+        {
+          label: "Semaine 1",
+          tasks: [
+            "Appels de qualification avec 5 à 10 marques.",
+            "Évaluation de la compatibilité technique.",
+            "Choix des catégories du pilote.",
+          ],
+        },
+        {
+          label: "Semaine 2",
+          tasks: [
+            "Négociation commissions et règles de redistribution.",
+            "Structuration des données produits.",
+            "Définition des checklists de qualité.",
+          ],
+        },
+        {
+          label: "Semaine 3",
+          tasks: [
+            "Mise en place des flux d’import (API/CSV).",
+            "Écrans internes de gestion du catalogue.",
+            "Tests sur échantillon réduit.",
+          ],
+        },
+        {
+          label: "Semaine 4",
+          tasks: [
+            "Validation conjointe avec 2 partenaires.",
+            "Plan de communication pilote.",
+            "Préparation de l’onboarding pro.",
+          ],
+        },
+      ],
+    },
+    {
+      id: "2026-05",
+      label: "Mai 2026",
+      theme: "Interfaces Pro & parcours particuliers",
+      summary: "Interface recommandation Pro et parcours d’achat particulier v1.",
+      quarter: "T2 2026 · Boutique & Gamification",
+      metrics: ["Interface pro prête", "Parcours particulier", "Tests internes"],
+      weeks: [
+        {
+          label: "Semaine 1",
+          tasks: [
+            "Développement onglet Recommandations & Boutique.",
+            "Cartes produits activables par le pro.",
+            "Préparation des liens de recommandation.",
+          ],
+        },
+        {
+          label: "Semaine 2",
+          tasks: [
+            "Parcours de commande particulier (produit → panier).",
+            "Affichage des commissions estimées.",
+            "Tests d’ergonomie avec quelques pros.",
+          ],
+        },
+        {
+          label: "Semaine 3",
+          tasks: [
+            "Ajout des QR codes et boutons de partage.",
+            "Validation des flux de paiement.",
+            "Rédaction des confirmations et e-mails.",
+          ],
+        },
+        {
+          label: "Semaine 4",
+          tasks: [
+            "Revue qualité bout en bout.",
+            "Fix des points de friction identifiés.",
+            "Préparation du pilote juin.",
+          ],
+        },
+      ],
+    },
+    {
+      id: "2026-06",
+      label: "Juin 2026",
+      theme: "Cohorte pilote & coaching pros",
+      summary: "Onboarding de 20–30 pros pilotes, suivi rapproché et contenus pédagogiques.",
+      quarter: "T2 2026 · Boutique & Gamification",
+      metrics: ["Cohorte prête", "Premières commandes", "Feedback structuré"],
+      weeks: [
+        {
+          label: "Semaine 1",
+          tasks: [
+            "Sélection des pros pilotes.",
+            "Invitation et planification des sessions live.",
+            "Création du canal de support privé.",
+          ],
+        },
+        {
+          label: "Semaine 2",
+          tasks: [
+            "Onboarding boutique + niveaux.",
+            "Suivi des premières recommandations.",
+            "Collecte des questions récurrentes.",
+          ],
+        },
+        {
+          label: "Semaine 3",
+          tasks: [
+            "Webinaires et playbooks de scripts.",
+            "Enrichissement des FAQ.",
+            "Premiers mini-dashboards envoyés aux pros.",
+          ],
+        },
+        {
+          label: "Semaine 4",
+          tasks: [
+            "Analyse quantitative du pilote.",
+            "Recueil des feedbacks qualitatifs.",
+            "Décisions pour l’itération T3.",
+          ],
+        },
+      ],
+    },
+    {
+      id: "2026-07",
+      label: "Juillet 2026",
+      theme: "Compte Particulier & carnet animal",
+      summary: "Espace particulier v1, fiches animaux et historique de rendez-vous.",
+      quarter: "T3 2026 · Particuliers & Communauté",
+      metrics: ["Compte particulier", "Fiches animaux", "Historique RDV"],
+      weeks: [
+        {
+          label: "Semaine 1",
+          tasks: [
+            "Création du compte particulier simple.",
+            "Formulaire fiche animal (nom, photo, âge).",
+            "Association des RDV existants.",
+          ],
+        },
+        {
+          label: "Semaine 2",
+          tasks: [
+            "Consultation et édition des fiches.",
+            "Historique de RDV par animal.",
+            "Tests mobiles et accessibilité.",
+          ],
+        },
+        {
+          label: "Semaine 3",
+          tasks: [
+            "Préparation de la connexion boutique → fiches animaux.",
+            "Bloc conseils personnalisés.",
+            "Collecte de feedback particuliers.",
+          ],
+        },
+        {
+          label: "Semaine 4",
+          tasks: [
+            "Stabilisation et corrections.",
+            "Documentation support.",
+            "Annonce publique limitée.",
+          ],
+        },
+      ],
+    },
+    {
+      id: "2026-08",
+      label: "Août 2026",
+      theme: "Clubs locaux & gamification douce",
+      summary: "Statuts particuliers, défis bien-être et premières animations locales.",
+      quarter: "T3 2026 · Particuliers & Communauté",
+      metrics: ["Statuts particuliers", "Défis bien-être", "Clubs pilotes"],
+      weeks: [
+        {
+          label: "Semaine 1",
+          tasks: [
+            "Conception des statuts et badges particuliers.",
+            "Liste des défis bien-être pertinents.",
+            "Sélection des villes/tests clubs.",
+          ],
+        },
+        {
+          label: "Semaine 2",
+          tasks: [
+            "Implémentation des défis hebdomadaires.",
+            "Affichage des clubs locaux.",
+            "Partenariats associatifs locaux.",
+          ],
+        },
+        {
+          label: "Semaine 3",
+          tasks: [
+            "Lancement des défis pilotes.",
+            "Communication via le média.",
+            "Collecte des retours clubs.",
+          ],
+        },
+        {
+          label: "Semaine 4",
+          tasks: [
+            "Ajustements UX gamification douce.",
+            "Préparation des événements récurrents.",
+            "Mesure de l’engagement.",
+          ],
+        },
+      ],
+    },
+    {
+      id: "2026-09",
+      label: "Septembre 2026",
+      theme: "Boutique élargie & packages",
+      summary: "Élargissement du catalogue et packages récurrents pour les pros.",
+      quarter: "T3 2026 · Particuliers & Communauté",
+      metrics: ["Nouveaux partenaires", "Packages récurrents", "Suivi revenus"],
+      weeks: [
+        {
+          label: "Semaine 1",
+          tasks: [
+            "Analyse des ventes pilote T2/T3.",
+            "Sélection de nouvelles catégories.",
+            "Contact de nouveaux fournisseurs.",
+          ],
+        },
+        {
+          label: "Semaine 2",
+          tasks: [
+            "Création des packages récurrents (abos, kits).",
+            "Ajustement des niveaux et plafonds.",
+            "Préparation du matériel de vente pro.",
+          ],
+        },
+        {
+          label: "Semaine 3",
+          tasks: [
+            "Tests packages avec pros ambassadeurs.",
+            "Mise à jour des flux de commissions.",
+            "Documentation claire pour les pros.",
+          ],
+        },
+        {
+          label: "Semaine 4",
+          tasks: [
+            "Lancement large des packages.",
+            "Suivi des revenus générés.",
+            "Plan de communication Q4.",
+          ],
+        },
+      ],
+    },
+    {
+      id: "2026-10",
+      label: "Octobre 2026",
+      theme: "Offre média & publicité",
+      summary: "Structuration des offres média, storytelling Rex & Minou et partenariats marques.",
+      quarter: "T4 2026 · Média & Partenariats",
+      metrics: ["Offres média", "Storytelling renforcé", "Accords marques"],
+      weeks: [
+        {
+          label: "Semaine 1",
+          tasks: [
+            "Inventaire des audiences et formats.",
+            "Packaging des offres média/publicité.",
+            "Mise à jour de la charte éditoriale.",
+          ],
+        },
+        {
+          label: "Semaine 2",
+          tasks: [
+            "Renforcement de la série Rex & Minou.",
+            "Création de médiakits.",
+            "Prospection initiale partenaires.",
+          ],
+        },
+        {
+          label: "Semaine 3",
+          tasks: [
+            "Tests de formats sponsorisés pilotes.",
+            "Mesure des performances.",
+            "Collecte des retours audience.",
+          ],
+        },
+        {
+          label: "Semaine 4",
+          tasks: [
+            "Négociation avec 2–3 marques cibles.",
+            "Planification des campagnes Q4/Q1.",
+            "Mise à jour des guidelines de transparence.",
+          ],
+        },
+      ],
+    },
+    {
+      id: "2026-11",
+      label: "Novembre 2026",
+      theme: "Collectivités & référentiel bien-être",
+      summary: "Discussions avec mairies/assos, preuves d’impact et kits collectivités.",
+      quarter: "T4 2026 · Média & Partenariats",
+      metrics: ["Rencontres collectivités", "Kits prêts", "Référentiel partagé"],
+      weeks: [
+        {
+          label: "Semaine 1",
+          tasks: [
+            "Identification des collectivités cibles.",
+            "Préparation d’un dossier Planipets territoire.",
+            "Définition des indicateurs d’impact.",
+          ],
+        },
+        {
+          label: "Semaine 2",
+          tasks: [
+            "Rendez-vous avec 3 mairies/assos.",
+            "Recueil des besoins locaux.",
+            "Adapter l’offre aux contraintes publiques.",
+          ],
+        },
+        {
+          label: "Semaine 3",
+          tasks: [
+            "Création du kit collectivités (slides + fiches).",
+            "Mise en avant des initiatives bien-être.",
+            "Co-construction d’événements pilotes.",
+          ],
+        },
+        {
+          label: "Semaine 4",
+          tasks: [
+            "Signature de 1–2 partenariats locaux.",
+            "Planification des campagnes terrain.",
+            "Préparation des KPIs de suivi.",
+          ],
+        },
+      ],
+    },
+    {
+      id: "2026-12",
+      label: "Décembre 2026",
+      theme: "Bilan & plan 2027",
+      summary: "Consolidation des apprentissages, arbitrages roadmap et objectifs 2027.",
+      quarter: "T4 2026 · Média & Partenariats",
+      metrics: ["Bilan annuel", "OKR 2027", "Plan de communication"],
+      weeks: [
+        {
+          label: "Semaine 1",
+          tasks: [
+            "Analyse consolidée des KPIs 2026.",
+            "Synthèse boutique & gamification.",
+            "Recensement des dettes techniques.",
+          ],
+        },
+        {
+          label: "Semaine 2",
+          tasks: [
+            "Atelier interne objectifs 2027.",
+            "Priorisation des gros chantiers.",
+            "Définition des besoins en ressources.",
+          ],
+        },
+        {
+          label: "Semaine 3",
+          tasks: [
+            "Écriture de la roadmap 2027 v1.",
+            "Préparation du plan de communication.",
+            "Boucle de feedback avec pros ambassadeurs.",
+          ],
+        },
+        {
+          label: "Semaine 4",
+          tasks: [
+            "Diffusion publique/équipe de la vision 2027.",
+            "Célébration et remerciements communauté.",
+            "Pause de maintenance et améliorations mineures.",
+          ],
+        },
+      ],
+    },
+  ];
+
+  let activeMonthId = roadmap2026[0].id;
+  const monthElements = new Map();
+
+  roadmap2026.forEach((month) => {
+    const monthEl = document.createElement("button");
+    monthEl.className = "timeline-month";
+    monthEl.type = "button";
+    monthEl.dataset.id = month.id;
+    monthEl.innerHTML = `<strong>${month.label}</strong><span class="month-theme">${month.theme}</span>`;
+    monthsWrapper.appendChild(monthEl);
+    monthElements.set(month.id, monthEl);
+
+    const show = () => setActiveMonth(month.id);
+    monthEl.addEventListener("mouseenter", show);
+    monthEl.addEventListener("focus", show);
+    monthEl.addEventListener("click", show);
+  });
+
+  function setActiveMonth(id) {
+    const month = roadmap2026.find((m) => m.id === id);
+    if (!month) return;
+    activeMonthId = id;
+
+    monthElements.forEach((el) => el.classList.remove("active"));
+    const activeEl = monthElements.get(id);
+    if (activeEl) {
+      activeEl.classList.add("active");
+      updateHighlightBar(activeEl);
+    }
+
+    renderDetails(month);
+  }
+
+  function renderDetails(month) {
+    detailsContainer.innerHTML = "";
+    const wrapper = document.createElement("div");
+    wrapper.className = "timeline-details-inner";
+
+    const header = document.createElement("div");
+    header.className = "details-header";
+
+    const titleBlock = document.createElement("div");
+    titleBlock.className = "details-title-block";
+    titleBlock.innerHTML = `
+      <span class="details-month-label">${month.label}</span>
+      <h2 class="details-main-title">${month.theme}</h2>
+      <p class="details-tagline">${month.summary}</p>
+    `;
+
+    header.appendChild(titleBlock);
+    wrapper.appendChild(header);
+
+    const summary = document.createElement("div");
+    summary.className = "details-summary";
+    summary.textContent = month.summary;
+    wrapper.appendChild(summary);
+
+    const weeksList = document.createElement("div");
+    weeksList.className = "week-list";
+
+    month.weeks.forEach((week) => {
+      const card = document.createElement("article");
+      card.className = "week-card";
+      const title = document.createElement("h4");
+      title.textContent = week.label;
+      const list = document.createElement("ul");
+      week.tasks.forEach((task) => {
+        const li = document.createElement("li");
+        li.textContent = task;
+        list.appendChild(li);
+      });
+      card.appendChild(title);
+      card.appendChild(list);
+      weeksList.appendChild(card);
+    });
+
+    wrapper.appendChild(weeksList);
+    detailsContainer.appendChild(wrapper);
+
+    if (quarterLabel && quarterMetrics) {
+      quarterLabel.textContent = month.quarter;
+      quarterMetrics.innerHTML = "";
+      month.metrics.forEach((m) => {
+        const pill = document.createElement("div");
+        pill.className = "quarter-metric";
+        pill.textContent = m;
+        quarterMetrics.appendChild(pill);
+      });
+    }
+  }
+
+  function updateHighlightBar(activeEl) {
+    const { offsetLeft, offsetWidth } = activeEl;
+    highlightBar.style.transform = `translateX(${offsetLeft}px)`;
+    highlightBar.style.width = `${offsetWidth}px`;
+  }
+
+  function handleKeyboardNav(event) {
+    if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+    event.preventDefault();
+    const currentIndex = roadmap2026.findIndex((m) => m.id === activeMonthId);
+    if (currentIndex === -1) return;
+    const nextIndex =
+      event.key === "ArrowRight"
+        ? Math.min(currentIndex + 1, roadmap2026.length - 1)
+        : Math.max(currentIndex - 1, 0);
+    const nextMonth = roadmap2026[nextIndex];
+    if (nextMonth) {
+      setActiveMonth(nextMonth.id);
+      const el = monthElements.get(nextMonth.id);
+      if (el) el.scrollIntoView({ behavior: "smooth", inline: "center" });
+    }
+  }
+
+  window.addEventListener("keydown", handleKeyboardNav);
+  window.addEventListener("resize", () => {
+    const activeEl = monthElements.get(activeMonthId);
+    if (activeEl) updateHighlightBar(activeEl);
+  });
+
+  setActiveMonth(activeMonthId);
+}
