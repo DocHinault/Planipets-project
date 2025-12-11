@@ -33,7 +33,7 @@
           </div>
           <div class="brand-meta">
             <div class="brand-meta-title">Planipets</div>
-            <div class="brand-meta-sub">Navigation 2026</div>
+            <div class="brand-meta-sub">Roadmap 2026</div>
           </div>
         </div>
         <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu">☰</button>
@@ -57,68 +57,28 @@
         </nav>
       </header>
 
-      <header class="simple-header">
+      <header class="simple-header reveal-on-scroll">
         <h1>Chronologie 2026</h1>
         <a class="back-link" href="Planipets.html">← Retour à l’accueil</a>
       </header>
 
-      <div class="header-title">
-        <h1>Frise 2026 – Détails complets</h1>
-        <p>
-          La même frise interactive que sur la page d’accueil, dédiée à la consultation longue durée ou au partage avec l’équipe.
-        </p>
-      </div>
+      <section id="timeline-2026" class="timeline-section">
+        <div class="timeline-header reveal-on-scroll">
+          <p class="timeline-kicker">Roadmap 2026</p>
+          <h1>Feuille de route Planipets 2026</h1>
+          <p class="timeline-intro">
+            Survole ou clique sur chaque mois pour découvrir les projets, semaine par semaine.
+          </p>
+        </div>
 
-      <main class="timeline-layout">
-        <section class="timeline-rail" aria-label="Chronologie 2026">
-          <div class="timeline-rail-inner">
-            <div class="timeline-rail-header">
-              <div class="timeline-rail-header-left">
-                <div class="timeline-rail-title">Frise chronologique 2026</div>
-                <div class="timeline-rail-sub">Sélectionne un mois pour voir les projets clés.</div>
-              </div>
-              <div class="timeline-legend">
-                <div class="legend-pill">
-                  <span class="legend-dot"></span>
-                  <span>Pro</span>
-                </div>
-                <div class="legend-pill">
-                  <span class="legend-dot"></span>
-                  <span>Produit</span>
-                </div>
-                <div class="legend-pill">
-                  <span class="legend-dot"></span>
-                  <span>Communauté</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="timeline-months-wrapper">
-              <div class="timeline-months" id="timelineMonths"></div>
-              <div class="timeline-highlight-bar" id="timelineHighlightBar"></div>
-            </div>
-
-            <div class="quarter-summary" id="quarterSummary">
-              <div class="quarter-summary-header">
-                <div class="quarter-pill">
-                  <span class="quarter-dot"></span>
-                  <span id="quarterLabel">T1 2026 – Fondations</span>
-                </div>
-                <span style="font-size: 0.9rem;">North Star : revenu mensuel généré pour les pros</span>
-              </div>
-              <div class="quarter-key-metrics" id="quarterMetrics">
-                <!-- Rempli en JS -->
-              </div>
-            </div>
+        <div class="timeline-rail-wrapper">
+          <div class="timeline-rail" id="timelineRail" aria-label="Chronologie 2026">
+            <!-- Injecté en JS -->
           </div>
-        </section>
+        </div>
 
-        <section class="timeline-details" aria-label="Détails mois & projets 2026">
-          <div class="timeline-details-inner" id="detailsContainer">
-            <!-- Rempli en JS -->
-          </div>
-        </section>
-      </main>
+        <div class="timeline-month-panel" id="timelineMonthPanel" aria-live="polite"></div>
+      </section>
     </div>
   </div>
 </body>
