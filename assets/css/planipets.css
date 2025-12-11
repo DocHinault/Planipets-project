@@ -12,6 +12,17 @@
   --transition-med: 240ms ease;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -32,6 +43,10 @@ body {
   display: flex;
   justify-content: center;
   padding: 28px 16px 48px;
+}
+
+section[id] {
+  scroll-margin-top: 110px;
 }
 
 .page-wrapper {

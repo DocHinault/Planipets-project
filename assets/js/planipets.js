@@ -9,19 +9,79 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function setupNavMenus() {
-  const toggle = document.querySelector(".nav-toggle");
-  const navLinks = document.querySelector(".nav-links");
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  const toggle = header.querySelector(".nav-toggle");
+  const navLinks = header.querySelector(".nav-links");
+  const submenuItems = header.querySelectorAll(".nav-item.has-submenu");
+
+  const setSubmenuState = (item, isOpen) => {
+    if (!item) return;
+    const submenu = item.querySelector(".nav-submenu");
+    if (!submenu) return;
+    item.classList.toggle("is-open", isOpen);
+    item.setAttribute("aria-expanded", String(isOpen));
+    submenu.setAttribute("aria-hidden", String(!isOpen));
+  };
+
+  const closeAllSubmenus = () => {
+    submenuItems.forEach((item) => setSubmenuState(item, false));
+  };
+
   if (toggle && navLinks) {
-    toggle.addEventListener("click", () => {
+    toggle.addEventListener("click", (event) => {
+      event.stopPropagation();
       const isOpen = navLinks.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", String(isOpen));
+      if (!isOpen) {
+        closeAllSubmenus();
+      }
     });
   }
 
-  document.querySelectorAll(".nav-item.has-submenu").forEach((item) => {
-    item.addEventListener("click", () => {
-      item.classList.toggle("is-open");
+  submenuItems.forEach((item) => {
+    const submenu = item.querySelector(".nav-submenu");
+    if (!submenu) return;
+
+    setSubmenuState(item, item.classList.contains("is-open"));
+
+    const toggleSubmenu = (event) => {
+      event.stopPropagation();
+      const willOpen = !item.classList.contains("is-open");
+      closeAllSubmenus();
+      setSubmenuState(item, willOpen);
+    };
+
+    item.addEventListener("click", toggleSubmenu);
+    item.addEventListener("mouseenter", () => {
+      if (!window.matchMedia("(pointer: fine)").matches) return;
+      closeAllSubmenus();
+      setSubmenuState(item, true);
     });
+    item.addEventListener("mouseleave", () => setSubmenuState(item, false));
+    item.addEventListener("focusin", () => setSubmenuState(item, true));
+    item.addEventListener("focusout", (event) => {
+      if (item.contains(event.relatedTarget)) return;
+      setSubmenuState(item, false);
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!header.contains(event.target)) {
+      closeAllSubmenus();
+      if (navLinks && navLinks.classList.contains("is-open")) {
+        navLinks.classList.remove("is-open");
+        toggle?.setAttribute("aria-expanded", "false");
+      }
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    closeAllSubmenus();
+    if (navLinks) navLinks.classList.remove("is-open");
+    if (toggle) toggle.setAttribute("aria-expanded", "false");
   });
 }
 
@@ -32,7 +92,7 @@ function setupTimeline() {
   const quarterLabel = document.getElementById("quarterLabel");
   const quarterMetrics = document.getElementById("quarterMetrics");
 
-  if (!monthsWrapper || !detailsContainer || !highlightBar) return;
+  if (!monthsWrapper || !detailsContainer || !highlightBar || !quarterLabel || !quarterMetrics) return;
 
   const roadmap2026 = [
     {
@@ -556,7 +616,9 @@ function setupTimeline() {
     },
   ];
 
-  let activeMonthId = roadmap2026[0].id;
+  if (!roadmap2026.length) return;
+
+  let activeMonthId = roadmap2026[0]?.id || null;
   const monthElements = new Map();
 
   roadmap2026.forEach((month) => {
@@ -565,6 +627,8 @@ function setupTimeline() {
     monthEl.type = "button";
     monthEl.dataset.id = month.id;
     monthEl.innerHTML = `<strong>${month.label}</strong><span class="month-theme">${month.theme}</span>`;
+    monthEl.setAttribute("aria-pressed", "false");
+    monthEl.setAttribute("aria-selected", "false");
     monthsWrapper.appendChild(monthEl);
     monthElements.set(month.id, monthEl);
 
@@ -577,13 +641,22 @@ function setupTimeline() {
   function setActiveMonth(id) {
     const month = roadmap2026.find((m) => m.id === id);
     if (!month) return;
+    const isSame = activeMonthId === id;
+    if (isSame && detailsContainer.childElementCount) return;
     activeMonthId = id;
 
-    monthElements.forEach((el) => el.classList.remove("active"));
+    monthElements.forEach((el) => {
+      el.classList.remove("active");
+      el.setAttribute("aria-pressed", "false");
+      el.setAttribute("aria-selected", "false");
+    });
     const activeEl = monthElements.get(id);
     if (activeEl) {
       activeEl.classList.add("active");
+      activeEl.setAttribute("aria-pressed", "true");
+      activeEl.setAttribute("aria-selected", "true");
       updateHighlightBar(activeEl);
+      activeEl.scrollIntoView({ behavior: "smooth", inline: "center" });
     }
 
     renderDetails(month);
@@ -592,7 +665,7 @@ function setupTimeline() {
   function renderDetails(month) {
     detailsContainer.innerHTML = "";
     const wrapper = document.createElement("div");
-    wrapper.className = "timeline-details-inner";
+    wrapper.className = "timeline-details-inner detail-fade-in";
 
     const header = document.createElement("div");
     header.className = "details-header";
@@ -602,7 +675,7 @@ function setupTimeline() {
     titleBlock.innerHTML = `
       <span class="details-month-label">${month.label}</span>
       <h2 class="details-main-title">${month.theme}</h2>
-      <p class="details-tagline">${month.summary}</p>
+      <p class="details-tagline">${month.summary || ""}</p>
     `;
 
     header.appendChild(titleBlock);
@@ -610,19 +683,19 @@ function setupTimeline() {
 
     const summary = document.createElement("div");
     summary.className = "details-summary";
-    summary.textContent = month.summary;
+    summary.textContent = month.summary || "";
     wrapper.appendChild(summary);
 
     const weeksList = document.createElement("div");
     weeksList.className = "week-list";
 
-    month.weeks.forEach((week) => {
+    (month.weeks || []).forEach((week) => {
       const card = document.createElement("article");
       card.className = "week-card";
       const title = document.createElement("h4");
       title.textContent = week.label;
       const list = document.createElement("ul");
-      week.tasks.forEach((task) => {
+      (week.tasks || []).forEach((task) => {
         const li = document.createElement("li");
         li.textContent = task;
         list.appendChild(li);
@@ -635,22 +708,23 @@ function setupTimeline() {
     wrapper.appendChild(weeksList);
     detailsContainer.appendChild(wrapper);
 
-    if (quarterLabel && quarterMetrics) {
-      quarterLabel.textContent = month.quarter;
-      quarterMetrics.innerHTML = "";
-      month.metrics.forEach((m) => {
-        const pill = document.createElement("div");
-        pill.className = "quarter-metric";
-        pill.textContent = m;
-        quarterMetrics.appendChild(pill);
-      });
-    }
+    quarterLabel.textContent = month.quarter || "";
+    quarterMetrics.innerHTML = "";
+    (month.metrics || []).forEach((m) => {
+      const pill = document.createElement("div");
+      pill.className = "quarter-metric";
+      pill.textContent = m;
+      quarterMetrics.appendChild(pill);
+    });
   }
 
   function updateHighlightBar(activeEl) {
-    const { offsetLeft, offsetWidth } = activeEl;
-    highlightBar.style.transform = `translateX(${offsetLeft}px)`;
-    highlightBar.style.width = `${offsetWidth}px`;
+    if (!highlightBar || !monthsWrapper || !activeEl) return;
+    const wrapperRect = monthsWrapper.getBoundingClientRect();
+    const { left, width } = activeEl.getBoundingClientRect();
+    const offset = left - wrapperRect.left + monthsWrapper.scrollLeft;
+    highlightBar.style.transform = `translateX(${offset}px)`;
+    highlightBar.style.width = `${width}px`;
   }
 
   function handleKeyboardNav(event) {
@@ -1356,7 +1430,7 @@ function setupTunnelParticulier() {
   const column = document.getElementById("funnelColumn");
   const detail = document.getElementById("funnelDetail");
   const summary = document.getElementById("tunnelSummaryList");
-  if (!column || !detail) return;
+  if (!column || !detail || !summary) return;
 
   const icons = ["✨", "📍", "🔍", "📄", "🗓️", "✅", "🤝", "💌", "🎯"];
   let activeStepId = tunnelParticulierSteps[0]?.id;
@@ -1425,9 +1499,12 @@ function renderTunnelDetail(stepId, container) {
     `;
   };
 
+  const subtitle = step.shortDescription || "";
+  const example = step.example || "";
+
   container.innerHTML = `
     <h3>${step.title}</h3>
-    <p class="detail-subtitle">${step.shortDescription}</p>
+    <p class="detail-subtitle">${subtitle}</p>
     <div class="detail-columns">
       ${renderList("Contexte côté propriétaire", step.context)}
       ${renderList("Rôle de Planipets", step.role)}
@@ -1438,7 +1515,7 @@ function renderTunnelDetail(stepId, container) {
     </div>
     <div class="example-block">
       <strong>Exemple concret</strong>
-      <p>${step.example}</p>
+      <p>${example}</p>
     </div>
   `;
 }
@@ -1460,12 +1537,12 @@ function renderTunnelSummary(container) {
 
 function setupAdPageInteractions() {
   const packsContainer = document.getElementById("packs-visibilite");
-  const packCards = document.querySelectorAll(".pack-card");
   const detailTitle = document.getElementById("pack-detail-title");
   const detailDescription = document.getElementById("pack-detail-description");
   const detailPoints = document.getElementById("pack-detail-points");
+  const packCards = packsContainer?.querySelectorAll(".pack-card") || [];
 
-  if (packsContainer && packCards.length && detailTitle && detailDescription && detailPoints) {
+  if (packsContainer && detailTitle && detailDescription && detailPoints && packCards.length) {
     const activateCard = (card) => {
       packCards.forEach((c) => c.classList.remove("pack-card--active"));
       card.classList.add("pack-card--active");
@@ -1516,11 +1593,12 @@ function setupAdPageInteractions() {
   }
 
   const heroCta = document.getElementById("cta-annonceurs");
-  const contactSection = document.getElementById("contact-annonceurs");
-  if (heroCta && contactSection) {
+  if (heroCta) {
     heroCta.addEventListener("click", (event) => {
       event.preventDefault();
-      contactSection.scrollIntoView({ behavior: "smooth" });
+      document
+        .getElementById("contact-annonceurs")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }
 }
@@ -1536,6 +1614,13 @@ function initGamificationParticulier() {
   const skillDetail = document.getElementById("particulierSkillDetail");
   const shopGrid = document.getElementById("particulierShop");
   const shopDetail = document.getElementById("particulierShopDetail");
+
+  const animateDetail = (el) => {
+    if (!el) return;
+    el.classList.remove("detail-fade-in");
+    void el.offsetWidth;
+    el.classList.add("detail-fade-in");
+  };
 
   const gamificationParticulierLevels = [
     {
@@ -1737,7 +1822,7 @@ function initGamificationParticulier() {
     renderQuestTable(questTable, particulierQuests);
   }
 
-  if (levelList && levelDetail) {
+  if (levelList && levelDetail && gamificationParticulierLevels.length) {
     gamificationParticulierLevels.forEach((level, index) => {
       const item = document.createElement("button");
       item.className = "level-item";
@@ -1764,12 +1849,13 @@ function initGamificationParticulier() {
         <p>${level.description}</p>
         <ul class="level-benefits">${level.benefits.map((b) => `<li>${b}</li>`).join("")}</ul>
       `;
+      animateDetail(levelDetail);
     };
 
     renderParticulierLevel(gamificationParticulierLevels[0].id);
   }
 
-  if (skillTree && skillDetail) {
+  if (skillTree && skillDetail && particulierSkillTree.length) {
     particulierSkillTree.forEach((branch) => {
       const branchEl = document.createElement("div");
       branchEl.className = "skill-branch";
@@ -1796,18 +1882,23 @@ function initGamificationParticulier() {
         <p>${node.quests.join(" ")}</p>
         <p class="muted">Récompense indicative : ${node.reward}</p>
       `;
+      animateDetail(skillDetail);
     };
 
-    updateSkillDetail(particulierSkillTree[0].branch, particulierSkillTree[0].nodes[0]);
+    const [firstBranch] = particulierSkillTree;
+    if (firstBranch && firstBranch.nodes.length) {
+      updateSkillDetail(firstBranch.branch, firstBranch.nodes[0]);
+    }
   }
 
-  if (shopGrid && shopDetail) {
+  if (shopGrid && shopDetail && particulierShop.length) {
     const renderShopDetail = (item) => {
       shopDetail.innerHTML = `
         <strong>${item.title}</strong>
         <p class="cost">${item.cost}</p>
         <p>${item.description}</p>
       `;
+      animateDetail(shopDetail);
     };
 
     particulierShop.forEach((item, idx) => {
@@ -1835,7 +1926,9 @@ function initGamificationParticulier() {
   if (ctaVoirComment) {
     ctaVoirComment.addEventListener("click", (event) => {
       event.preventDefault();
-      document.getElementById("pourquoi-particulier")?.scrollIntoView({ behavior: "smooth" });
+      document
+        .getElementById("pourquoi-particulier")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
   }
 }
@@ -1851,6 +1944,13 @@ function initGamificationPro() {
   const skillDetail = document.getElementById("proSkillDetail");
   const shopGrid = document.getElementById("proShop");
   const shopDetail = document.getElementById("proShopDetail");
+
+  const animateDetail = (el) => {
+    if (!el) return;
+    el.classList.remove("detail-fade-in");
+    void el.offsetWidth;
+    el.classList.add("detail-fade-in");
+  };
 
   const gamificationProLevels = [
     {
@@ -2044,7 +2144,7 @@ function initGamificationPro() {
     renderQuestTable(questTable, proQuests);
   }
 
-  if (levelList && levelDetail) {
+  if (levelList && levelDetail && gamificationProLevels.length) {
     gamificationProLevels.forEach((level, index) => {
       const item = document.createElement("button");
       item.className = "level-item";
@@ -2071,12 +2171,13 @@ function initGamificationPro() {
         <p>${level.description}</p>
         <ul class="level-benefits">${level.benefits.map((b) => `<li>${b}</li>`).join("")}</ul>
       `;
+      animateDetail(levelDetail);
     };
 
     renderProLevel(gamificationProLevels[0].id);
   }
 
-  if (skillTree && skillDetail) {
+  if (skillTree && skillDetail && gamificationProSkillTree.length) {
     gamificationProSkillTree.forEach((branch) => {
       const branchEl = document.createElement("div");
       branchEl.className = "skill-branch";
@@ -2103,18 +2204,23 @@ function initGamificationPro() {
         <p>${node.quests.join(" ")}</p>
         <p class="muted">Récompense indicative : ${node.reward}</p>
       `;
+      animateDetail(skillDetail);
     };
 
-    updateSkillDetail(gamificationProSkillTree[0].branch, gamificationProSkillTree[0].nodes[0]);
+    const [firstBranch] = gamificationProSkillTree;
+    if (firstBranch && firstBranch.nodes.length) {
+      updateSkillDetail(firstBranch.branch, firstBranch.nodes[0]);
+    }
   }
 
-  if (shopGrid && shopDetail) {
+  if (shopGrid && shopDetail && proShopItems.length) {
     const renderShopDetail = (item) => {
       shopDetail.innerHTML = `
         <strong>${item.title}</strong>
         <p class="cost">${item.cost}</p>
         <p>${item.description}</p>
       `;
+      animateDetail(shopDetail);
     };
 
     proShopItems.forEach((item, idx) => {
